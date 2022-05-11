@@ -29,6 +29,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/groups/new" exact={true} activeClassName="active">
+            Start a New Group 
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
         <li>
