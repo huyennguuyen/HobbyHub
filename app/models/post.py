@@ -16,7 +16,8 @@ class Post(db.Model):
     updated_at = db.Column(db.Date, nullable=False, default=date.today)
 
     posts = db.relationship("User", back_populates="owns_posts")
-    posts_in_groups
+    posts_in_groups = db.relationship("Group", back_populates="group_posts")
+    post_likes = db.relationship("User", secondary=likes, back_populates="user_likes")
 
 
     @property

@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
 
     owns_groups = db.relationship("Group", back_populates="groups")
     owns_posts = db.relationship("Post", back_populates="posts")
+    user_attends = db.relationship("Group", secondary=user_groups, back_populates="group_users")
+    user_likes = db.relationship("Post", secondary=likes, back_populates="post_likes")
 
     @property
     def password(self):
