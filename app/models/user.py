@@ -1,6 +1,8 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .likes import likes
+from .user_groups import user_groups
 
 
 class User(db.Model, UserMixin):
@@ -10,6 +12,11 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    owns_groups = db.relationship("Group", back_populates="groups")
+    owns_posts = db.relationship("Post", back_populates="posts")
+    user_attends = db.relationship("Group", secondary=user_groups, back_populates="group_users")
+    user_likes = db.relationship("Post", secondary=likes, back_populates="post_likes")
 
     @property
     def password(self):
