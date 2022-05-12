@@ -54,6 +54,7 @@ export const postNewGroup = (newGroup) => async (dispatch) => {
 }
 
 export const getAllGroups = (userId) => async (dispatch) => {
+    console.log("THIS IS USER ID-----------", userId)
     const res = await fetch(`/api/groups/users/${userId}`)
     if (res.ok) {
         const groups = await res.json();

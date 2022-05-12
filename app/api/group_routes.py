@@ -48,13 +48,24 @@ def new_group():
 #             return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @note_routes.route('/')
-# def get_trip_notes(id):
-#     notes = Note.query.filter(Note.trip_id == id).all()
-#     all_notes = {}
-#     for note in notes:
-#         all_notes[note.id] = note.to_dict
-#     return all_notes
+@group_routes.route('/users/<int:id>')
+def get_groups(id):
+    groups = Group.query.filter(Group.owner_id == id).all()
+    all_groups = {}
+    for group in groups:
+        all_groups[group.id] = group.to_dict()
+    return all_groups
+
+@group_routes.route('/<int:id>', methods=["GET"])
+def get_single_group(id):
+    if request.method == "GET":
+        group = Group.query.get(id)
+        print("THIS IS GROUP-----", group)
+        return group.to_dict()
+    else:
+        return {}
+
+
 
 
 
