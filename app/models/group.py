@@ -19,7 +19,7 @@ class Group(db.Model):
     group_posts= db.relationship("Post", back_populates="posts_in_groups")
     group_users = db.relationship("User", secondary=user_groups, back_populates="user_attends")
 
-    @property
+
     def to_dict(self):
         return {
             "id": self.id,

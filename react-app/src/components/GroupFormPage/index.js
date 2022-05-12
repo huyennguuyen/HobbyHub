@@ -1,38 +1,45 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-// import * as groupActions from "../../store/group";
+import * as groupActions from "../../store/group"
 // import "./NoteCards.css";
 
-function GroupFormPage({ closeModal }) {
+function GroupFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setNote] = useState("");
+    const [name, setName] = useState("");
     const [description, setDescription] = useState("")
+    const [backgroundImage, setBackgroundImage] = useState("")
+    const [ownerId, setOwnerId] = useState("")
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
 
     useEffect(() => {
         let errors = [];
-        if(!note.length) errors.push("Please enter a note.")
+        if(!name.length) errors.push("Please enter a name.")
+        if(!description.length) errors.push("Please enter a description")
+        if(!backgroundImage.length) errors.push("Please enter a background image.")
         setErrors(errors)
-    }, [note])
+    }, [name, description, backgroundImage])
 
-    const submitNote = () => {
+    const submitGroup = () => {
         setHasSubmitted(true)
         if (errors.length > 0) return;
-        const noteData = {}
-        noteData.note = note
-        noteData.tripId = currentTrip.id
-        // noteData.tripDate = tripDate
-        noteData.ownerId = sessionUser.id
+        const groups = {
+            name,
+            description,
+            background_image: backgroundImage,
+            owner_id: sessionUser.id
+        }
+
+        console.log("THIS IS GROUPS----------", groups)
         
-        dispatch(noteActions.postNewNote(noteData))
-        .then(() => closeModal())
-        .catch(async (res) => {
-            const data = await res.json()
-            if (data && data.errors) setErrors(data.errors)
-        })
+        dispatch(groupActions.postNewGroup(groups))
+        // .then(() => closeModal())
+        // .catch(async (res) => {
+        //     const data = await res.json()
+        //     if (data && data.errors) setErrors(data.errors)
+        // })
     };
 
 
@@ -42,16 +49,24 @@ function GroupFormPage({ closeModal }) {
                 className="new-note-form"
                 onSubmit={e => {
                     e.preventDefault();
-                    submitNote();
+                    submitGroup();
                 }}>
                 <ul className="new-note-errors">
                 {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label className='textlabel'>
-                    Note:
+                    Name:
                 </label>
-                <input onChange={e => setNote(e.target.value)} type="text" className="new-note-text" placeholder="Add note text here..." value={note} />
-                <button id="new-note-submit" type='submit' >Submit Note</button>
+                <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
+                <label className='textlabel'>
+                    Description:
+                </label>
+                <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
+                <label className='triplabel'>
+                    Image URL:
+                </label>
+                <input onChange={e => setBackgroundImage(e.target.value)} type="text" className="new-trip-image" placeholder='Add an image URL...' value={backgroundImage} />
+                <button id="new-note-submit" type='submit' >Submit Group</button>
             </form>
         </div>
     );
