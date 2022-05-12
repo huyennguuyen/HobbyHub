@@ -13,7 +13,7 @@ def new_group():
         data = request.get_json(force=True) # not needed if using form.
         print("HI----------------------------", data)
         new_group = Group(
-            owner_id=data["ownerId"],
+            owner_id=data["owner_id"],
             name=data["name"],
             description=data["description"],
             background_image=data["background_image"],
