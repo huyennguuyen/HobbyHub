@@ -64,6 +64,7 @@ export const getAllGroups = (userId) => async (dispatch) => {
 
 
 export const editGroup = (editGroup) => async (dispatch) => {
+    console.log("THIS IS EDIT GROUP-------", editGroup)
     const id = parseInt(editGroup.id, 10)
     const res = await fetch(`/api/groups/${id}`, {
     method: 'PUT',
@@ -77,8 +78,8 @@ export const editGroup = (editGroup) => async (dispatch) => {
     }
 }
 
-export const removeGroup = (id) => async (dispatch) => {
-    const id = parseInt(id, 10)
+export const removeGroup = (groupId) => async (dispatch) => {
+    const id = parseInt(groupId, 10)
     const res = await fetch(`/api/groups/${id}`, {
         method: 'DELETE',
     })

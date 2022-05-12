@@ -20,7 +20,6 @@ class Post(db.Model):
     post_likes = db.relationship("User", secondary=likes, back_populates="user_likes")
 
 
-    @property
     def to_dict(self):
         return {
             "id": self.id,

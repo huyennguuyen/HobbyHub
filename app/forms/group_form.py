@@ -9,3 +9,9 @@ class NewGroup(FlaskForm):
     description = StringField("Description", validators=[DataRequired()])
     background_image = StringField("Image URL", validators=[DataRequired()])
     submit = SubmitField("Submit Group")
+
+class EditGroup(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    description = StringField("Description", validators=[DataRequired()])
+    background_image = StringField("Image URL", validators=[DataRequired()])
+    submit = SubmitField("Submit Group")

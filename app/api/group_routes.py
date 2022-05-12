@@ -56,14 +56,34 @@ def get_groups(id):
         all_groups[group.id] = group.to_dict()
     return all_groups
 
-@group_routes.route('/<int:id>', methods=["GET"])
+@group_routes.route('/<int:id>', methods=["GET", "PUT", "DELETE"])
 def get_single_group(id):
     if request.method == "GET":
         group = Group.query.get(id)
         print("THIS IS GROUP-----", group)
         return group.to_dict()
-    else:
+    
+    if request.method == "PUT":
+        form = NewGroup()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            group = Group.query.get(id)
+            group.name= form.data["name"]
+            group.description = form.data["description"]
+            group.background_image = form.data["background_image"]
+
+            db.session.add(group)
+            db.session.commit()
+            return group.to_dict()
+
+    if request.method =="DELETE":
+        group = Group.query.get(id)
+        db.session.delete(group)
+        db.session.commit()
         return {}
+    
+
+    
 
 
 

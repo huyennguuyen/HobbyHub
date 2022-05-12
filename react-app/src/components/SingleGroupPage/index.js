@@ -27,7 +27,6 @@ function SingleGroup() {
         <h1>{group.name}</h1>
         <p>{group.description}</p>
         <img src={group.backgroundImage} className="image"></img>
-        <button></button>
         </>
     )
 
