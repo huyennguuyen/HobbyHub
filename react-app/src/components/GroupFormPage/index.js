@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as groupActions from "../../store/group"
 // import "./NoteCards.css";
 
 function GroupFormPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("")
@@ -13,12 +15,14 @@ function GroupFormPage() {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
+    const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 
     useEffect(() => {
         let errors = [];
         if(!name.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
         if(!backgroundImage.length) errors.push("Please enter a background image.")
+        if(!backgroundImage.match(url)) errors.push("Please enter a valid URL.")
         setErrors(errors)
     }, [name, description, backgroundImage])
 
@@ -40,6 +44,10 @@ function GroupFormPage() {
         //     const data = await res.json()
         //     if (data && data.errors) setErrors(data.errors)
         // })
+
+        history.push("/")
+
+
     };
 
 

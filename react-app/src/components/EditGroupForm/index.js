@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { Redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import * as groupActions from "../../store/group"
 import "./EditFormPage.css"
 
@@ -15,12 +14,14 @@ export default function EditGroupForm ({group}) {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
+    const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 
     useEffect(() => {
         let errors = [];
         if(!name.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
-        if(!background_image.length) errors.push("Please enter a background image.")
+        if(!background_image.length) errors.push("Please enter a image.")
+        if(!background_image.match(url)) errors.push("Please enter a valid URL.")
         setErrors(errors)
     }, [name, description, background_image])
 
@@ -43,6 +44,8 @@ export default function EditGroupForm ({group}) {
         //     const data = await res.json()
         //     if (data && data.errors) setErrors(data.errors)
         // })
+
+        // history.push("/")
     };
 
 

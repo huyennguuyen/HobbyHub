@@ -81,6 +81,8 @@ def get_single_group(id):
         db.session.delete(group)
         db.session.commit()
         return {}
+
+    # return {}
     
 
     
