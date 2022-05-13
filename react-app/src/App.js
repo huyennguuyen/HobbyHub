@@ -12,6 +12,7 @@ import GroupFormPage from './components/GroupFormPage';
 import Home from './components/Home';
 import SingleGroup from './components/SingleGroupPage';
 import UploadGroup from './components/GroupFormPage/UploadGroup';
+import MyGroups from "./components/MyGroups"
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/groups/:groupId">
           <SingleGroup/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/my_groups"> 
+          <MyGroups />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

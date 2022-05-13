@@ -122,7 +122,14 @@ def get_single_group(id):
 
     # return {}
     
-
+@group_routes.route('/home')
+def get_groups_home():
+    groups = Group.query.all()
+    print("THIS IS GROUPS BACKEND-----------------", groups)
+    all_groups = {}
+    for group in groups:
+        all_groups[group.id] = group.to_dict()
+    return all_groups
     
 
 

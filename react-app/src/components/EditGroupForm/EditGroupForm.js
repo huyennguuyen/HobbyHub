@@ -63,6 +63,7 @@ const EditGroup = ({group}) => {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
+            history.push("/")
             console.log("error");
         }
     }

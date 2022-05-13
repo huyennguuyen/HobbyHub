@@ -24,9 +24,9 @@ function SingleGroup() {
 
     return (
         <>
-        <h1>{group.name}</h1>
-        <p>{group.description}</p>
-        <img src={group.backgroundImage} className="image"></img>
+        <h1>{group?.name}</h1>
+        <p>{group?.description}</p>
+        <img src={group?.backgroundImage} className="image"></img>
         </>
     )
 

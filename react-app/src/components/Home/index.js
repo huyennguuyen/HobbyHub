@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
-import EditGroup from "../EditGroupForm/EditGroupForm";
+// import EditGroup from "../EditGroupForm/EditGroupForm";
 import "./home.css"
 
 
@@ -13,17 +13,17 @@ function Home() {
     const groupState = useSelector(state => state.groups)
     const groups = Object.values(groupState)
     console.log("THIS IS GROUPS------------------", groups)
-    const [showEditGroup, setShowEditGroup] = useState(false)
+    // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
     useEffect(() => {
         if (!sessionUser) history.push('/')
-        if (sessionUser) dispatch(groupActions.getAllGroups(sessionUser.id))
+        if (sessionUser) dispatch(groupActions.getGroupsHome())
     }, [sessionUser])
 
-    const deleteIndividualGroup = (group) => {
-        dispatch(groupActions.removeGroup(group.id))
-    }
+    // const deleteIndividualGroup = (group) => {
+    //     dispatch(groupActions.removeGroup(group.id))
+    // }
 
     return (
         <div className="page-container">
@@ -31,17 +31,13 @@ function Home() {
             <div className="trip-gallery">
                 {groups &&
                 groups?.map(group =>
-                    <li key={group.id}>
-                        <p>{group.name}</p>
-                        <p>{group.description}</p>
-                        <NavLink to={`/groups/${group.id}`}>
-                        <img src={group.backgroundImage} className="image"></img>
+                    <li key={group?.id}>
+                        <p>{group?.name}</p>
+                        <p>{group?.description}</p>
+                        {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
+                        <NavLink to={`/groups/${group?.id}`}>
+                        <img src={group?.backgroundImage} className="image"></img>
                         </NavLink>
-                        <button onClick={e => setShowEditGroup(!showEditGroup)}>Edit Group</button>
-                        {showEditGroup && 
-                        <EditGroup group={group}/>
-                        }
-                        <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
                     </li>
                 )}
             </div>

@@ -79,6 +79,16 @@ export const getAllGroups = (userId) => async (dispatch) => {
     }
 }
 
+export const getGroupsHome = () => async (dispatch) => {
+    const res = await fetch ("/api/groups/home")
+
+    if (res.ok) {
+        const groups = await res.json();
+        dispatch(loadGroups(groups))
+
+    }
+}
+
 
 export const editGroup = (formData) => async (dispatch) => {
     console.log("THIS IS THE ID STORE--------", formData.get("id"))
