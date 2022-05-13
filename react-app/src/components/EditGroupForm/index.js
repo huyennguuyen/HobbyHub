@@ -13,6 +13,7 @@ export default function EditGroupForm ({group}) {
     const [background_image, setBackgroundImage] = useState(group.backgroundImage)
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    
 
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 

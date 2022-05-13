@@ -5,15 +5,17 @@ import * as groupActions from "../../store/group"
 
 
 
-const EditGroup = () => {
+const EditGroup = ({group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState(group.name);
     const [description, setDescription] = useState(group.description)
-    const [background_image, setBackgroundImage] = useState(group.backgroundImage)
+    // const [background_image, setBackgroundImage] = useState(group.backgroundImage)
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [imageLoading, setImageLoading] = useState(false);
+    const [image, setImage] = useState(null);
 
 
     useEffect(() => {
@@ -37,12 +39,17 @@ const EditGroup = () => {
         formData.append("owner_id", sessionUser.id)
         formData.append("name", name)
         formData.append("description", description)
+        formData.append("id", group.id)
         
-        console.log("THIS IS FORM DATA---------------", formData)
+        // console.log("THIS IS FORM DATA---------------", formData)
+
+        // for(let key of formData.keys()){
+        //     console.log("THIS IS KEYS------", key)
+        // }
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-        const posted = await dispatch(groupActions.postNewGroup(formData))
+        const posted = await dispatch(groupActions.editGroup(formData))
 
         // const res = await fetch('/api/images', {
         //     method: "POST",

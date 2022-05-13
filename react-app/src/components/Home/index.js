@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
-import EditGroupForm from "../EditGroupForm";
+import EditGroup from "../EditGroupForm/EditGroupForm";
 import "./home.css"
 
 
@@ -39,7 +39,7 @@ function Home() {
                         </NavLink>
                         <button onClick={e => setShowEditGroup(!showEditGroup)}>Edit Group</button>
                         {showEditGroup && 
-                        <EditGroupForm group={group}/>
+                        <EditGroup group={group}/>
                         }
                         <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
                     </li>

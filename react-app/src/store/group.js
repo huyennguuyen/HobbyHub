@@ -80,13 +80,14 @@ export const getAllGroups = (userId) => async (dispatch) => {
 }
 
 
-export const editGroup = (editGroup) => async (dispatch) => {
-    console.log("THIS IS EDIT GROUP-------", editGroup)
-    const id = parseInt(editGroup.id, 10)
-    const res = await fetch(`/api/groups/${id}`, {
+export const editGroup = (formData) => async (dispatch) => {
+    console.log("THIS IS THE ID STORE--------", formData.get("id"))
+    let formDataId = formData.get("id")
+    // console.log("THIS IS EDIT GROUP-------", formData)
+    const id = parseInt(formDataId, 10)
+    const res = await fetch(`/api/groups/${formDataId}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(editGroup)
+    body: formData,
     });
 
     if(res.ok) {

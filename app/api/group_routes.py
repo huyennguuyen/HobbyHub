@@ -88,10 +88,27 @@ def get_single_group(id):
         form = NewGroup()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+            image_url = request.files["background_image"]
+
+            # print("IMAGE_URL---------", image_url)
+
+            image_url.filename = get_unique_filename(image_url.filename)
+
+            # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+
+            image_upload = upload_file_to_s3(image_url)
+
+            # print("IMAGE_UPLOAD---------", image_upload)
+
+            image = image_upload['url']
+
+            # print("THIS IS REQUEST FORM----", request.form)
+            # print("THIS IS REQUEST DATA-----", request.data)
+
             group = Group.query.get(id)
-            group.name= form.data["name"]
-            group.description = form.data["description"]
-            group.background_image = form.data["background_image"]
+            group.name= request.form["name"]
+            group.description = request.form["description"]
+            group.background_image = image
 
             db.session.add(group)
             db.session.commit()
