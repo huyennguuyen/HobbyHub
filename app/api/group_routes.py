@@ -2,6 +2,8 @@ from flask import Blueprint, request, render_template, redirect
 from app.models import db, Group
 from app.forms import NewGroup
 from datetime import date
+from app.bucketconfig import (
+upload_file_to_s3, allowed_file, get_unique_filename)
 
 group_routes = Blueprint('groups', __name__)
 
@@ -10,13 +12,29 @@ def new_group():
     form = NewGroup()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = request.get_json(force=True) # not needed if using form.
-        print("HI----------------------------", data)
+        # data = request.get_json(force=True) 
+        # print("HI----------------------------", data)
+
+        image_url = request.files["background_image"]
+
+        print("IMAGE_URL---------", image_url)
+
+        image_url.filename = get_unique_filename(image_url.filename)
+
+        print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+
+        image_upload = upload_file_to_s3(image_url)
+
+        print("IMAGE_UPLOAD---------", image_upload)
+
+        image = image_upload['url']
+
+
         new_group = Group(
-            owner_id=data["owner_id"],
-            name=data["name"],
-            description=data["description"],
-            background_image=data["background_image"],
+            owner_id=request.form["owner_id"],
+            name=request.form["name"],
+            description=request.form["description"],
+            background_image=image,
         )
         # print("THIS IS NEW GROUP-------", form.data)
         db.session.add(new_group)

@@ -34,23 +34,39 @@ const deleteGroup = (id) => {
 /////////////////////////////////////////
 // thunks return a function that returns an action
 
-export const postNewGroup = (newGroup) => async (dispatch) => {
-    // const { ownerId, name, description, backgroundImage} = newGroup
-    // console.log("THIS IS NAME-------------", name)
-    const response = await fetch('/api/groups/new', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newGroup)
-    });
+// export const postNewGroup = (newGroup) => async (dispatch) => {
+//     // const { ownerId, name, description, backgroundImage} = newGroup
+//     // console.log("THIS IS NAME-------------", name)
+//     const response = await fetch('/api/groups/new', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(newGroup)
+//     });
 
-    if (response.ok) {
-        const data = await response.json();
-        console.log("THIS IS DATA IN THE STORE---------", data)
+//     if (response.ok) {
+//         const data = await response.json();
+//         console.log("THIS IS DATA IN THE STORE---------", data)
+//         dispatch(addGroup(data))
+//     } else if (response.status < 500) {
+//         const data = await response.json();
+//         if (data.errors) return data.errors;
+//     } else return ['An error occurred. Please try again.']
+// }
+
+export const postNewGroup = (formData) => async (dispatch) => {
+
+    console.log("THIS IS STORE FORM DATA------", formData)
+    const res = await fetch ("/api/groups/new", {
+        method: "POST",
+        body: formData,
+    })
+
+    if (res.ok) {
+        const data = await res.json()
         dispatch(addGroup(data))
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) return data.errors;
-    } else return ['An error occurred. Please try again.']
+    }
+
+
 }
 
 export const getAllGroups = (userId) => async (dispatch) => {
