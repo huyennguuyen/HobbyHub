@@ -29,6 +29,9 @@ def new_group():
 
         image = image_upload['url']
 
+        print("THIS IS REQUEST FORM----", request.form)
+        print("THIS IS REQUEST DATA-----", request.data)
+
 
         new_group = Group(
             owner_id=request.form["owner_id"],

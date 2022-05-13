@@ -55,7 +55,7 @@ const deleteGroup = (id) => {
 
 export const postNewGroup = (formData) => async (dispatch) => {
 
-    console.log("THIS IS STORE FORM DATA------", formData)
+    // console.log("THIS IS STORE FORM DATA------", formData)
     const res = await fetch ("/api/groups/new", {
         method: "POST",
         body: formData,
@@ -63,6 +63,7 @@ export const postNewGroup = (formData) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
+        console.log("THIS IS DATA FROM STORE-----",data)
         dispatch(addGroup(data))
     }
 

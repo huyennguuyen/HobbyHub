@@ -39,7 +39,10 @@ const UploadGroup = () => {
         formData.append("name", name)
         formData.append("description", description)
         
-        console.log("THIS IS FORM DATA---------------", formData)
+        // console.log("THIS IS FORM DATA---------------", formData.values())
+
+        // let formValues = formData.values()
+        // console.log(formValues)
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
@@ -51,12 +54,13 @@ const UploadGroup = () => {
         // });
         if (posted) {
             setImageLoading(false);
-            history.push("/");
+            // history.push("/")
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
+            history.push("/");
             console.log("error");
         }
     }

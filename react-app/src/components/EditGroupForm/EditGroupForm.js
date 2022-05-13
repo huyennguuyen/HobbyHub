@@ -5,14 +5,13 @@ import * as groupActions from "../../store/group"
 
 
 
-const UploadGroup = () => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
-    const [image, setImage] = useState(null);
+const EditGroup = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("")
-    const [imageLoading, setImageLoading] = useState(false);
+    const [name, setName] = useState(group.name);
+    const [description, setDescription] = useState(group.description)
+    const [background_image, setBackgroundImage] = useState(group.backgroundImage)
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -92,4 +91,4 @@ const UploadGroup = () => {
     )
 }
 
-export default UploadGroup;
+export default EditGroup;
