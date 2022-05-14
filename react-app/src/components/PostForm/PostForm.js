@@ -5,20 +5,16 @@ import * as groupActions from "../../store/group"
 
 
 
-const EditGroup = ({group}) => {
+const UploadGroup = () => {
+    const history = useHistory(); // so that we can redirect after the image upload is successful
+    const [image, setImage] = useState(null);
     const dispatch = useDispatch();
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState(group.name);
-    const [description, setDescription] = useState(group.description)
-    // const [background_image, setBackgroundImage] = useState(group.backgroundImage)
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("")
+    const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
-    const [imageLoading, setImageLoading] = useState(false);
-    const [image, setImage] = useState(null);
-    // const [image, setImage] = useState(group.backgroundImage)
-
-    console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
 
 
     useEffect(() => {
@@ -42,39 +38,31 @@ const EditGroup = ({group}) => {
         formData.append("owner_id", sessionUser.id)
         formData.append("name", name)
         formData.append("description", description)
-        formData.append("id", group.id)
         
-        // console.log("THIS IS FORM DATA---------------", formData)
+        // console.log("THIS IS FORM DATA---------------", formData.values())
 
-        for(let key of formData.values()){
-            console.log("THIS IS VALUES------", key)
-        }
+        // let formValues = formData.values()
+        // console.log(formValues)
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
-        dispatch(groupActions.editGroup(formData))
-        .catch(async (res) => {
-            const data = await res.json();
-            console.log("THIS IS ERRORS--------", data.errors)
-            if (data && data.errors) setErrors(data.errors);
-          });
+        const posted = await dispatch(groupActions.postNewGroup(formData))
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
         //     body: formData,
         // });
-        // if () {
-        //     setImageLoading(false);
-        //     // history.push("/");
-        // }
-        // else {
-        //     setImageLoading(false);
+        if (posted) {
+            setImageLoading(false);
+            // history.push("/")
+        }
+        else {
+            setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            history.push("/my_groups")
+            history.push("/");
             console.log("error");
-        // }
+        }
     }
     
     const updateImage = (e) => {
@@ -108,4 +96,4 @@ const EditGroup = ({group}) => {
     )
 }
 
-export default EditGroup;
+export default UploadGroup;

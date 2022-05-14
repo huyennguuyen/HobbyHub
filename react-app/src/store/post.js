@@ -1,17 +1,17 @@
 //import { csrfFetch } from './csrf';
 
-const GET_GROUP = "group/getGroup"
-const POST_GROUP= "group/postGroup"
-const DELETE_GROUP = "group/deleteGroup"
+const GET_POST = "group/getGroup"
+const POST_POST= "group/postGroup"
+const DELETE_POST = "group/deleteGroup"
 
 // CONSTANTS display text in actions log
 /////////////////////////////////////////
 // action creators
 // actions are just objects
 
-const addGroup = (group) => {
+const addPost = (group) => {
     return {
-        type: POST_GROUP,
+        type: POST_POST,
         payload: group
     }
 }
