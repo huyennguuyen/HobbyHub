@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as groupActions from "../../store/group";
 import * as postActions from "../../store/post";
 import UploadPost from "../PostForm/UploadPost";
+import EditPost from "../EditPostForm/EditPostForm";
 
 function SingleGroup() {
     const dispatch = useDispatch()
@@ -48,6 +49,7 @@ function SingleGroup() {
                 <h3>{post?.title}</h3>
                 <img src={post?.image} className="image"></img>
                 <p>{post?.description}</p>
+                <EditPost post={post} /> 
             </li>
         ))}
         </>

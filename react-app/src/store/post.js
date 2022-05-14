@@ -94,28 +94,28 @@ export const getAllPosts = (groupId) => async (dispatch) => {
 // }
 
 
-// export const editPost = (formData) => async (dispatch) => {
-//     console.log("THIS IS THE ID STORE--------", formData.get("id"))
-//     let formDataId = formData.get("id")
-//     // console.log("THIS IS EDIT GROUP-------", formData)
-//     const id = parseInt(formDataId, 10)
-//     const res = await fetch(`/api/groups/${formDataId}`, {
-//     method: 'PUT',
-//     body: formData,
-//     });
+export const editPost = (formData) => async (dispatch) => {
+    console.log("THIS IS THE ID STORE--------", formData.get("id"))
+    let formDataId = formData.get("id")
+    // console.log("THIS IS EDIT GROUP-------", formData)
+    const id = parseInt(formDataId, 10)
+    const res = await fetch(`/api/posts/${formDataId}`, {
+    method: 'PUT',
+    body: formData,
+    });
 
-//     if(res.ok) {
-//         const group = await res.json()
-//         dispatch(addGroup(group))
-//     } else if (res.status < 500) {
-//         const data = await res.json();
-//         if (data.errors){
-//             console.log(data.errors)
-//             return data.errors;
-//         } 
+    if(res.ok) {
+        const group = await res.json()
+        dispatch(addGroup(group))
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors){
+            console.log(data.errors)
+            return data.errors;
+        } 
             
-//     } else return ['An error occurred. Please try again.']
-// }
+    } else return ['An error occurred. Please try again.']
+}
 
 // export const removePost = (groupId) => async (dispatch) => {
 //     const id = parseInt(groupId, 10)
