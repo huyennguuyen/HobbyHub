@@ -23,7 +23,7 @@ const UploadGroup = () => {
         if(!description.length) errors.push("Please enter a description.")
         if(!image) errors.push("Please upload an image.")
         setErrors(errors)
-    }, [name, description])
+    }, [name, description, image])
     
     
     const handleSubmit = async (e) => {

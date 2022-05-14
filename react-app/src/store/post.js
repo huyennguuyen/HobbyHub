@@ -74,14 +74,14 @@ export const postNewPost = (formData) => async (dispatch) => {
 
 // get all posts for the specific group
 
-// export const getAllPosts = (userId) => async (dispatch) => {
-//     console.log("THIS IS USER ID-----------", userId)
-//     const res = await fetch(`/api/groups/users/${userId}`)
-//     if (res.ok) {
-//         const groups = await res.json();
-//         dispatch(loadGroups(groups))
-//     }
-// }
+export const getAllPosts = (groupId) => async (dispatch) => {
+    // console.log("THIS IS USER ID-----------", userId)
+    const res = await fetch(`/api/posts/groups/${groupId}`)
+    if (res.ok) {
+        const posts = await res.json();
+        dispatch(loadPosts(posts))
+    }
+}
 
 // export const getGroupsHome = () => async (dispatch) => {
 //     const res = await fetch ("/api/groups/home")
