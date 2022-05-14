@@ -105,8 +105,8 @@ export const editPost = (formData) => async (dispatch) => {
     });
 
     if(res.ok) {
-        const group = await res.json()
-        dispatch(addGroup(group))
+        const post = await res.json()
+        dispatch(addPost(post))
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors){

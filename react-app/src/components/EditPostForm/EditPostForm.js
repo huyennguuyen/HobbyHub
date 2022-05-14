@@ -18,7 +18,7 @@ const EditPost = ({post}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-    console.log("THIS IS BACKGROUND FILES-----------", group.files)
+    console.log("THIS IS BACKGROUND FILES-----------", post.files)
 
 
     useEffect(() => {
@@ -43,7 +43,7 @@ const EditPost = ({post}) => {
         formData.append("owner_id", sessionUser.id)
         formData.append("title", title)
         formData.append("description", description)
-        formData.append("id", group.id)
+        formData.append("id", post.id)
         
         // console.log("THIS IS FORM DATA---------------", formData)
 
@@ -105,7 +105,7 @@ const EditPost = ({post}) => {
             <label className='textlabel'>
                 Name:
             </label>
-            <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
+            <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
             <label className='textlabel'>
                 Description:
             </label>
