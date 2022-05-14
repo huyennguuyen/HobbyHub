@@ -2,6 +2,8 @@ from flask import Blueprint, request, render_template, redirect
 from app.models import db, Group
 from app.forms import NewGroup
 from datetime import date
+from app.bucketconfig import (
+upload_file_to_s3, allowed_file, get_unique_filename)
 
 group_routes = Blueprint('groups', __name__)
 
@@ -10,13 +12,32 @@ def new_group():
     form = NewGroup()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = request.get_json(force=True) # not needed if using form.
-        print("HI----------------------------", data)
+        # data = request.get_json(force=True) 
+        # print("HI----------------------------", data)
+
+        image_url = request.files["background_image"]
+
+        print("IMAGE_URL---------", image_url)
+
+        image_url.filename = get_unique_filename(image_url.filename)
+
+        print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+
+        image_upload = upload_file_to_s3(image_url)
+
+        print("IMAGE_UPLOAD---------", image_upload)
+
+        image = image_upload['url']
+
+        print("THIS IS REQUEST FORM----", request.form)
+        print("THIS IS REQUEST DATA-----", request.data)
+
+
         new_group = Group(
-            owner_id=data["owner_id"],
-            name=data["name"],
-            description=data["description"],
-            background_image=data["background_image"],
+            owner_id=request.form["owner_id"],
+            name=request.form["name"],
+            description=request.form["description"],
+            background_image=image,
         )
         # print("THIS IS NEW GROUP-------", form.data)
         db.session.add(new_group)
@@ -67,10 +88,27 @@ def get_single_group(id):
         form = NewGroup()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+            image_url = request.files["background_image"]
+
+            # print("IMAGE_URL---------", image_url)
+
+            image_url.filename = get_unique_filename(image_url.filename)
+
+            # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+
+            image_upload = upload_file_to_s3(image_url)
+
+            # print("IMAGE_UPLOAD---------", image_upload)
+
+            image = image_upload['url']
+
+            # print("THIS IS REQUEST FORM----", request.form)
+            # print("THIS IS REQUEST DATA-----", request.data)
+
             group = Group.query.get(id)
-            group.name= form.data["name"]
-            group.description = form.data["description"]
-            group.background_image = form.data["background_image"]
+            group.name= request.form["name"]
+            group.description = request.form["description"]
+            group.background_image = image
 
             db.session.add(group)
             db.session.commit()
@@ -81,8 +119,17 @@ def get_single_group(id):
         db.session.delete(group)
         db.session.commit()
         return {}
-    
 
+    # return {}
+    
+@group_routes.route('/home')
+def get_groups_home():
+    groups = Group.query.all()
+    print("THIS IS GROUPS BACKEND-----------------", groups)
+    all_groups = {}
+    for group in groups:
+        all_groups[group.id] = group.to_dict()
+    return all_groups
     
 
 

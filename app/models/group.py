@@ -9,7 +9,7 @@ class Group(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String, nullable=False)
-    background_image = db.Column(db.String(255), nullable=False)
+    background_image = db.Column(db.String, nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.Date, nullable=False, default=date.today)
     updated_at = db.Column(db.Date, nullable=False, default=date.today)

@@ -34,23 +34,40 @@ const deleteGroup = (id) => {
 /////////////////////////////////////////
 // thunks return a function that returns an action
 
-export const postNewGroup = (newGroup) => async (dispatch) => {
-    // const { ownerId, name, description, backgroundImage} = newGroup
-    // console.log("THIS IS NAME-------------", name)
-    const response = await fetch('/api/groups/new', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newGroup)
-    });
+// export const postNewGroup = (newGroup) => async (dispatch) => {
+//     // const { ownerId, name, description, backgroundImage} = newGroup
+//     // console.log("THIS IS NAME-------------", name)
+//     const response = await fetch('/api/groups/new', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(newGroup)
+//     });
 
-    if (response.ok) {
-        const data = await response.json();
-        console.log("THIS IS DATA IN THE STORE---------", data)
+//     if (response.ok) {
+//         const data = await response.json();
+//         console.log("THIS IS DATA IN THE STORE---------", data)
+//         dispatch(addGroup(data))
+//     } else if (response.status < 500) {
+//         const data = await response.json();
+//         if (data.errors) return data.errors;
+//     } else return ['An error occurred. Please try again.']
+// }
+
+export const postNewGroup = (formData) => async (dispatch) => {
+
+    // console.log("THIS IS STORE FORM DATA------", formData)
+    const res = await fetch ("/api/groups/new", {
+        method: "POST",
+        body: formData,
+    })
+
+    if (res.ok) {
+        const data = await res.json()
+        console.log("THIS IS DATA FROM STORE-----",data)
         dispatch(addGroup(data))
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) return data.errors;
-    } else return ['An error occurred. Please try again.']
+    }
+
+
 }
 
 export const getAllGroups = (userId) => async (dispatch) => {
@@ -62,14 +79,25 @@ export const getAllGroups = (userId) => async (dispatch) => {
     }
 }
 
+export const getGroupsHome = () => async (dispatch) => {
+    const res = await fetch ("/api/groups/home")
 
-export const editGroup = (editGroup) => async (dispatch) => {
-    console.log("THIS IS EDIT GROUP-------", editGroup)
-    const id = parseInt(editGroup.id, 10)
-    const res = await fetch(`/api/groups/${id}`, {
+    if (res.ok) {
+        const groups = await res.json();
+        dispatch(loadGroups(groups))
+
+    }
+}
+
+
+export const editGroup = (formData) => async (dispatch) => {
+    console.log("THIS IS THE ID STORE--------", formData.get("id"))
+    let formDataId = formData.get("id")
+    // console.log("THIS IS EDIT GROUP-------", formData)
+    const id = parseInt(formDataId, 10)
+    const res = await fetch(`/api/groups/${formDataId}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(editGroup)
+    body: formData,
     });
 
     if(res.ok) {
