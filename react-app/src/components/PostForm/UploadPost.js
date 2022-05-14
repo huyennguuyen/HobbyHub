@@ -1,16 +1,16 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import * as groupActions from "../../store/group"
+import * as postActions from "../../store/post"
 
 
 
-const UploadGroup = () => {
+const UploadPost = ({group}) => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
-    const [image, setImage] = useState(null);
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState("");
+    const [image, setImage] = useState(null);
+    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
@@ -19,10 +19,10 @@ const UploadGroup = () => {
 
     useEffect(() => {
         let errors = [];
-        if(!name.length) errors.push("Please enter a name.")
+        if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
         setErrors(errors)
-    }, [name, description])
+    }, [title, description])
     
     
     const handleSubmit = async (e) => {
@@ -34,19 +34,25 @@ const UploadGroup = () => {
         if (errors.length > 0) return;
 
         const formData = new FormData();
-        formData.append("background_image", image);
+        formData.append("image", image);
         formData.append("owner_id", sessionUser.id)
-        formData.append("name", name)
+        formData.append("title", title)
         formData.append("description", description)
+        formData.append("group_id", group.id)
+        // formData.append("id", group.id)
         
         // console.log("THIS IS FORM DATA---------------", formData.values())
+
+        for(let key of formData.values()){
+            console.log("THIS IS VALUES------", key)
+        }
 
         // let formValues = formData.values()
         // console.log(formValues)
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-        const posted = await dispatch(groupActions.postNewGroup(formData))
+        const posted = await dispatch(postActions.postNewPost(formData))
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
@@ -77,16 +83,17 @@ const UploadGroup = () => {
             {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label className='textlabel'>
-                Name:
+                Title:
             </label>
-            <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
+            <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
             <label className='textlabel'>
                 Description:
             </label>
-            <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
+            <textarea onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
             <input
               type="file"
               accept="image/*"
+            //   multiple
               onChange={updateImage}
             />
             <button type="submit">Submit</button>
@@ -96,4 +103,4 @@ const UploadGroup = () => {
     )
 }
 
-export default UploadGroup;
+export default UploadPost;

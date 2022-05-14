@@ -4,13 +4,13 @@ from wtforms.validators import DataRequired
 
 
 class NewPost(FlaskForm):
-    title = IntegerField("Owner")
+    title = StringField("Title")
     description = TextAreaField("Description", validators=[DataRequired()])
     # image = StringField("Image", validators=[DataRequired()])
     submit = SubmitField("Submit Post")
 
 class EditPost(FlaskForm):
-    title = IntegerField("Owner")
+    title = StringField("Title")
     description = TextAreaField("Description", validators=[DataRequired()])
     # image = StringField("Image", validators=[DataRequired()])
     submit = SubmitField("Submit Post")

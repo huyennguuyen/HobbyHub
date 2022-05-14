@@ -1,21 +1,24 @@
 from flask import Blueprint, request, render_template, redirect
-from app.models import db, Group
-from app.forms import NewGroup, EditGroup
+from app.models import db, Post
+from app.forms import NewPost
 from datetime import date
 from app.bucketconfig import (
 upload_file_to_s3, allowed_file, get_unique_filename)
 
 post_routes = Blueprint('posts', __name__)
 
-@post_routes.route('/new', methods=['POST'])
+@post_routes.route('/', methods=['POST'])
 def new_group():
-    form = NewGroup()
+    form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # data = request.get_json(force=True) 
         # print("HI----------------------------", data)
 
-        image_url = request.files["background_image"]
+        image_url = request.files["image"]
+
+        # images = request.files 
+        # print("THIS IS MULTIPLE------", images)
 
         print("IMAGE_URL---------", image_url)
 
@@ -33,16 +36,17 @@ def new_group():
         print("THIS IS REQUEST DATA-----", request.data)
 
 
-        new_group = Group(
+        new_post = Post(
             owner_id=request.form["owner_id"],
-            name=request.form["name"],
+            title=request.form["title"],
             description=request.form["description"],
-            background_image=image,
+            group_id=request.form["group_id"],
+            image=image,
         )
         # print("THIS IS NEW GROUP-------", form.data)
-        db.session.add(new_group)
+        db.session.add(new_post)
         db.session.commit()
-        return new_group.to_dict()
+        return new_post.to_dict()
     return form.errors
 
 

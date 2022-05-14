@@ -74,18 +74,18 @@ const EditGroup = ({group}) => {
 
         console.log("THIS IS POST-------", post)
         
-        if (post === "image required") {
+        if (post) {
             setImageLoading(false);
              history.push("/");
-            setErrors(["nope"])
+            // setErrors(["nope"])
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            // history.push("/my_groups")
-            errors.push("Please put a file")
-            console.log("error");
+            history.push("/my_groups")
+            // errors.push("Please put a file")
+            // console.log("error");
         }
     }
     

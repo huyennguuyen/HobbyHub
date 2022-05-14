@@ -3,6 +3,7 @@ import { useHistory, useParams} from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 // import * as invitedUsersActions from "../../store/invited_user"
 import * as groupActions from "../../store/group";
+import UploadPost from "../PostForm/UploadPost";
 
 function SingleGroup() {
     const dispatch = useDispatch()
@@ -27,6 +28,8 @@ function SingleGroup() {
         <h1>{group?.name}</h1>
         <p>{group?.description}</p>
         <img src={group?.backgroundImage} className="image"></img>
+        <UploadPost group={group}/>
+ 
         </>
     )
 

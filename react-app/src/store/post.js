@@ -1,31 +1,31 @@
 //import { csrfFetch } from './csrf';
 
-const GET_POST = "group/getGroup"
-const POST_POST= "group/postGroup"
-const DELETE_POST = "group/deleteGroup"
+const GET_POST = "post/getPost"
+const POST_POST= "post/postPost"
+const DELETE_POST = "post/deletePost"
 
 // CONSTANTS display text in actions log
 /////////////////////////////////////////
 // action creators
 // actions are just objects
 
-const addPost = (group) => {
+const addPost = (post) => {
     return {
         type: POST_POST,
-        payload: group
+        payload: post
     }
 }
 
-const loadGroups = (groups) => {
+const loadPosts = (posts) => {
     return {
-        type: GET_GROUP,
-        payload: groups
+        type: GET_POST,
+        payload: posts
     };
 };
 
-const deleteGroup = (id) => {
+const deletePosts = (id) => {
     return {
-        type: DELETE_GROUP,
+        type: DELETE_POST,
         payload: id
     };
 }
@@ -53,10 +53,12 @@ const deleteGroup = (id) => {
 //     } else return ['An error occurred. Please try again.']
 // }
 
-export const postNewGroup = (formData) => async (dispatch) => {
+export const postNewPost = (formData) => async (dispatch) => {
+    
+    const groupId = formData.get("id")
 
     // console.log("THIS IS STORE FORM DATA------", formData)
-    const res = await fetch ("/api/groups/new", {
+    const res = await fetch ('/api/posts/', {
         method: "POST",
         body: formData,
     })
@@ -64,75 +66,77 @@ export const postNewGroup = (formData) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         console.log("THIS IS DATA FROM STORE-----",data)
-        dispatch(addGroup(data))
+        dispatch(addPost(data))
     }
 
 
 }
 
-export const getAllGroups = (userId) => async (dispatch) => {
-    console.log("THIS IS USER ID-----------", userId)
-    const res = await fetch(`/api/groups/users/${userId}`)
-    if (res.ok) {
-        const groups = await res.json();
-        dispatch(loadGroups(groups))
-    }
-}
+// get all posts for the specific group
 
-export const getGroupsHome = () => async (dispatch) => {
-    const res = await fetch ("/api/groups/home")
+// export const getAllPosts = (userId) => async (dispatch) => {
+//     console.log("THIS IS USER ID-----------", userId)
+//     const res = await fetch(`/api/groups/users/${userId}`)
+//     if (res.ok) {
+//         const groups = await res.json();
+//         dispatch(loadGroups(groups))
+//     }
+// }
 
-    if (res.ok) {
-        const groups = await res.json();
-        dispatch(loadGroups(groups))
+// export const getGroupsHome = () => async (dispatch) => {
+//     const res = await fetch ("/api/groups/home")
 
-    }
-}
+//     if (res.ok) {
+//         const groups = await res.json();
+//         dispatch(loadGroups(groups))
+
+//     }
+// }
 
 
-export const editGroup = (formData) => async (dispatch) => {
-    console.log("THIS IS THE ID STORE--------", formData.get("id"))
-    let formDataId = formData.get("id")
-    // console.log("THIS IS EDIT GROUP-------", formData)
-    const id = parseInt(formDataId, 10)
-    const res = await fetch(`/api/groups/${formDataId}`, {
-    method: 'PUT',
-    body: formData,
-    });
+// export const editPost = (formData) => async (dispatch) => {
+//     console.log("THIS IS THE ID STORE--------", formData.get("id"))
+//     let formDataId = formData.get("id")
+//     // console.log("THIS IS EDIT GROUP-------", formData)
+//     const id = parseInt(formDataId, 10)
+//     const res = await fetch(`/api/groups/${formDataId}`, {
+//     method: 'PUT',
+//     body: formData,
+//     });
 
-    if(res.ok) {
-        const group = await res.json()
-        dispatch(addGroup(group))
-    } else if (res.status < 500) {
-        const data = await res.json();
-        if (data.errors){
-            console.log(data.errors)
-            return data.errors;
-        } 
+//     if(res.ok) {
+//         const group = await res.json()
+//         dispatch(addGroup(group))
+//     } else if (res.status < 500) {
+//         const data = await res.json();
+//         if (data.errors){
+//             console.log(data.errors)
+//             return data.errors;
+//         } 
             
-    } else return ['An error occurred. Please try again.']
-}
+//     } else return ['An error occurred. Please try again.']
+// }
 
-export const removeGroup = (groupId) => async (dispatch) => {
-    const id = parseInt(groupId, 10)
-    const res = await fetch(`/api/groups/${id}`, {
-        method: 'DELETE',
-    })
+// export const removePost = (groupId) => async (dispatch) => {
+//     const id = parseInt(groupId, 10)
+//     const res = await fetch(`/api/groups/${id}`, {
+//         method: 'DELETE',
+//     })
 
-    if(res.ok) {
-        dispatch(deleteGroup(id))
-    }
-}
+//     if(res.ok) {
+//         dispatch(deleteGroup(id))
+//     }
+// }
 
-export const loadSingleGroup = (id) => async (dispatch) => {
-    const res = await fetch(`/api/groups/${id}`);
+// export const loadSingleGroup = (id) => async (dispatch) => {
+//     const res = await fetch(`/api/groups/${id}`);
 
-    if (res.ok) {
-        const group = await res.json();
-        dispatch(addGroup(group))
-    }
-    else return ['An error occurred. Please try again.']
-}
+//     if (res.ok) {
+//         const group = await res.json();
+//         dispatch(addGroup(group))
+//     }
+//     else return ['An error occurred. Please try again.']
+// }
 
 
 // end of thunks
@@ -141,17 +145,17 @@ export const loadSingleGroup = (id) => async (dispatch) => {
 
 
 const initialState = {};
-const groupsReducer = (state = initialState, action) => {
+const postsReducer = (state = initialState, action) => {
     let newState = Object.assign({}, state)
     switch (action.type) {
-        case POST_GROUP:
+        case POST_POST:
             newState[action.payload.id] = action.payload
             return newState
-        case GET_GROUP:
+        case GET_POST:
             newState = action.payload
             return newState
             // assumes incoming trips are flattened
-        case DELETE_GROUP:
+        case DELETE_POST:
             delete newState[action.payload]
             return newState
         default:
@@ -160,4 +164,4 @@ const groupsReducer = (state = initialState, action) => {
 }
 
 
-export default groupsReducer;
+export default postsReducer;
