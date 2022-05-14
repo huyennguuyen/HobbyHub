@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, redirect
 from app.models import db, Group
-from app.forms import NewGroup
+from app.forms import NewGroup, EditGroup
 from datetime import date
 from app.bucketconfig import (
 upload_file_to_s3, allowed_file, get_unique_filename)
@@ -85,10 +85,17 @@ def get_single_group(id):
         return group.to_dict()
     
     if request.method == "PUT":
-        form = NewGroup()
+        form = EditGroup()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+
+            if "background_image" not in request.files:
+                return {"errors": "image required"}, 400
+
             image_url = request.files["background_image"]
+
+            # if "image" not in request.files:
+            #     return {"errors": "image required"}, 400
 
             # print("IMAGE_URL---------", image_url)
 
