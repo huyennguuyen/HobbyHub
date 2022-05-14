@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, redirect
 from app.models import db, Post
-from app.forms import NewPost
+from app.forms import NewPost, EditPost
 from datetime import date
 from app.bucketconfig import (
 upload_file_to_s3, allowed_file, get_unique_filename)
@@ -84,19 +84,19 @@ def get_posts(id):
 @post_routes.route('/<int:id>', methods=["PUT", "DELETE"])
 def get_single_group(id):
     if request.method == "GET":
-        group = Group.query.get(id)
-        print("THIS IS GROUP-----", group)
-        return group.to_dict()
+        post = Post.query.get(id)
+        print("THIS IS GROUP-----", post)
+        return post.to_dict()
     
     if request.method == "PUT":
-        form = EditGroup()
+        form = EditPost()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
 
             if "background_image" not in request.files:
                 return {"errors": "image required"}, 400
 
-            image_url = request.files["background_image"]
+            image_url = request.files["image"]
 
             # if "image" not in request.files:
             #     return {"errors": "image required"}, 400
@@ -116,18 +116,18 @@ def get_single_group(id):
             # print("THIS IS REQUEST FORM----", request.form)
             # print("THIS IS REQUEST DATA-----", request.data)
 
-            group = Group.query.get(id)
-            group.name= request.form["name"]
-            group.description = request.form["description"]
-            group.background_image = image
+            post = Post.query.get(id)
+            post.title= request.form["title"]
+            post.description = request.form["description"]
+            post.image = image
 
-            db.session.add(group)
+            db.session.add(post)
             db.session.commit()
-            return group.to_dict()
+            return post.to_dict()
 
     if request.method =="DELETE":
-        group = Group.query.get(id)
-        db.session.delete(group)
+        post = Post.query.get(id)
+        db.session.delete(post)
         db.session.commit()
         return {}
 

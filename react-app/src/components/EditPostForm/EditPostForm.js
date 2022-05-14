@@ -9,8 +9,8 @@ const EditPost = ({post}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [title, setTitle] = useState(post.title);
-    const [description, setDescription] = useState(post.description)
+    const [title, setTitle] = useState(post?.title);
+    const [description, setDescription] = useState(post?.description)
     // const [background_image, setBackgroundImage] = useState(group.backgroundImage)
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -44,6 +44,8 @@ const EditPost = ({post}) => {
         formData.append("title", title)
         formData.append("description", description)
         formData.append("id", post.id)
+
+        console.log(post)
         
         // console.log("THIS IS FORM DATA---------------", formData)
 
@@ -70,11 +72,11 @@ const EditPost = ({post}) => {
         //     body: formData,
         // });
 
-        let post = await dispatch(postActions.editPost(formData))
+        let res = await dispatch(postActions.editPost(formData))
 
-        console.log("THIS IS POST-------", post)
+        // console.log("THIS IS POST-------", post)
         
-        if (post) {
+        if (res) {
             setImageLoading(false);
              history.push("/");
             // setErrors(["nope"])
