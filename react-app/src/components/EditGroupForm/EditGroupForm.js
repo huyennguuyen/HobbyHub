@@ -18,15 +18,16 @@ const EditGroup = ({group}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-    // console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
+    console.log("THIS IS BACKGROUND FILES-----------", group.files)
 
 
     useEffect(() => {
         let errors = [];
         if(!name.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
+        if(!image) errors.push("Please upload an image")
         setErrors(errors)
-    }, [name, description])
+    }, [name, description, image])
     
     
     const handleSubmit = async (e) => {
@@ -73,21 +74,25 @@ const EditGroup = ({group}) => {
 
         console.log("THIS IS POST-------", post)
         
-        if (post) {
+        if (post === "image required") {
             setImageLoading(false);
-            // history.push("/");
+             history.push("/");
+            setErrors(["nope"])
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            history.push("/my_groups")
+            // history.push("/my_groups")
+            errors.push("Please put a file")
             console.log("error");
         }
     }
     
     const updateImage = (e) => {
         const file = e.target.files[0];
+        console.log("THIS IS FILES---------", file)
+
         setImage(file);
     }
     
