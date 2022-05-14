@@ -18,7 +18,7 @@ const EditGroup = ({group}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-    console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
+    // console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
 
 
     useEffect(() => {
@@ -53,11 +53,13 @@ const EditGroup = ({group}) => {
         // some sort of loading message is a good idea
         setImageLoading(true);
 
-        // dispatch(groupActions.editGroup(formData))
-        // .catch(async (res) => {
+        // let post = await dispatch(groupActions.editGroup(formData))
+
+        // console.log(post)
+        // .catch(async(res) => {
         //     const data = await res.json();
-        //     console.log("THIS IS ERRORS--------", data.errors)
-        //     if (data && data.errors) setErrors(data.errors);
+        //     console.log("THIS IS ERRORS--------", data)
+        // //     if (data && data.errors) setErrors(data.errors);
         //   });
 
         
@@ -68,6 +70,9 @@ const EditGroup = ({group}) => {
         // });
 
         let post = await dispatch(groupActions.editGroup(formData))
+
+        console.log("THIS IS POST-------", post)
+        
         if (post) {
             setImageLoading(false);
             // history.push("/");
