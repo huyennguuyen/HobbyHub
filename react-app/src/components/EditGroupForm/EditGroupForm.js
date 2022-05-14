@@ -53,28 +53,32 @@ const EditGroup = ({group}) => {
         // some sort of loading message is a good idea
         setImageLoading(true);
 
-        dispatch(groupActions.editGroup(formData))
-        .catch(async (res) => {
-            const data = await res.json();
-            console.log("THIS IS ERRORS--------", data.errors)
-            if (data && data.errors) setErrors(data.errors);
-          });
+        // dispatch(groupActions.editGroup(formData))
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     console.log("THIS IS ERRORS--------", data.errors)
+        //     if (data && data.errors) setErrors(data.errors);
+        //   });
+
+        
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
         //     body: formData,
         // });
-        // if () {
-        //     setImageLoading(false);
-        //     // history.push("/");
-        // }
-        // else {
-        //     setImageLoading(false);
+
+        let post = await dispatch(groupActions.editGroup(formData))
+        if (post) {
+            setImageLoading(false);
+            // history.push("/");
+        }
+        else {
+            setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
             history.push("/my_groups")
             console.log("error");
-        // }
+        }
     }
     
     const updateImage = (e) => {
