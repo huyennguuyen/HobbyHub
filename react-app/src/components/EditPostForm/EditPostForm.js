@@ -5,7 +5,7 @@ import * as postActions from "../../store/post"
 
 
 
-const EditPost = ({post}) => {
+const EditPost = ({post, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -45,9 +45,9 @@ const EditPost = ({post}) => {
         formData.append("description", description)
         formData.append("id", post.id)
 
-        console.log(post)
+        // console.log(post)
         
-        // console.log("THIS IS FORM DATA---------------", formData)
+        console.log("THIS IS FORM DATA---------------", formData)
 
         for(let key of formData.values()){
             console.log("THIS IS VALUES------", key)
@@ -85,7 +85,7 @@ const EditPost = ({post}) => {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            history.push("/my_groups")
+            history.push(`/groups/${group.id}`)
             // errors.push("Please put a file")
             // console.log("error");
         }
@@ -105,7 +105,7 @@ const EditPost = ({post}) => {
             {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label className='textlabel'>
-                Name:
+                Title:
             </label>
             <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
             <label className='textlabel'>

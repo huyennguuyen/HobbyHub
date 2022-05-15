@@ -5,7 +5,7 @@ import * as postActions from "../../store/post"
 
 
 
-const UploadPost = ({group}) => {
+const UploadPost = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -38,7 +38,7 @@ const UploadPost = ({group}) => {
         formData.append("owner_id", sessionUser.id)
         formData.append("title", title)
         formData.append("description", description)
-        formData.append("group_id", group.id)
+        // formData.append("group_id", group.id)
         // formData.append("id", group.id)
         
         // console.log("THIS IS FORM DATA---------------", formData.values())

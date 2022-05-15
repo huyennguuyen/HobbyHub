@@ -93,7 +93,7 @@ def get_single_group(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
 
-            if "background_image" not in request.files:
+            if "image" not in request.files:
                 return {"errors": "image required"}, 400
 
             image_url = request.files["image"]
@@ -119,6 +119,7 @@ def get_single_group(id):
             post = Post.query.get(id)
             post.title= request.form["title"]
             post.description = request.form["description"]
+            # post.group_id= request.form["group_id"]
             post.image = image
 
             db.session.add(post)

@@ -49,7 +49,7 @@ function SingleGroup() {
                 <h3>{post?.title}</h3>
                 <img src={post?.image} className="image"></img>
                 <p>{post?.description}</p>
-                <EditPost post={post} /> 
+                <EditPost post={post} group={group}/> 
             </li>
         ))}
         </>

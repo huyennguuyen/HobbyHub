@@ -55,7 +55,7 @@ const deletePosts = (id) => {
 
 export const postNewPost = (formData) => async (dispatch) => {
     
-    const groupId = formData.get("id")
+    // const groupId = formData.get("id")
 
     // console.log("THIS IS STORE FORM DATA------", formData)
     const res = await fetch ('/api/posts/', {
