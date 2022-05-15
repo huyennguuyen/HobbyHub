@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux"
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import DemoUser from './auth/DemoUser';
+import LogoutButton from '../auth/LogoutButton';
+import DemoUser from '../auth/DemoUser';
+import "./NavBar.css"
+
 
 const NavBar = () => {
 
@@ -12,52 +14,48 @@ const NavBar = () => {
     <>
     {sessionUser ?
       <>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to='/home' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/groups/new" exact={true} activeClassName="active">
-                Start a New Group 
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/my_groups" exact={true} activeClassName="active">
-                My Groups
-              </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
-            </li>
-          </ul>
-        </nav>
+        <div className="outside-nav">
+          <div className="container-nav">
+            <nav className="session-user-nav">
+              <div className="nav-left">
+                  <NavLink to='/home' exact={true} activeClassName='active'>
+                    Home
+                  </NavLink>
+              </div>
+              <div className="nav-right">
+                <NavLink to="/groups/new" exact={true} activeClassName="active">
+                  Start a New Group 
+                </NavLink>
+                <NavLink to="/my_groups" exact={true} activeClassName="active">
+                  My Groups
+                </NavLink>
+                <LogoutButton />
+              </div>
+            </nav>
+          </div>
+        </div>
       </>:
       <>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
-          </li>
-          <li>
-            <DemoUser />
-          </li>
-        </ul>
-      </nav>
+      <div className="outside-nav">
+        <div className="container-nav"> 
+          <nav className="not-session-user-nav">
+              <div className="nav-left">
+                  <NavLink to='/' exact={true} activeClassName='active'>
+                    Home
+                  </NavLink>
+              </div>
+              <div className="nav-right">
+                  <NavLink to='/login' exact={true} activeClassName='active'>
+                    Login
+                  </NavLink>
+                  <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                    Sign Up
+                  </NavLink>
+                  <DemoUser />
+              </div>
+          </nav>
+        </div>
+      </div>
       </>
     }
     </>

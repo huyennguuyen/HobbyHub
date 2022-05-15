@@ -1,1 +1,55 @@
 /* TODO Add site wide styles */
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+} */
+
+
+/* .outside-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
+ul {
+    list-style-type: none;
+ 
+}
+
+li {
+    display: flex;
+}
+
+ body {
+    margin: 0;
+    padding: 0;
+} 
+
+html {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    margin: 0px;
+    background-color: #3a3b3c;
+    height: 50px;
+    opacity: 0.80;
+}
+
+a {
+    margin: 8px;
+    color: white;
+
+}
+
+.demo-button {
+    margin: 8px;
+}
