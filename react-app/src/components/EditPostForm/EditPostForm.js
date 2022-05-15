@@ -72,13 +72,13 @@ const EditPost = ({post, group}) => {
         //     body: formData,
         // });
 
-        let res = await dispatch(postActions.editPost(formData))
+        let res = dispatch(postActions.editPost(formData))
 
         // console.log("THIS IS POST-------", post)
         
         if (res) {
             setImageLoading(false);
-             history.push("/");
+             history.push(`/groups/${group.id}`);
             // setErrors(["nope"])
         }
         else {

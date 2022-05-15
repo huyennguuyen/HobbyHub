@@ -1,8 +1,8 @@
-"""fixed group model
+"""fixed posts model
 
-Revision ID: c2fec9391f4e
+Revision ID: 385a8e93133d
 Revises: 
-Create Date: 2022-05-13 04:42:03.252248
+Create Date: 2022-05-15 03:27:14.402965
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c2fec9391f4e'
+revision = '385a8e93133d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,7 +41,7 @@ def upgrade():
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
-    sa.Column('image', sa.String(), nullable=False),
+    sa.Column('image', sa.String(), nullable=True),
     sa.Column('description', sa.String(length=255), nullable=False),
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('group_id', sa.Integer(), nullable=False),

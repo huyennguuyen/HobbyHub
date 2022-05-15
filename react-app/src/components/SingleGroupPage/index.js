@@ -50,6 +50,8 @@ function SingleGroup() {
         <img src={group?.backgroundImage} className="image"></img>
         <UploadPost group={group}/>
         {posts && posts.map(post => (
+            post.image ?
+            <> 
             <li key={post?.id}>
                 <h3>{post?.title}</h3>
                 <img src={post?.image} className="image"></img>
@@ -57,6 +59,16 @@ function SingleGroup() {
                 <EditPost post={post} group={group}/> 
                 <button onClick={() => deleteIndividualPost(post)}>Delete</button>
             </li>
+            </>:
+            <> 
+             <li key={post?.id}>
+                <h3>{post?.title}</h3>
+                {/* <img src={post?.image} className="image"></img> */}
+                <p>{post?.description}</p>
+                <EditPost post={post} group={group}/> 
+                <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+            </li>
+            </>
         ))}
         </>
     )

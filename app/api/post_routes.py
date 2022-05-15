@@ -12,41 +12,53 @@ def new_group():
     form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+
+        if not len(request.files):
+            new_post = Post(
+                owner_id=request.form["owner_id"],
+                title=request.form["title"],
+                description=request.form["description"],
+                group_id=request.form["group_id"],
+            )
+        # print("THIS IS NEW GROUP-------", form.data)
+            db.session.add(new_post)
+            db.session.commit()
+            return new_post.to_dict()
         # data = request.get_json(force=True) 
         # print("HI----------------------------", data)
+        else:
+            image_url = request.files["image"]
 
-        image_url = request.files["image"]
+            # images = request.files 
+            # print("THIS IS MULTIPLE------", images)
 
-        # images = request.files 
-        # print("THIS IS MULTIPLE------", images)
+            print("IMAGE_URL---------", image_url)
 
-        print("IMAGE_URL---------", image_url)
+            image_url.filename = get_unique_filename(image_url.filename)
 
-        image_url.filename = get_unique_filename(image_url.filename)
+            print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
 
-        print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+            image_upload = upload_file_to_s3(image_url)
 
-        image_upload = upload_file_to_s3(image_url)
+            print("IMAGE_UPLOAD---------", image_upload)
 
-        print("IMAGE_UPLOAD---------", image_upload)
+            image = image_upload['url']
 
-        image = image_upload['url']
-
-        print("THIS IS REQUEST FORM----", request.form)
-        print("THIS IS REQUEST DATA-----", request.data)
+            print("THIS IS REQUEST FORM----", request.form)
+            print("THIS IS REQUEST DATA-----", request.data)
 
 
-        new_post = Post(
-            owner_id=request.form["owner_id"],
-            title=request.form["title"],
-            description=request.form["description"],
-            group_id=request.form["group_id"],
-            image=image,
-        )
-        # print("THIS IS NEW GROUP-------", form.data)
-        db.session.add(new_post)
-        db.session.commit()
-        return new_post.to_dict()
+            new_post = Post(
+                owner_id=request.form["owner_id"],
+                title=request.form["title"],
+                description=request.form["description"],
+                group_id=request.form["group_id"],
+                image=image,
+            )
+            # print("THIS IS NEW GROUP-------", form.data)
+            db.session.add(new_post)
+            db.session.commit()
+            return new_post.to_dict()
     return form.errors
 
 
