@@ -72,7 +72,7 @@ const EditGroup = ({group}) => {
 
         let post = await dispatch(groupActions.editGroup(formData))
 
-        // console.log("THIS IS POST-------", post)
+        console.log("THIS IS POST-------", post)
         
         if (post) {
             setImageLoading(false);
