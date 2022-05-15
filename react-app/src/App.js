@@ -45,7 +45,7 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
           <Home />
         </ProtectedRoute>
         <ProtectedRoute path="/groups/new">
