@@ -1,0 +1,28 @@
+.my-groups-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-groups-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.my-groups-box {
+   border: 1px solid black;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+}

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
 import EditGroup from "../EditGroupForm/EditGroupForm";
-// import "./home.css"
+import { Modal } from "../context/Modal";
+import "./MyGroups.css"
 
 
 function MyGroups() {
@@ -26,24 +27,27 @@ function MyGroups() {
     }
 
     return (
-        <div className="page-container">
-            <h1 id="all-trips"> My Groups </h1>
-            <div className="trip-gallery">
-                {groups &&
-                groups?.map(group =>
-                    <li key={group?.id}>
+        <div className="my-groups-container">
+            <div className="my-groups-center">
+                <h1 className="my-groups-header"> My Groups </h1>
+                {groups && groups?.map(group =>
+                    <div key={group?.id} className="my-groups-box">
                         <p>{group?.name}</p>
                         <p>{group?.description}</p>
                         <NavLink to={`/groups/${group?.id}`}>
                         <img src={group.backgroundImage} className="image"></img>
                         </NavLink>
-                        <button onClick={e => setShowEditGroup(!showEditGroup)}>Edit Group</button>
-                        {showEditGroup && 
-                        <EditGroup group={group}/>
-                        }
-                        <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
-                    </li>
-                )}
+                        <div className="buttons-box"> 
+                            <button onClick={e => setShowEditGroup(true)}>Edit Group</button>
+                            {showEditGroup && (
+                                <Modal onClose={() => setShowEditGroup(false)}> 
+                                    <EditGroup closeModal={() => setShowEditGroup(false)} group={group}/>
+                                </Modal>
+                            )}
+                            <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
+                        </div>
+                    </div>
+                    )}
             </div>
         </div>
     );

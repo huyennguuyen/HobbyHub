@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as groupActions from "../../store/group"
+import { Modal } from "../context/Modal";
 
 
 
