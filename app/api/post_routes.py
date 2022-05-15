@@ -1,21 +1,24 @@
 from flask import Blueprint, request, render_template, redirect
-from app.models import db, Group
-from app.forms import NewGroup, EditGroup
+from app.models import db, Post
+from app.forms import NewPost, EditPost
 from datetime import date
 from app.bucketconfig import (
 upload_file_to_s3, allowed_file, get_unique_filename)
 
 post_routes = Blueprint('posts', __name__)
 
-@post_routes.route('/new', methods=['POST'])
+@post_routes.route('/', methods=['POST'])
 def new_group():
-    form = NewGroup()
+    form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # data = request.get_json(force=True) 
         # print("HI----------------------------", data)
 
-        image_url = request.files["background_image"]
+        image_url = request.files["image"]
+
+        # images = request.files 
+        # print("THIS IS MULTIPLE------", images)
 
         print("IMAGE_URL---------", image_url)
 
@@ -33,16 +36,17 @@ def new_group():
         print("THIS IS REQUEST DATA-----", request.data)
 
 
-        new_group = Group(
+        new_post = Post(
             owner_id=request.form["owner_id"],
-            name=request.form["name"],
+            title=request.form["title"],
             description=request.form["description"],
-            background_image=image,
+            group_id=request.form["group_id"],
+            image=image,
         )
         # print("THIS IS NEW GROUP-------", form.data)
-        db.session.add(new_group)
+        db.session.add(new_post)
         db.session.commit()
-        return new_group.to_dict()
+        return new_post.to_dict()
     return form.errors
 
 
@@ -69,65 +73,76 @@ def new_group():
 #             return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @post_routes.route('/users/<int:id>')
-# def get_groups(id):
-#     groups = Group.query.filter(Group.owner_id == id).all()
-#     all_groups = {}
-#     for group in groups:
-#         all_groups[group.id] = group.to_dict()
-#     return all_groups
+@post_routes.route('/groups/<int:id>')
+def get_posts(id):
+    posts = Post.query.filter(Post.group_id == id).all()
+    all_posts = {}
+    for post in posts:
+        all_posts[post.id] = post.to_dict()
+    return all_posts
 
-# @post_routes.route('/<int:id>', methods=["GET", "PUT", "DELETE"])
-# def get_single_group(id):
-#     if request.method == "GET":
-#         group = Group.query.get(id)
-#         print("THIS IS GROUP-----", group)
-#         return group.to_dict()
+@post_routes.route('/<int:id>', methods=["PUT", "DELETE"])
+def get_single_group(id):
+    if request.method == "GET":
+        post = Post.query.get(id)
+        print("THIS IS GROUP-----", post)
+        return post.to_dict()
     
-#     if request.method == "PUT":
-#         form = EditGroup()
-#         form['csrf_token'].data = request.cookies['csrf_token']
-#         if form.validate_on_submit():
+    if request.method == "PUT":
+        form = EditPost()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
 
-#             if "background_image" not in request.files:
-#                 return {"errors": "image required"}, 400
+            # if "image" not in request.files:
+            #     return {"errors": "image required"}, 400
 
-#             image_url = request.files["background_image"]
+            if not len(request.files):
+                post = Post.query.get(id)
+                post.title= request.form["title"]
+                post.description = request.form["description"]
 
-#             # if "image" not in request.files:
-#             #     return {"errors": "image required"}, 400
+                db.session.add(post)
+                db.session.commit()
+                return post.to_dict()
+            else:
+    
+                image_url = request.files["image"]
 
-#             # print("IMAGE_URL---------", image_url)
+                # if "image" not in request.files:
+                #     return {"errors": "image required"}, 400
 
-#             image_url.filename = get_unique_filename(image_url.filename)
+                # print("IMAGE_URL---------", image_url)
 
-#             # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+                image_url.filename = get_unique_filename(image_url.filename)
 
-#             image_upload = upload_file_to_s3(image_url)
+                # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
 
-#             # print("IMAGE_UPLOAD---------", image_upload)
+                image_upload = upload_file_to_s3(image_url)
 
-#             image = image_upload['url']
+                # print("IMAGE_UPLOAD---------", image_upload)
 
-#             # print("THIS IS REQUEST FORM----", request.form)
-#             # print("THIS IS REQUEST DATA-----", request.data)
+                image = image_upload['url']
 
-#             group = Group.query.get(id)
-#             group.name= request.form["name"]
-#             group.description = request.form["description"]
-#             group.background_image = image
+                # print("THIS IS REQUEST FORM----", request.form)
+                # print("THIS IS REQUEST DATA-----", request.data)
 
-#             db.session.add(group)
-#             db.session.commit()
-#             return group.to_dict()
+                post = Post.query.get(id)
+                post.title= request.form["title"]
+                post.description = request.form["description"]
+                # post.group_id= request.form["group_id"]
+                post.image = image
 
-#     if request.method =="DELETE":
-#         group = Group.query.get(id)
-#         db.session.delete(group)
-#         db.session.commit()
-#         return {}
+                db.session.add(post)
+                db.session.commit()
+                return post.to_dict()
 
-#     # return {}
+    if request.method =="DELETE":
+        post = Post.query.get(id)
+        db.session.delete(post)
+        db.session.commit()
+        return {}
+
+    # return {}
     
 # @post_routes.route('/home')
 # def get_groups_home():

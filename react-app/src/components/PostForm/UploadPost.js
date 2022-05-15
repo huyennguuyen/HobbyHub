@@ -1,33 +1,28 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import * as groupActions from "../../store/group"
+import * as postActions from "../../store/post"
 
 
 
-const EditGroup = ({group}) => {
+const UploadPost = ({group}) => {
+    const history = useHistory(); // so that we can redirect after the image upload is successful
     const dispatch = useDispatch();
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState(group.name);
-    const [description, setDescription] = useState(group.description)
-    // const [background_image, setBackgroundImage] = useState(group.backgroundImage)
+    const [image, setImage] = useState(null);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("")
+    const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
-    const [imageLoading, setImageLoading] = useState(false);
-    const [image, setImage] = useState(null);
-    // const [image, setImage] = useState(group.backgroundImage)
-
-    // console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
 
 
     useEffect(() => {
         let errors = [];
-        if(!name.length) errors.push("Please enter a name.")
+        if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
-        // if(!image) errors.push("Please upload an image")
         setErrors(errors)
-    }, [name, description])
+    }, [title, description])
     
     
     const handleSubmit = async (e) => {
@@ -39,60 +34,45 @@ const EditGroup = ({group}) => {
         if (errors.length > 0) return;
 
         const formData = new FormData();
-        formData.append("background_image", image);
+        formData.append("image", image);
         formData.append("owner_id", sessionUser.id)
-        formData.append("name", name)
+        formData.append("title", title)
         formData.append("description", description)
-        formData.append("id", group.id)
+        formData.append("group_id", group.id)
+        // formData.append("id", group.id)
         
-        // console.log("THIS IS FORM DATA---------------", formData)
+        // console.log("THIS IS FORM DATA---------------", formData.values())
 
         for(let key of formData.values()){
             console.log("THIS IS VALUES------", key)
         }
+
+        // let formValues = formData.values()
+        // console.log(formValues)
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
-        // let post = await dispatch(groupActions.editGroup(formData))
-
-        // console.log(post)
-        // .catch(async(res) => {
-        //     const data = await res.json();
-        //     console.log("THIS IS ERRORS--------", data)
-        // //     if (data && data.errors) setErrors(data.errors);
-        //   });
-
-        
+        const posted = await dispatch(postActions.postNewPost(formData))
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
         //     body: formData,
         // });
-
-        let post = await dispatch(groupActions.editGroup(formData))
-
-        console.log("THIS IS POST-------", post)
-        
-        if (post) {
+        if (posted) {
             setImageLoading(false);
-             history.push("/");
-            // setErrors(["nope"])
+            // history.push("/")
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            history.push("/my_groups")
-            // errors.push("Please put a file")
-            // console.log("error");
+            history.push(`/groups/${group.id}`);
+            console.log("error");
         }
     }
     
     const updateImage = (e) => {
         const file = e.target.files[0];
-        console.log("THIS IS FILES---------", file)
-
         setImage(file);
     }
     
@@ -103,16 +83,17 @@ const EditGroup = ({group}) => {
             {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label className='textlabel'>
-                Name:
+                Title:
             </label>
-            <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
+            <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
             <label className='textlabel'>
                 Description:
             </label>
-            <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
+            <textarea onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
             <input
               type="file"
               accept="image/*"
+            //   multiple
               onChange={updateImage}
             />
             <button type="submit">Submit</button>
@@ -122,4 +103,4 @@ const EditGroup = ({group}) => {
     )
 }
 
-export default EditGroup;
+export default UploadPost;

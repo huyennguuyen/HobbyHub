@@ -28,7 +28,6 @@ class Post(db.Model):
             "description": self.description,
             "ownerId": self.owner_id,
             "groupId": self.group_id,
-            "endDate": self.end_date,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
         }

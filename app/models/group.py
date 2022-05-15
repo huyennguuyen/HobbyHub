@@ -16,7 +16,7 @@ class Group(db.Model):
 
 
     groups = db.relationship("User", back_populates="owns_groups")
-    group_posts= db.relationship("Post", back_populates="posts_in_groups")
+    group_posts= db.relationship("Post", back_populates="posts_in_groups", cascade="all, delete-orphan")
     group_users = db.relationship("User", secondary=user_groups, back_populates="user_attends")
 
 
