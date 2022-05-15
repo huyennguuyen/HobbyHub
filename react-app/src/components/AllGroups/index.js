@@ -12,8 +12,8 @@ export default function AllGroups ({group}){
 
     const [showEditGroup, setShowEditGroup] = useState(false)
 
-    const deleteIndividualGroup = (group) => {
-        dispatch(groupActions.removeGroup(group.id))
+    const deleteIndividualGroup = async (group) => {
+        await dispatch(groupActions.removeGroup(group.id))
     }
 
     return (
@@ -32,7 +32,7 @@ export default function AllGroups ({group}){
                 <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
             </Modal>
             )}
-            <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
+            <button onClick={ () => deleteIndividualGroup(group)}>Delete</button>
         </div>
         </div>
         </>

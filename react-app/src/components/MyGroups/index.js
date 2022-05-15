@@ -23,9 +23,9 @@ function MyGroups() {
         if (sessionUser) await dispatch(groupActions.getAllGroups(sessionUser.id))
     }, [sessionUser])
 
-    const deleteIndividualGroup = (group) => {
-        dispatch(groupActions.removeGroup(group.id))
-    }
+    // const deleteIndividualGroup = (group) => {
+    //     dispatch(groupActions.removeGroup(group.id))
+    // }
 
     return (
         <div className="my-groups-container">

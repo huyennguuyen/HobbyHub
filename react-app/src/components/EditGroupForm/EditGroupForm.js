@@ -29,9 +29,10 @@ const EditGroup = ({closeModal, group}) => {
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [name, description])
+
     
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
 
         e.preventDefault();
 
@@ -71,13 +72,15 @@ const EditGroup = ({closeModal, group}) => {
         //     body: formData,
         // });
 
-        let post = dispatch(groupActions.editGroup(formData)).then(() => closeModal())
+        let post = dispatch(groupActions.editGroup(formData))
 
-        console.log("THIS IS POST-------", post)
+        closeModal()
+
+        // console.log("THIS IS POST-------", post)
         
         if (post) {
             setImageLoading(false);
-             history.push("/");
+             history.push("/my_groups");
             // setErrors(["nope"])
         }
         else {
