@@ -25,9 +25,9 @@ const EditPost = ({post, group}) => {
         let errors = [];
         if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description")
-        if(!image) errors.push("Please upload an image")
+        // if(!image) errors.push("Please upload an image")
         setErrors(errors)
-    }, [title, description, image])
+    }, [title, description])
     
     
     const handleSubmit = async (e) => {

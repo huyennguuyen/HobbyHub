@@ -93,38 +93,48 @@ def get_single_group(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
 
-            if "image" not in request.files:
-                return {"errors": "image required"}, 400
-
-            image_url = request.files["image"]
-
             # if "image" not in request.files:
             #     return {"errors": "image required"}, 400
 
-            # print("IMAGE_URL---------", image_url)
+            if not len(request.files):
+                post = Post.query.get(id)
+                post.title= request.form["title"]
+                post.description = request.form["description"]
 
-            image_url.filename = get_unique_filename(image_url.filename)
+                db.session.add(post)
+                db.session.commit()
+                return post.to_dict()
+            else:
+    
+                image_url = request.files["image"]
 
-            # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+                # if "image" not in request.files:
+                #     return {"errors": "image required"}, 400
 
-            image_upload = upload_file_to_s3(image_url)
+                # print("IMAGE_URL---------", image_url)
 
-            # print("IMAGE_UPLOAD---------", image_upload)
+                image_url.filename = get_unique_filename(image_url.filename)
 
-            image = image_upload['url']
+                # print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
 
-            # print("THIS IS REQUEST FORM----", request.form)
-            # print("THIS IS REQUEST DATA-----", request.data)
+                image_upload = upload_file_to_s3(image_url)
 
-            post = Post.query.get(id)
-            post.title= request.form["title"]
-            post.description = request.form["description"]
-            # post.group_id= request.form["group_id"]
-            post.image = image
+                # print("IMAGE_UPLOAD---------", image_upload)
 
-            db.session.add(post)
-            db.session.commit()
-            return post.to_dict()
+                image = image_upload['url']
+
+                # print("THIS IS REQUEST FORM----", request.form)
+                # print("THIS IS REQUEST DATA-----", request.data)
+
+                post = Post.query.get(id)
+                post.title= request.form["title"]
+                post.description = request.form["description"]
+                # post.group_id= request.form["group_id"]
+                post.image = image
+
+                db.session.add(post)
+                db.session.commit()
+                return post.to_dict()
 
     if request.method =="DELETE":
         post = Post.query.get(id)
