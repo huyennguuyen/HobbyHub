@@ -18,11 +18,7 @@ const EditGroup = ({group}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-<<<<<<< HEAD
-    console.log("THIS IS BACKGROUND FILES-----------", group.files)
-=======
     // console.log("THIS IS BACKGROUND IMAGE-----------", group.backgroundImage)
->>>>>>> main
 
 
     useEffect(() => {
