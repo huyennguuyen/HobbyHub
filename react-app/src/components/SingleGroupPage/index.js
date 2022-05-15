@@ -38,6 +38,11 @@ function SingleGroup() {
         }
     }, [groupId])
 
+    const deleteIndividualPost = (post) => {
+        dispatch(postActions.removePost(post.id))
+    }
+
+
     return (
         <>
         <h1>{group?.name}</h1>
@@ -50,6 +55,7 @@ function SingleGroup() {
                 <img src={post?.image} className="image"></img>
                 <p>{post?.description}</p>
                 <EditPost post={post} group={group}/> 
+                <button onClick={() => deleteIndividualPost(post)}>Delete</button>
             </li>
         ))}
         </>

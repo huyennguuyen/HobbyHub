@@ -23,7 +23,7 @@ const loadPosts = (posts) => {
     };
 };
 
-const deletePosts = (id) => {
+const deletePost = (id) => {
     return {
         type: DELETE_POST,
         payload: id
@@ -117,16 +117,16 @@ export const editPost = (formData) => async (dispatch) => {
     } else return ['An error occurred. Please try again.']
 }
 
-// export const removePost = (groupId) => async (dispatch) => {
-//     const id = parseInt(groupId, 10)
-//     const res = await fetch(`/api/groups/${id}`, {
-//         method: 'DELETE',
-//     })
+export const removePost = (postId) => async (dispatch) => {
+    const id = parseInt(postId, 10)
+    const res = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE',
+    })
 
-//     if(res.ok) {
-//         dispatch(deleteGroup(id))
-//     }
-// }
+    if(res.ok) {
+        dispatch(deletePost(id))
+    }
+}
 
 // export const loadSingleGroup = (id) => async (dispatch) => {
 //     const res = await fetch(`/api/groups/${id}`);
