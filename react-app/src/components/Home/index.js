@@ -26,19 +26,19 @@ function Home() {
     // }
 
     return (
-        <div className="page-container">
-            <h1 id="all-trips"> All Groups </h1>
-            <div className="trip-gallery">
+        <div className="groups-container">
+            <div className="groups-center">
+                <h1 className="groups-header"> All Groups </h1>
                 {groups &&
                 groups?.map(group =>
-                    <li key={group?.id}>
+                    <div key={group?.id} className="groups-box">
                         <p>{group?.name}</p>
-                        <p>{group?.description}</p>
                         {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
                         <NavLink to={`/groups/${group?.id}`}>
                         <img src={group?.backgroundImage} className="image"></img>
                         </NavLink>
-                    </li>
+                        <p>{group?.description}</p>
+                    </div>
                 )}
             </div>
         </div>
