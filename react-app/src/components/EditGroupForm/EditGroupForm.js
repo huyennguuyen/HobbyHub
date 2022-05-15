@@ -6,7 +6,7 @@ import { Modal } from "../context/Modal";
 
 
 
-const EditGroup = ({group}) => {
+const EditGroup = ({closeModal, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -71,7 +71,7 @@ const EditGroup = ({group}) => {
         //     body: formData,
         // });
 
-        let post = await dispatch(groupActions.editGroup(formData))
+        let post = dispatch(groupActions.editGroup(formData)).then(() => closeModal())
 
         console.log("THIS IS POST-------", post)
         

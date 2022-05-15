@@ -4,6 +4,7 @@ import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
 import EditGroup from "../EditGroupForm/EditGroupForm";
 import { Modal } from "../context/Modal";
+import AllGroups from "../AllGroups";
 import "./MyGroups.css"
 
 
@@ -17,9 +18,9 @@ function MyGroups() {
     const [showEditGroup, setShowEditGroup] = useState(false)
 
 
-    useEffect(() => {
+    useEffect(async() => {
         if (!sessionUser) history.push('/')
-        if (sessionUser) dispatch(groupActions.getAllGroups(sessionUser.id))
+        if (sessionUser) await dispatch(groupActions.getAllGroups(sessionUser.id))
     }, [sessionUser])
 
     const deleteIndividualGroup = (group) => {
@@ -30,24 +31,9 @@ function MyGroups() {
         <div className="my-groups-container">
             <div className="my-groups-center">
                 <h1 className="my-groups-header"> My Groups </h1>
-                {groups && groups?.map(group =>
-                    <div key={group?.id} className="my-groups-box">
-                        <p>{group?.name}</p>
-                        <p>{group?.description}</p>
-                        <NavLink to={`/groups/${group?.id}`}>
-                        <img src={group.backgroundImage} className="image"></img>
-                        </NavLink>
-                        <div className="buttons-box"> 
-                            <button onClick={e => setShowEditGroup(true)}>Edit Group</button>
-                            {showEditGroup && (
-                                <Modal onClose={() => setShowEditGroup(false)}> 
-                                    <EditGroup closeModal={() => setShowEditGroup(false)} group={group}/>
-                                </Modal>
-                            )}
-                            <button onClick={() => deleteIndividualGroup(group)}>Delete</button>
-                        </div>
-                    </div>
-                    )}
+                {groups && groups.map(group => 
+                <AllGroups key={group.id} group={group}/>
+                )}
             </div>
         </div>
     );
