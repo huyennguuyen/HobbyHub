@@ -56,8 +56,12 @@ function SingleGroup() {
                 <h3>{post?.title}</h3>
                 <img src={post?.image} className="image"></img>
                 <p>{post?.description}</p>
-                <EditPost post={post} group={group}/> 
-                <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+                {sessionUser?.id === post?.ownerId && (
+                <>
+                    <EditPost post={post} group={group}/> 
+                    <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+                </>
+                )}
             </li>
             </>:
             <> 
@@ -65,8 +69,12 @@ function SingleGroup() {
                 <h3>{post?.title}</h3>
                 {/* <img src={post?.image} className="image"></img> */}
                 <p>{post?.description}</p>
-                <EditPost post={post} group={group}/> 
-                <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+                {sessionUser?.id === post?.ownerId && (
+                <>
+                    <EditPost post={post} group={group}/> 
+                    <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+                </>
+                )}
             </li>
             </>
         ))}

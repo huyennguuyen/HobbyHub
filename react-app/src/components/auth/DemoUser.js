@@ -18,7 +18,7 @@ function DemoButton(){
       setErrors(data);
     }
     // dont think that this will actually save errors in data
-    history.push("/")
+    history.push("/home")
   };
 
   return (

@@ -13,6 +13,7 @@ import Home from './components/Home';
 import SingleGroup from './components/SingleGroupPage';
 import UploadGroup from './components/GroupFormPage/UploadGroup';
 import MyGroups from "./components/MyGroups"
+import SplashPage from './components/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,13 +40,16 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <Route path='/' exact={true}>
+          <SplashPage />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
           <Home />
         </ProtectedRoute>
         <ProtectedRoute path="/groups/new">
