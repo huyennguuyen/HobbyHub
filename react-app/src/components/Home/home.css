@@ -2,3 +2,27 @@
     height: 300px;
     width: 400px;
 }
+
+.groups-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.groups-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.groups-box {
+   border: 1px solid black;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
