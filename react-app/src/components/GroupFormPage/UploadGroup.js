@@ -54,17 +54,18 @@ const UploadGroup = () => {
         //     method: "POST",
         //     body: formData,
         // });
-        if (posted) {
+        // if (posted) {
             setImageLoading(false);
-            // history.push("/")
-        }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            history.push("/");
-            console.log("error");
-        }
+            history.push("/my_groups")
+            console.log("hi")
+        // }
+        // else {
+        //     setImageLoading(false);
+        //     // a real app would probably use more advanced
+        //     // error handling
+        //     history.push("/my_groups");
+        //     console.log("error");
+        // }
     }
     
     const updateImage = (e) => {
