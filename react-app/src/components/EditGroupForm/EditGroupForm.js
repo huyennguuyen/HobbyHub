@@ -32,7 +32,7 @@ const EditGroup = ({closeModal, group}) => {
 
     
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
 
         e.preventDefault();
 
@@ -72,7 +72,7 @@ const EditGroup = ({closeModal, group}) => {
         //     body: formData,
         // });
 
-        let post = dispatch(groupActions.editGroup(formData))
+        let post = await dispatch(groupActions.editGroup(formData))
 
         closeModal()
 
@@ -83,14 +83,14 @@ const EditGroup = ({closeModal, group}) => {
              history.push("/my_groups");
             // setErrors(["nope"])
         }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            history.push("/my_groups")
-            // errors.push("Please put a file")
-            // console.log("error");
-        }
+        // else {
+        //     setImageLoading(false);
+        //     // a real app would probably use more advanced
+        //     // error handling
+        //     history.push("/my_groups")
+        //     // errors.push("Please put a file")
+        //     // console.log("error");
+        // }
     }
     
     const updateImage = (e) => {
@@ -120,7 +120,7 @@ const EditGroup = ({closeModal, group}) => {
               onChange={updateImage}
             />
             <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            {imageLoading && <p>Loading...</p> }
         </form>
         </>
     )

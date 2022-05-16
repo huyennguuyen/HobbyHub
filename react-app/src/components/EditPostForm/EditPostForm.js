@@ -5,7 +5,7 @@ import * as postActions from "../../store/post"
 
 
 
-const EditPost = ({post, group}) => {
+const EditPost = ({closeModal, post, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -74,6 +74,8 @@ const EditPost = ({post, group}) => {
 
         let res = dispatch(postActions.editPost(formData))
 
+        // closeModal()
+
         // console.log("THIS IS POST-------", post)
         
         if (res) {
@@ -117,8 +119,7 @@ const EditPost = ({post, group}) => {
               accept="image/*"
               onChange={updateImage}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            {imageLoading ? <p>Loading...</p> : <button type="submit">Submit</button>}
         </form>
         </>
     )
