@@ -18,7 +18,7 @@ const EditPost = ({closeModal, post, group}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-    console.log("THIS IS BACKGROUND FILES-----------", post.files)
+    // console.log("THIS IS BACKGROUND FILES-----------", post.files)
 
 
     useEffect(() => {
@@ -72,9 +72,9 @@ const EditPost = ({closeModal, post, group}) => {
         //     body: formData,
         // });
 
-        let res = dispatch(postActions.editPost(formData))
+        let res = await dispatch(postActions.editPost(formData))
 
-        // closeModal()
+        closeModal()
 
         // console.log("THIS IS POST-------", post)
         
@@ -83,14 +83,14 @@ const EditPost = ({closeModal, post, group}) => {
              history.push(`/groups/${group.id}`);
             // setErrors(["nope"])
         }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            history.push(`/groups/${group.id}`)
-            // errors.push("Please put a file")
-            // console.log("error");
-        }
+        // else {
+        //     setImageLoading(false);
+        //     // a real app would probably use more advanced
+        //     // error handling
+        //     history.push(`/groups/${group.id}`)
+        //     // errors.push("Please put a file")
+        //     // console.log("error");
+        // }
     }
     
     const updateImage = (e) => {
@@ -119,7 +119,8 @@ const EditPost = ({closeModal, post, group}) => {
               accept="image/*"
               onChange={updateImage}
             />
-            {imageLoading ? <p>Loading...</p> : <button type="submit">Submit</button>}
+            <button type="submit">Submit</button>
+            {imageLoading && <p>Loading...</p> }
         </form>
         </>
     )
