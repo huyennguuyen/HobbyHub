@@ -1,23 +1,19 @@
-.image {
-    height: 300px;
-    width: 400px;
-}
-
-.groups-container {
+.my-groups-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.groups-header {
+.my-groups-header {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    position: relative;
 
 }
 
-.groups-box {
+.my-groups-box {
    border: 1px solid black;
 }
 
@@ -26,4 +22,9 @@ p {
     justify-content: center;
     align-items: center;
 
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
 }

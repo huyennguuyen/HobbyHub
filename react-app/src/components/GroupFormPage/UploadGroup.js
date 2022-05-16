@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as groupActions from "../../store/group"
+import "./UploadGroup.css"
 
 
 
@@ -73,26 +74,28 @@ const UploadGroup = () => {
     
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <ul className="new-note-errors">
-            {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label className='textlabel'>
-                Name:
-            </label>
-            <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
-            <label className='textlabel'>
-                Description:
-            </label>
-            <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        <div className="upload-group-container">
+            <form onSubmit={handleSubmit}>
+                <ul className="new-note-errors">
+                {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <label className='textlabel'>
+                    Name:
+                </label>
+                <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
+                <label className='textlabel'>
+                    Description:
+                </label>
+                <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
+                <input
+                type="file"
+                accept="image/*"
+                onChange={updateImage}
+                />
+                <button type="submit">Submit</button>
+                {(imageLoading)&& <p>Loading...</p>}
+            </form>
+        </div>
         </>
     )
 }

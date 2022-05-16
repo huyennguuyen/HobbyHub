@@ -23,6 +23,7 @@ ul {
  body {
     margin: 0;
     padding: 0;
+    overflow: scroll;
 } 
 
 html {
@@ -33,12 +34,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0px;
     margin: 0px;
     background-color: #3a3b3c;
     height: 50px;
     opacity: 0.80;
+    width: 100vw;
 }
 
 a {

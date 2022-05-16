@@ -5,7 +5,7 @@ import * as postActions from "../../store/post"
 
 
 
-const EditPost = ({post, group}) => {
+const EditPost = ({closeModal, post, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -18,7 +18,7 @@ const EditPost = ({post, group}) => {
     const [image, setImage] = useState(null);
     // const [image, setImage] = useState(group.backgroundImage)
 
-    console.log("THIS IS BACKGROUND FILES-----------", post.files)
+    // console.log("THIS IS BACKGROUND FILES-----------", post.files)
 
 
     useEffect(() => {
@@ -72,7 +72,9 @@ const EditPost = ({post, group}) => {
         //     body: formData,
         // });
 
-        let res = dispatch(postActions.editPost(formData))
+        let res = await dispatch(postActions.editPost(formData))
+
+        closeModal()
 
         // console.log("THIS IS POST-------", post)
         
@@ -81,14 +83,14 @@ const EditPost = ({post, group}) => {
              history.push(`/groups/${group.id}`);
             // setErrors(["nope"])
         }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            history.push(`/groups/${group.id}`)
-            // errors.push("Please put a file")
-            // console.log("error");
-        }
+        // else {
+        //     setImageLoading(false);
+        //     // a real app would probably use more advanced
+        //     // error handling
+        //     history.push(`/groups/${group.id}`)
+        //     // errors.push("Please put a file")
+        //     // console.log("error");
+        // }
     }
     
     const updateImage = (e) => {
@@ -118,7 +120,7 @@ const EditPost = ({post, group}) => {
               onChange={updateImage}
             />
             <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            {imageLoading && <p>Loading...</p> }
         </form>
         </>
     )

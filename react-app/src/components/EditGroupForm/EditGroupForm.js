@@ -2,10 +2,11 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as groupActions from "../../store/group"
+import { Modal } from "../context/Modal";
 
 
 
-const EditGroup = ({group}) => {
+const EditGroup = ({closeModal, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -28,9 +29,10 @@ const EditGroup = ({group}) => {
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [name, description])
+
     
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = async(e) => {
 
         e.preventDefault();
 
@@ -72,21 +74,23 @@ const EditGroup = ({group}) => {
 
         let post = await dispatch(groupActions.editGroup(formData))
 
-        console.log("THIS IS POST-------", post)
+        closeModal()
+
+        // console.log("THIS IS POST-------", post)
         
         if (post) {
             setImageLoading(false);
-             history.push("/");
+             history.push("/my_groups");
             // setErrors(["nope"])
         }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            history.push("/my_groups")
-            // errors.push("Please put a file")
-            // console.log("error");
-        }
+        // else {
+        //     setImageLoading(false);
+        //     // a real app would probably use more advanced
+        //     // error handling
+        //     history.push("/my_groups")
+        //     // errors.push("Please put a file")
+        //     // console.log("error");
+        // }
     }
     
     const updateImage = (e) => {
@@ -116,7 +120,7 @@ const EditGroup = ({group}) => {
               onChange={updateImage}
             />
             <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            {imageLoading && <p>Loading...</p> }
         </form>
         </>
     )
