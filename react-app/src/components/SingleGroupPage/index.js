@@ -6,6 +6,9 @@ import * as groupActions from "../../store/group";
 import * as postActions from "../../store/post";
 import UploadPost from "../PostForm/UploadPost";
 import EditPost from "../EditPostForm/EditPostForm";
+import PostWithImage from "../PostingOptions/PostWithImage";
+import PostWithOutImage from "../PostingOptions/PostWithoutImage";
+import "./SingleGroupPage.css"
 
 function SingleGroup() {
     const dispatch = useDispatch()
@@ -38,46 +41,26 @@ function SingleGroup() {
         }
     }, [groupId])
 
-    const deleteIndividualPost = (post) => {
-        dispatch(postActions.removePost(post.id))
-    }
-
 
     return (
         <>
-        <h1>{group?.name}</h1>
-        <p>{group?.description}</p>
-        <img src={group?.backgroundImage} className="image"></img>
-        <UploadPost group={group}/>
-        {posts && posts.map(post => (
-            post.image ?
-            <> 
-            <li key={post?.id}>
-                <h3>{post?.title}</h3>
-                <img src={post?.image} className="image"></img>
-                <p>{post?.description}</p>
-                {sessionUser?.id === post?.ownerId && (
-                <>
-                    <EditPost post={post} group={group}/> 
-                    <button onClick={() => deleteIndividualPost(post)}>Delete</button>
+        <div className="single-group-container">
+            <div className="details-group"> 
+                <h1>{group?.name}</h1>
+                <p>{group?.description}</p>
+                <img src={group?.backgroundImage} className="image"></img>
+                <UploadPost group={group}/>
+            </div>
+            {posts && posts.map(post => (
+                post.image ?
+                <> 
+                <PostWithImage key={post.id} post={post} group={group}/>
+                </>:
+                <> 
+                <PostWithOutImage key={post.id} post={post} group={group}/>
                 </>
-                )}
-            </li>
-            </>:
-            <> 
-             <li key={post?.id}>
-                <h3>{post?.title}</h3>
-                {/* <img src={post?.image} className="image"></img> */}
-                <p>{post?.description}</p>
-                {sessionUser?.id === post?.ownerId && (
-                <>
-                    <EditPost post={post} group={group}/> 
-                    <button onClick={() => deleteIndividualPost(post)}>Delete</button>
-                </>
-                )}
-            </li>
-            </>
-        ))}
+            ))}
+        </div>
         </>
     )
     

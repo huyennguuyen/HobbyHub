@@ -28,7 +28,6 @@ export default function AllGroups ({group}){
             <button onClick={e => setShowEditGroup(true)}>Edit Group</button>
             {showEditGroup && (
             <Modal onClose={() => setShowEditGroup(false)}> 
-                {console.log("THIS IS GROUP---", group)}
                 <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
             </Modal>
             )}
