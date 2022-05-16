@@ -24,7 +24,7 @@ const EditPost = ({closeModal, post, group}) => {
     useEffect(() => {
         let errors = [];
         if(!title.length) errors.push("Please enter a name.")
-        if(!description.length) errors.push("Please enter a description")
+        if(!description.length) errors.push("Please enter a description.")
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [title, description])
