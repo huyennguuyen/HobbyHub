@@ -17,12 +17,12 @@
    border: 1px solid black;
 }
 
-p {
+/* p {
     display: flex;
     justify-content: center;
     align-items: center;
 
-}
+} */
 
 .buttons-box {
     display: flex;

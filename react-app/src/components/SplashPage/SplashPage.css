@@ -7,24 +7,38 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
-/* .background {
-    background-image: url("./splash.jpg");
-    height: 50vh;
-} */
+.background {
+    display: flex;
+    flex-direction: row;
+    margin-top: 210px;
+    /* width: 950px; */
+}
 
 .splash-header {
     margin-top: 0px;
     margin-bottom: 0px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    color: black;
+    font-family: "Graphik Meetup,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif";
+    font-weight: 700px;
+    width: 650px;
+    height: 160px;
+    font-size: 43px;
+    /* margin-right: 5px; */
 }
 
 .hobby {
-    width:200px;
-    height: 200px;
+    width: 305px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+.splash-paragraph {
+    margin: 0px;
+    width: 550px;
+    height: 130px;
+    font-family: "Graphik Meetup,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif";
 }
