@@ -43,3 +43,9 @@
     text-decoration: none;
     font-family: "PT Serif";
 }
+
+#logo {
+    font-family: "Cookie";
+    color: #9CAF88;
+    font-size: 36px;
+}
