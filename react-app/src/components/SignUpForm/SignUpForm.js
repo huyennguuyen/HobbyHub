@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import icon from "./icon.png"
+import "./SignUpForm.css"
+import "../LoginForm/LoginForm.css"
 
 const SignUpForm = () => {
   const history = useHistory()
@@ -45,51 +48,63 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className="login-box">
+      <form onSubmit={onSignUp} className="login-form">
+        <div className="inside-login">
+          <img src={icon} className="icon"></img>
+          <h2 className="login header signup">Sign Up</h2>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className="center-login">
+            <div className="login-labels">
+              <label className="signup">User Name</label>
+              <input
+                type='text'
+                name='username'
+                onChange={updateUsername}
+                value={username}
+                className="signup-input"
+              ></input>
+            </div>
+            <div className="login-labels">
+              <label className="signup">Email</label>
+              <input
+                type='text'
+                name='email'
+                onChange={updateEmail}
+                value={email}
+                className="signup-input"
+              ></input>
+            </div>
+            <div className="login-labels">
+              <label className="signup">Password</label>
+              <input
+                type='password'
+                name='password'
+                onChange={updatePassword}
+                value={password}
+                className="signup-input"
+              ></input>
+            </div>
+            <div className="login-labels">
+              <label className="signup">Repeat Password</label>
+              <input
+                type='password'
+                name='repeat_password'
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+                className="signup-input"
+              ></input>
+            </div>
+            <button type='submit' className="login-button">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

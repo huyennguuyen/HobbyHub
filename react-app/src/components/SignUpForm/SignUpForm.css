@@ -1,0 +1,19 @@
+.signup-input {
+    height: 27px;
+    width: 344px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    font-family: 'PT Serif';
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.signup{
+    font-family: "PT Serif";
+    font-size: 16px;
+}
+
+.login.header.signup {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
