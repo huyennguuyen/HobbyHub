@@ -33,7 +33,7 @@ def new_group():
 
         # print("THIS IS REQUEST FORM----", request.form)
         # print("THIS IS REQUEST DATA-----", request.data)
-        print("THIS IS FORM DATA------", form.data)
+        # print("THIS IS FORM DATA------", form.data)
 
         new_group = Group(
             owner_id=request.form["owner_id"],

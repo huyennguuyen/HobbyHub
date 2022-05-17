@@ -25,7 +25,7 @@ const EditGroup = ({closeModal, group}) => {
     useEffect(() => {
         let errors = [];
         if(!name.length) errors.push("Please enter a name.")
-        if(!description.length) errors.push("Please enter a description")
+        if(!description.length) errors.push("Please enter a description.")
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [name, description])
