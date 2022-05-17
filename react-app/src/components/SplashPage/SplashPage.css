@@ -2,18 +2,21 @@
 
 .splash {
     background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
-    height: 100vh;
+    height: 150vh;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    overflow: scroll;
     /* align-items: center; */
 }
+
+
 
 .background {
     display: flex;
     flex-direction: row;
-    margin-top: 210px;
+    margin-top: 198px;
     /* width: 950px; */
 }
 
@@ -22,23 +25,44 @@
     margin-bottom: 0px;
     display: flex;
     color: black;
-    font-family: "Graphik Meetup,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif";
+    font-family: "PT Serif";
     font-weight: 700px;
     width: 650px;
-    height: 160px;
-    font-size: 43px;
+    height: 168px;
+    font-size: 40px;
     /* margin-right: 5px; */
 }
 
 .hobby {
     width: 305px;
     height: 230px;
-    margin-left: 5px;
+    margin-left: 12px;
 }
 
 .splash-paragraph {
     margin: 0px;
     width: 550px;
     height: 130px;
-    font-family: "Graphik Meetup,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif";
+    font-family: "PT Serif";
+}
+
+.splash-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.second-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.first-text {
+    display: flex;
+    justify-content: center;
+    font-family: "PT Serif";
+    font-size: 18px;
+    font-weight: 900;
+    color: #008294;;
 }
