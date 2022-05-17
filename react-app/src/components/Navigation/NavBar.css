@@ -1,18 +1,4 @@
-/* .session-user-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    border: 1px black solid
-}
 
-.outside-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
 
 .not-session-user-nav{
     display: flex;
