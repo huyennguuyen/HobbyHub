@@ -34,10 +34,10 @@ return (
             </Modal>
             )}
             <button onClick={() => setShowDeletePost(true)}>Delete</button>
-                {showDeletePost && (
-                <Modal onClose={() => setShowEditPost(false)}> 
-                    <DeletePost closeModal={() => setShowEditPost(false)}  post={post}/>
-                </Modal>
+            {showDeletePost && (
+            <Modal onClose={() => setShowDeletePost(false)}> 
+                <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
+            </Modal>
                 )}       
         </div>
         )}
