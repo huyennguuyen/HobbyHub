@@ -14,6 +14,7 @@ import SingleGroup from './components/SingleGroupPage';
 import UploadGroup from './components/GroupFormPage/UploadGroup';
 import MyGroups from "./components/MyGroups"
 import SplashPage from './components/SplashPage';
+import SignUpFormModal from './components/SignUpForm/SignUpFormModal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,12 +35,12 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        {/* <Route path='/login' exact={true}>
+        <Route path='/login' exact={true}>
           <LoginForm />
-        </Route> */}
-        {/* <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route> */}
+        </Route>
+        <Route path='/sign-up' exact={true}>
+          <SignUpFormModal />
+        </Route>
         <Route path='/' exact={true}>
           <SplashPage />
         </Route>
