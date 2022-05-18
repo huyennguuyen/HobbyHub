@@ -73,7 +73,7 @@ const LoginForm = () => {
           <h2 className="login header">Log in</h2>
           <div>
             {hasSubmitted && errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div key={ind} className="errors">{error}</div>
             ))}
           </div>
           <div className="center-login">

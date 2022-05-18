@@ -60,6 +60,11 @@
     font-size: 20px;
 }
 
+.errors {
+    color: red;
+    font-family: "PT Serif";
+}
+
 .inside-login {
     display: flex;
     justify-content: center;

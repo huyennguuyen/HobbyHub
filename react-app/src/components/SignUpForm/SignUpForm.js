@@ -69,7 +69,7 @@ const SignUpForm = () => {
           <h2 className="login header signup">Sign Up</h2>
           <div>
             {hasSubmitted && errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div key={ind} className="errors">{error}</div>
             ))}
           </div>
           <div className="center-login">
