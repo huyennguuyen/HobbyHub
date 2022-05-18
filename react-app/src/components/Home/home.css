@@ -1,11 +1,23 @@
 .image {
-    height: 300px;
-    width: 400px;
+    height: 185px;
+    width: 280px;
+    transition: 1s ease;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+    
+.image:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+
 }
 
 .groups-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
@@ -14,16 +26,32 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    font-family: "PT Serif";
+    font-weight: bold;
+    font-size: 38px;
 
 }
 
 .groups-box {
-   border: 1px solid black;
+   border-bottom: 1px solid black;
+   display: flex;
+   flex-direction: row;
+   margin-left: 30px;
+   width: 100vw;
+   height: 260px;
 }
 
-/* p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.group-name {
+    font-weight: normal;
+}
 
-} */
+.group-text {
+    margin-left: 40px;
+    align-items: flex-start;
+
+}
+
+.group-description {
+    font-size: 18px;
+}
+

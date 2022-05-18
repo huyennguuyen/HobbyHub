@@ -32,12 +32,14 @@ function Home() {
                 {groups &&
                 groups?.map(group =>
                     <div key={group?.id} className="groups-box">
-                        <p>{group?.name}</p>
-                        {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
                         <NavLink to={`/groups/${group?.id}`}>
                         <img src={group?.backgroundImage} className="image"></img>
                         </NavLink>
-                        <p>{group?.description}</p>
+                        <div className="group-text">
+                            <h2 className="group-name">{group?.name}</h2>
+                            {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
+                            <p className="group-description">{group?.description}</p>
+                        </div>
                     </div>
                 )}
             </div>
