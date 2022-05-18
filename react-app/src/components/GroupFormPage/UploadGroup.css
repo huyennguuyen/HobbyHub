@@ -134,3 +134,14 @@ input[type="file"]::file-selector-button {
     display: flex;
     flex-direction: column;
 }
+
+.loading {
+    font-family: "PT Serif";
+    font-size: 14px;
+
+}
+
+.loading-text {
+    display: flex;
+    justify-content: center;
+}

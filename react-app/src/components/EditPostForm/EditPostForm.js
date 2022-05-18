@@ -102,26 +102,34 @@ const EditPost = ({closeModal, post, group}) => {
     
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <ul className="new-note-errors">
-            {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label className='textlabel'>
-                Title:
-            </label>
-            <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
-            <label className='textlabel'>
-                Description:
-            </label>
-            <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-            <button type="submit">Submit</button>
-            {imageLoading && <p>Loading...</p> }
-        </form>
+        <div className="edit-group-box">
+            <form onSubmit={handleSubmit}>
+                <div className="inside-edit-group">
+                    <div>
+                        {hasSubmitted && errors.map((error, ind) => (
+                        <div key={ind} className="errors">{error}</div>
+                        ))}
+                    </div>
+                    <div className="center-edit-group">
+                        <label className='textlabel'>
+                            Title:
+                        </label>
+                        <input onChange={e => setTitle(e.target.value)} type="text" className="login-input first" placeholder="Add a name here..." value={title} />
+                        <label className='textlabel'>
+                            Description:
+                        </label>
+                        <input onChange={e => setDescription(e.target.value)} type="text" className="login-input second" placeholder='Add a description...' value={description} />
+                        <input
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                        />
+                        <button type="submit">Submit</button>
+                        {imageLoading && <p>Loading...</p> }
+                    </div>
+                </div>
+            </form>
+        </div>
         </>
     )
 }

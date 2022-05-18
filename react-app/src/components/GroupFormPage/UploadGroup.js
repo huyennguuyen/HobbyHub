@@ -106,7 +106,9 @@ const UploadGroup = () => {
                             className="file-input"
                             />
                             <button type="submit" className="upload-button">Submit</button>
-                            {(imageLoading)&& <p className="loading">Loading...</p>}
+                            <div className="loading-text">
+                                {(imageLoading)&& <p className="loading">Loading...</p>}
+                            </div>
                         </div>
                     </div>
                 </form>

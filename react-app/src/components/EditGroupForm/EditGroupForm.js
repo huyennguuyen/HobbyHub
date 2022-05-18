@@ -106,23 +106,29 @@ const EditGroup = ({closeModal, group}) => {
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <ul className="new-note-errors">
-                {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
                 </ul>
-                <label className='textlabel'>
-                    Name:
-                </label>
-                <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
-                <label className='textlabel'>
-                    Description:
-                </label>
-                <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
-                <input
-                type="file"
-                accept="image/*"
-                onChange={updateImage}
-                />
-                <button type="submit">Submit</button>
-                {imageLoading && <p>Loading...</p> }
+                <div className="center-login">
+                    <label className='login text'>
+                        Name
+                    </label>
+                    <input onChange={e => setName(e.target.value)} type="text" id="edit-group-input" className="login-input first-image" placeholder="Add a name here..." value={name} />
+                    <label className='login text'>
+                        Description
+                    </label>
+                    <input onChange={e => setDescription(e.target.value)} type="text" id="edit-group-input" className="login-input second" placeholder='Add a description...' value={description} />
+                    <label className="edit-group-label">Upload an Image</label>
+                    <input
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                    className="edit-group-image"
+                    />
+                    <button type="submit" className="login-button">Submit</button>
+                    <div className="loading-text">
+                        {imageLoading && <p className="loading">Loading...</p> }
+                    </div>
+                </div>
             </form>
         </div>
         </>
