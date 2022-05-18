@@ -58,32 +58,7 @@ export const login = (email, password) => async (dispatch) => {
         let joining = joinedSplit.join(" ")
         together.push(joining)
       }
-
       return together
-
-      // let errorArr = data.errors;
-      // let values = [];
-      // //console.log("THIS IS DATA ERRORS---------", data.errors)
-      // for (let i = 0; i < errorArr.length; i++) {
-      //    let each = errorArr[i]
-      //    for(let j = 0; j < each.length; i++) {
-      //      let word = each[j]
-      //    }
-      //    if (each.includes("email :") || each.includes("password :")) {
-      //       each.splice
-
-      //    }
-      // }
-      // errorObj.map(error => {
-      //   if error.includes
-      // })
-      // for (const key in errorObj) {
-      //   values.push(errorObj[key])
-      // }
-      // console.log("THIS IS VALUES----", values)
-      // return values
-
-      // console.log("THIS IS VALUES---", data.errors)
     }
   } else {
     return ['An error occurred. Please try again.']
@@ -124,7 +99,16 @@ export const signUp = (username, email, password) => async (dispatch) => {
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
-      return data.errors;
+      let errorsObj = data.errors
+      let together = [];
+      for (let i = 0; i < errorsObj.length; i++) {
+        let each = errorsObj[i]
+        let split = each.split(" ")
+        let joinedSplit = split.slice(2)
+        let joining = joinedSplit.join(" ")
+        together.push(joining)
+      }
+      return together
     }
   } else {
     return ['An error occurred. Please try again.']

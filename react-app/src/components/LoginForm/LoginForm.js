@@ -9,32 +9,44 @@ import "./LoginForm.css"
 const LoginForm = () => {
   const history = useHistory()
   const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
-//   useEffect(() => {
-//     let errors = [];
-//     if(!email.length) errors.push("Please enter a email.")
-//     if(!password.length) errors.push("Please enter a password.")
-//     // if(!image) errors.push("Please upload an image")
-//     setErrors(errors)
-// }, [email, password])
+  useEffect(() => {
+    let errors = [];
+    if(!email.length) errors.push("Please enter a email.")
+    if(!password.length) errors.push("Please enter a password.")
+    setErrors(errors)
+  }, [email, password])
+
+  // useEffect(() => {
+  //   let errors = [];
+  //   if(!email.length) errors.push("Please enter a email.")
+  //   if(!password.length) errors.push("Please enter a password.")
+  //   setErrors(errors)
+  // }, [email, password])
+
+  
+
+
 
   const onLogin = async (e) => {
     e.preventDefault();
 
-    // setHasSubmitted(true)
+    
+    setHasSubmitted(true)
 
-    // if (errors.length > 0) return;
+    if (errors.length > 0) return;
     
     const data = await dispatch(login(email, password));
     if (data) {
+      // errors.push(data)
       setErrors(data);
     }
-
     history.push("/home")
   };
 
@@ -60,7 +72,7 @@ const LoginForm = () => {
           <img src={icon} className="icon"></img>
           <h2 className="login header">Log in</h2>
           <div>
-            { errors.map((error, ind) => (
+            {hasSubmitted && errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
