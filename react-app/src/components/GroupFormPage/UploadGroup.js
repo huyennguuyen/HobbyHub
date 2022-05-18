@@ -50,6 +50,10 @@ const UploadGroup = () => {
         setImageLoading(true);
         const posted = await dispatch(groupActions.postNewGroup(formData))
 
+        setName("")
+        setDescription("")
+        setImage(null)
+
         // const res = await fetch('/api/images', {
         //     method: "POST",
         //     body: formData,
@@ -75,27 +79,32 @@ const UploadGroup = () => {
     
     return (
         <>
-        <div className="upload-group-container">
-            <form onSubmit={handleSubmit}>
-                <ul className="new-note-errors">
-                {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <label className='textlabel'>
-                    Name:
-                </label>
-                <input onChange={e => setName(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={name} />
-                <label className='textlabel'>
-                    Description:
-                </label>
-                <input onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
-                <input
-                type="file"
-                accept="image/*"
-                onChange={updateImage}
-                />
-                <button type="submit">Submit</button>
-                {(imageLoading)&& <p>Loading...</p>}
-            </form>
+        <div className="group-post">
+            <h2 className="upload-header">Get Started by adding a name to your group and a short description about your hobby!</h2>
+            <div className="upload-group-container">
+                <form onSubmit={handleSubmit} className="upload-form">
+                    <ul className="new-group-errors">
+                    {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                    </ul>
+                    <label className='text-label'>
+                        Name
+                    </label>
+                    <input onChange={e => setName(e.target.value)} type="text" className="upload-input first" placeholder="Add a name here..." value={name} />
+                    <label className='text-label'>
+                        Description
+                    </label>
+                    <input onChange={e => setDescription(e.target.value)} type="text" className="upload-input second" placeholder='Add a description...' value={description} />
+                    <label className="text-label pic"> Upload an Image </label>
+                    <input
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                    className="file-input"
+                    />
+                    <button type="submit" className="upload-button">Submit</button>
+                    {(imageLoading)&& <p>Loading...</p>}
+                </form>
+            </div>
         </div>
         </>
     )

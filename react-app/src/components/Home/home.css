@@ -19,6 +19,21 @@
     display: flex;
     /* justify-content: center; */
     align-items: center;
+    background-color: #Fbfbf8;
+}
+
+.groups-box {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    width: 100vw;
+    height: 260px;
+}
+
+.group-text {
+    margin-left: 40px;
+
 }
 
 .groups-header {
@@ -32,24 +47,10 @@
 
 }
 
-.groups-box {
-   border-bottom: 1px solid black;
-   display: flex;
-   flex-direction: row;
-   margin-left: 30px;
-   width: 100vw;
-   height: 260px;
-}
-
 .group-name {
     font-weight: normal;
 }
 
-.group-text {
-    margin-left: 40px;
-    align-items: flex-start;
-
-}
 
 .group-description {
     font-size: 18px;

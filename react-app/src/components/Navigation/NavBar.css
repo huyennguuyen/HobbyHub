@@ -48,6 +48,7 @@
     font-family: "Cookie";
     color: #9CAF88;
     font-size: 36px;
+    text-decoration: none;
 }
 
 #right {
@@ -60,4 +61,5 @@
     margin-right: 10px;
 
 }
+
 
