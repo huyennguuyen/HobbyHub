@@ -49,3 +49,15 @@
     color: #9CAF88;
     font-size: 36px;
 }
+
+#right {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "PT Serif";
+}
+
+.nav-right-main {
+    margin-right: 10px;
+
+}
+
