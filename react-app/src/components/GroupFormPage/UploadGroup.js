@@ -80,7 +80,7 @@ const UploadGroup = () => {
     return (
         <>
         <div className="group-post">
-            <h2 className="upload-header">Get Started by adding a name to your group and a short description about your hobby!</h2>
+            <h2 className="upload-header">Get started by adding a name to your group and a short description about your hobby!</h2>
             <div className="upload-group-container">
                 <form onSubmit={handleSubmit} className="upload-form">
                     <ul className="new-group-errors">
