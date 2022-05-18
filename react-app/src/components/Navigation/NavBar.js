@@ -20,8 +20,8 @@ const NavBar = () => {
           <div className="container-nav">
             <nav className="session-user-nav">
               <div className="nav-left">
-                  <NavLink to='/home' exact={true} activeClassName='active'>
-                    Home
+                  <NavLink to='/home' exact={true} activeClassName='active' id="logo">
+                    Hobby Hub
                   </NavLink>
               </div>
               <div className="nav-right">
@@ -42,8 +42,8 @@ const NavBar = () => {
         <div className="container-nav"> 
           <nav className="not-session-user-nav">
               <div className="nav-left">
-                  <NavLink to='/' exact={true} activeClassName='active'>
-                    Home
+                  <NavLink to='/' exact={true} activeClassName='active' id="logo">
+                    Hobby Hub
                   </NavLink>
               </div>
               <div className="nav-right">

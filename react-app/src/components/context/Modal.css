@@ -21,7 +21,11 @@
  
   #modal-content {
     position: absolute;
-    width: 600px;
-    height: 400px;
+    /* width: 500px;
+    height: 560px; */
     background-color: white;
+    border-radius: 15px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }

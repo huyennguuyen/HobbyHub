@@ -18,15 +18,15 @@ export default function SplashPage () {
                     <img src={hobby} className="hobby"></img>
                 </div>
                 <div className="second-row">
-                    <div clasName="image-box">
+                    <div className="image-box">
                         <img src={first} className="splash-image"></img>
                         <p className="first-text">Make new friends</p>
                     </div>
-                    <div clasName="image-box"> 
+                    <div className="image-box"> 
                         <img src={second} className="splash-image"></img>
                         <p className="first-text">Explore the outdoors</p>
                     </div>
-                    <div clasName="image-box"> 
+                    <div className="image-box"> 
                         <img src={third} className="splash-image"></img>
                         <p className="first-text"> Connect over tech</p>
                     </div>      
