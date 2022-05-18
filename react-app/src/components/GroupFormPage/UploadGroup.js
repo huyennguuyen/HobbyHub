@@ -89,23 +89,25 @@ const UploadGroup = () => {
                             <div key={ind} className="errors">{error}</div>
                             ))}
                         </div>
-                        <label className='text-label'>
-                            Name
-                        </label>
-                        <input onChange={e => setName(e.target.value)} type="text" className="upload-input first" placeholder="Add a name here..." value={name} />
-                        <label className='text-label'>
-                            Description
-                        </label>
-                        <input onChange={e => setDescription(e.target.value)} type="text" className="upload-input second" placeholder='Add a description...' value={description} />
-                        <label className="text-label pic"> Upload an Image </label>
-                        <input
-                        type="file"
-                        accept="image/*"
-                        onChange={updateImage}
-                        className="file-input"
-                        />
-                        <button type="submit" className="upload-button">Submit</button>
-                        {(imageLoading)&& <p className="loading">Loading...</p>}
+                        <div className="center-group">
+                            <label className='text-label'>
+                                Name
+                            </label>
+                            <input onChange={e => setName(e.target.value)} type="text" className="upload-input first" placeholder="Add a name here..." value={name} />
+                            <label className='text-label'>
+                                Description
+                            </label>
+                            <input onChange={e => setDescription(e.target.value)} type="text" className="upload-input second" placeholder='Add a description...' value={description} />
+                            <label className="text-label pic"> Upload an Image </label>
+                            <input
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                            className="file-input"
+                            />
+                            <button type="submit" className="upload-button">Submit</button>
+                            {(imageLoading)&& <p className="loading">Loading...</p>}
+                        </div>
                     </div>
                 </form>
             </div>

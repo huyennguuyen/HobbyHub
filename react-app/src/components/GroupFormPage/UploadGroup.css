@@ -114,17 +114,23 @@ input[type="file"]::file-selector-button {
     
 }
 
-.group-errors {
+/* .group-errors {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 350px;
-}
+} */
 
 .inside-upload {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center
 
+}
+
+.center-group {
+    display: flex;
+    flex-direction: column;
 }
