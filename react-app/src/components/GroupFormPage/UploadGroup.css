@@ -37,8 +37,8 @@
 .upload-form {
     display: flex;
     flex-direction: column;
-    height: 440px;
-    margin-bottom: 30px;
+    height: 400px;
+    /* margin-bottom: 30px; */
 
 }
 
@@ -103,6 +103,7 @@ input[type="file"]::file-selector-button {
 
 .new-group-errors {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 0px;
@@ -111,4 +112,19 @@ input[type="file"]::file-selector-button {
 .upload-header {
     font-family: "PT Serif";
     
+}
+
+.group-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+}
+
+.inside-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }

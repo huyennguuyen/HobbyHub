@@ -1,0 +1,16 @@
+.edit-group-box{
+    width: 500px;
+    height: 560px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edit-group-form{
+    width: 500px;
+    height: 592px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
