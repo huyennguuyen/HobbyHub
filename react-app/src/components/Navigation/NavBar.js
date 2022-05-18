@@ -24,11 +24,11 @@ const NavBar = () => {
                     Hobby Hub
                   </NavLink>
               </div>
-              <div className="nav-right">
-                <NavLink to="/groups/new" exact={true} activeClassName="active">
+              <div className="nav-right-main">
+                <NavLink to="/groups/new" exact={true} activeClassName="active" id="right">
                   Start a New Group 
                 </NavLink>
-                <NavLink to="/my_groups" exact={true} activeClassName="active">
+                <NavLink to="/my_groups" exact={true} activeClassName="active" id="right">
                   My Groups
                 </NavLink>
                 <LogoutButton />

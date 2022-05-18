@@ -6,7 +6,7 @@ import EditGroup from "../EditGroupForm/EditGroupForm";
 import DeleteGroup from "../DeleteGroup";
 import { Modal } from "../context/Modal";
 // import AllGroups from "../AllGroups";
-// import "./MyGroups.css"
+import "./AllGroups.css"
 
 export default function AllGroups ({group}){
     const dispatch = useDispatch()
