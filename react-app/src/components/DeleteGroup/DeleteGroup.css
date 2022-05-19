@@ -1,0 +1,33 @@
+.delete-form{
+    width: 500px;
+    height: 300px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.delete-text {
+    font-family: "PT Serif";
+}
+
+#delete {
+    background-color: #E86652;
+    color: white;
+    font-family: "PT Serif";
+    font-size: 15px;
+    border: none;
+    height: 28px;
+    width: 92;
+    border-radius: 3px;
+}
+
+.cancel-button {
+    width: 113px;
+    margin-left: 18px;
+}
+
+.delete-button {
+    margin-right: 5px;
+
+}

@@ -45,21 +45,25 @@ function SingleGroup() {
     return (
         <>
         <div className="single-group-container">
-            <div className="details-group"> 
-                <h1>{group?.name}</h1>
-                <p>{group?.description}</p>
-                <img src={group?.backgroundImage} className="image"></img>
+            <div className="single-group-page">
+                <div className="details-group"> 
+                    <img src={group?.backgroundImage} className="image"></img>
+                    <div className="single-text">
+                        <h2 className="group-name">{group?.name}</h2>
+                        <p className="group-description">{group?.description}</p>
+                    </div>
+                </div>
                 <UploadPost group={group}/>
+                {posts && posts.map(post => (
+                    post.image ?
+                    <> 
+                    <PostWithImage key={post.id} post={post} group={group}/>
+                    </>:
+                    <> 
+                    <PostWithOutImage key={post.id} post={post} group={group}/>
+                    </>
+                ))}
             </div>
-            {posts && posts.map(post => (
-                post.image ?
-                <> 
-                <PostWithImage key={post.id} post={post} group={group}/>
-                </>:
-                <> 
-                <PostWithOutImage key={post.id} post={post} group={group}/>
-                </>
-            ))}
         </div>
         </>
     )

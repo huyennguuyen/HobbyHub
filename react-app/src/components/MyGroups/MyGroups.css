@@ -1,8 +1,6 @@
-.my-groups-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* .my-groups-container{
+    background-color: pink;
+} */
 
 .my-groups-header {
     display: flex;
@@ -10,21 +8,38 @@
     align-items: center;
     margin-top: 100px;
     position: relative;
+    font-family: "PT Serif"
 
+}
+
+/* .my-groups-box {
+   border: 1px solid black;
+} */
+
+.my-groups-container {
+    display: flex;
+    /* justify-content: center; */
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    background-color: #Fbfbf8;
 }
 
 .my-groups-box {
-   border: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    width: 100vw;
+    height: 260px;
 }
 
-/* p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.my-groups-header {
+    font-size: 38px;
+}
 
+/* .my-groups-center {
+    display: flex;
+    
 } */
 
-.buttons-box {
-    display: flex;
-    flex-direction: column;
-}

@@ -1,4 +1,4 @@
-.my-groups-container {
+/* .my-groups-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
 
 .my-groups-box {
    border: 1px solid black;
-}
+} */
 
 /* p {
     display: flex;
@@ -25,7 +25,31 @@
 
 } */
 
-.buttons-box {
+.my-group-buttons-box {
+    display: flex;
+    flex-direction: row;
+    margin-top: 22px;
+}
+
+.my-groups-description {
     display: flex;
     flex-direction: column;
+    margin-left: 40px;
+    height: 260px;
+}
+
+.my-group-button {
+    background-color: #E86652;
+    color: white;
+    font-family: "PT Serif";
+    font-size: 15px;
+    border: none;
+    height: 28px;
+    width: 92;
+    border-radius: 3px;
+}
+
+.delete-my-group {
+    margin-left: 30px;
+    width: 85px;
 }

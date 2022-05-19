@@ -1,4 +1,147 @@
 
+/* .upload-group-container{
+    background-color: #fbfbf8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+.group-post {
+    background-color: #fbfbf8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 56px;
+    height: 100vh;
+    flex-direction: column;
+
+
+}
+
 .upload-group-container{
-    margin-top: 100px;
+    margin-top: 35px;
+    width: 450px;
+    height: 500px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background-color: white;
+   
+}
+
+
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    /* margin-bottom: 30px; */
+
+}
+
+.text-label {
+    font-size: 16px; 
+    font-family: "PT Serif";
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.upload-input {
+    height: 40px;
+    width: 344px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    font-family: 'PT Serif';
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.upload-button{
+    /* margin-top: 25px; */
+    background-color: #E86652;
+    color: white;
+    font-family: "PT Serif";
+    font-size: 18px;
+    border: none;
+    height: 38px;
+    border-radius: 6px;
+}
+
+/* .file-button {
+    margin-top: 16px;
+    background-color: none;
+    font-size: 
+    
+
+} */
+
+.pic {
+    margin-bottom: 18px;
+}
+
+.file-input {
+    margin-bottom: 30px;
+    font-family: "PT Serif"
+
+}
+
+input[type="file"]::file-selector-button {
+
+    background-color: #E86652;
+    color: white;
+    font-family: "PT Serif";
+    font-size: 15px;
+    border: none;
+    height: 28px;
+    width: 92;
+    border-radius: 3px;
+    
+}
+
+.new-group-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
+}
+
+.upload-header {
+    font-family: "PT Serif";
+    
+}
+
+/* .group-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+} */
+
+.inside-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+
+}
+
+.center-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.loading {
+    font-family: "PT Serif";
+    font-size: 14px;
+
+}
+
+.loading-text {
+    display: flex;
+    justify-content: center;
 }

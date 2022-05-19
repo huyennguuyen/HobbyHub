@@ -1,0 +1,72 @@
+.edit-group-box{
+    width: 500px;
+    height: 560px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edit-group-form{
+    width: 500px;
+    height: 592px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.login-form-box{
+    width: 500px;
+    height: 560px;
+    display:flex;
+    justify-content: center;
+    margin-top: 200px;
+    flex-direction: column;
+}
+
+.login-form{
+    width: 500px;
+    height: 592px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center-edit-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-labels {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* .login-input {
+    height: 40px;
+    width: 344px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    font-family: 'PT Serif';
+    margin-top: 8px;
+    margin-bottom: 8px;
+} */
+
+
+.edit-group-image {
+    font-family: "PT Serif";
+}
+
+.edit-group-label {
+    font-size: 20px;
+    margin-bottom: 18px
+}
+
+#edit-group-input {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}

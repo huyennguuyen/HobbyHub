@@ -21,25 +21,27 @@ export default function AllGroups ({group}){
     return (
         <>
         <div className="my-groups-box" key={group.id}>
-        <p>{group?.name}</p>
-        <p>{group?.description}</p>
-        <NavLink to={`/groups/${group?.id}`}>
-        <img src={group.backgroundImage} className="image"></img>
-        </NavLink>
-        <div className="buttons-box"> 
-            <button onClick={e => setShowEditGroup(true)}>Edit Group</button>
-            {showEditGroup && (
-            <Modal onClose={() => setShowEditGroup(false)}> 
-                <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
-            </Modal>
-            )}
-            <button onClick={ () => setShowDeleteGroup(true)}>Delete</button>
-            {showDeleteGroup && (
-            <Modal onClose={() => setShowDeleteGroup(false)}>
-                <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
-            </Modal>
-            )} 
-        </div>
+            <NavLink to={`/groups/${group?.id}`}>
+            <img src={group.backgroundImage} className="image"></img>
+            </NavLink>
+            <div className="my-groups-description">
+                <h2 className="group-name">{group?.name}</h2>
+                <p className="group-description">{group?.description}</p>
+                <div className="my-group-buttons-box"> 
+                    <button onClick={e => setShowEditGroup(true)} className="my-group-button">Edit Group</button>
+                    {showEditGroup && (
+                    <Modal onClose={() => setShowEditGroup(false)}> 
+                        <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
+                    </Modal>
+                    )}
+                    <button onClick={ () => setShowDeleteGroup(true)} className="my-group-button delete-my-group">Delete</button>
+                    {showDeleteGroup && (
+                    <Modal onClose={() => setShowDeleteGroup(false)}>
+                        <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
+                    </Modal>
+                    )} 
+                </div>
+            </div>
         </div>
         </>
     )

@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as postActions from "../../store/post"
+import "./UploadPost.css"
 
 
 
@@ -20,7 +21,7 @@ const UploadPost = ({group}) => {
     useEffect(() => {
         let errors = [];
         if(!title.length) errors.push("Please enter a name.")
-        if(!description.length) errors.push("Please enter a description")
+        if(!description.length) errors.push("Please enter a description.")
         setErrors(errors)
     }, [title, description])
     
@@ -43,9 +44,9 @@ const UploadPost = ({group}) => {
         
         // console.log("THIS IS FORM DATA---------------", formData.values())
 
-        for(let key of formData.values()){
-            console.log("THIS IS VALUES------", key)
-        }
+        // for(let key of formData.values()){
+        //     console.log("THIS IS VALUES------", key)
+        // }
 
         // let formValues = formData.values()
         // console.log(formValues)
@@ -78,27 +79,37 @@ const UploadPost = ({group}) => {
     
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <ul className="new-note-errors">
-            {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label className='textlabel'>
-                Title:
-            </label>
-            <input onChange={e => setTitle(e.target.value)} type="text" className="new-note-text" placeholder="Add a name here..." value={title} />
-            <label className='textlabel'>
-                Description:
-            </label>
-            <textarea onChange={e => setDescription(e.target.value)} type="text" className="new-trip-destination" placeholder='Add a description...' value={description} />
-            <input
-              type="file"
-              accept="image/*"
-            //   multiple
-              onChange={updateImage}
-            />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        <div className="upload-post">
+            <form onSubmit={handleSubmit} className="post-form">
+                <div className="inside-post">
+
+                    <ul className="post-errors">
+                        {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                    </ul>
+                    <div className="post-first">
+                        <label className='text-label'>
+                            Title:
+                        </label>
+                        <input onChange={e => setTitle(e.target.value)} type="text" className="post-input one" placeholder="Add a name here..." value={title} />
+                        <label className='text-label'>
+                            Description:
+                        </label>
+                        <textarea onChange={e => setDescription(e.target.value)} type="text" className="post-input two" placeholder='Add a description...' value={description} />
+                        <label className="text-label">Upload an Image</label>
+                    </div>
+                    <div className="post-second">
+                        <input
+                        type="file"
+                        accept="image/*"
+                        //   multiple
+                        onChange={updateImage}
+                        />
+                        <button type="submit">Submit</button>
+                    </div>
+                    {(imageLoading)&& <p>Loading...</p>}
+                </div>
+            </form>
+        </div>
         </>
     )
 }
