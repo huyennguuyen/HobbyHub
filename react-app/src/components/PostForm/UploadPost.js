@@ -20,11 +20,13 @@ const UploadPost = ({group, setShowModal}) => {
 
     useEffect(() => {
         let errors = [];
+        let imageFile = ["pdf", "png", "jpg", "jpeg", "gif"]
         if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description.")
         if(title.length > 255) errors.push("Please enter a name less than 255 characters.")
+        if(!imageFile.includes(image?.name.split(".").pop())) errors.push ("Please upload a pdf, png, jpg, jpeg, or gif file type.")
         setErrors(errors)
-    }, [title, description])
+    }, [title, description, image])
 
     // useEffect(() => {
     //     return () => {
