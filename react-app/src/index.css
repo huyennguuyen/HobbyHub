@@ -24,6 +24,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: scroll;
+    height: 100vh;
+    background-color: #fbfbf8;
 } 
 
 html {
@@ -52,3 +54,5 @@ a {
 .demo-button {
     margin: 8px;
 }
+
+

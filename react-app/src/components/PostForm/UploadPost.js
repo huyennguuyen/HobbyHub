@@ -88,11 +88,11 @@ const UploadPost = ({group}) => {
                     </ul>
                     <div className="post-first">
                         <label className='text-label'>
-                            Title:
+                            Title
                         </label>
                         <input onChange={e => setTitle(e.target.value)} type="text" className="post-input one" placeholder="Add a name here..." value={title} />
                         <label className='text-label'>
-                            Description:
+                            Description
                         </label>
                         <textarea onChange={e => setDescription(e.target.value)} type="text" className="post-input two" placeholder='Add a description...' value={description} />
                         <label className="text-label">Upload an Image</label>

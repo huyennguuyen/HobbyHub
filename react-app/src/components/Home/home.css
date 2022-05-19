@@ -18,10 +18,11 @@
 .groups-container {
     display: flex;
     /* justify-content: center; */
-    background-color: #Fbfbf8;
+    /* background-color: #Fbfbf8; */
+    /* background-color: pink; */
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 .groups-box {
