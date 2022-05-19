@@ -99,7 +99,6 @@ const UploadPost = ({group, setShowModal}) => {
         <div className="upload-post">
             <form onSubmit={handleSubmit} className="post-form">
                 <div className="inside-post">
-
                     <ul className="post-errors">
                         {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
                     </ul>
@@ -112,7 +111,7 @@ const UploadPost = ({group, setShowModal}) => {
                             Description
                         </label>
                         <textarea onChange={e => setDescription(e.target.value)} type="text" className="post-input two" placeholder='Add a description...' value={description} />
-                        <label className="text-label">Upload an Image</label>
+                        <label className="text-label">Upload an Image (optional)</label>
                     </div>
                     <div className="post-second">
                         <input

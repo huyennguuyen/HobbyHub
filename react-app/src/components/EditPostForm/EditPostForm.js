@@ -124,7 +124,7 @@ const EditPost = ({closeModal, post, group}) => {
                         Description:
                     </label>
                     <input onChange={e => setDescription(e.target.value)} type="text" id="edit-group-input" className="login-input second" placeholder='Add a description...' value={description} />
-                    <label className="edit-group-label">Upload an Image</label>
+                    <label className="edit-group-label">Upload an Image (optional)</label>
                     <input
                     type="file"
                     accept="image/*"
