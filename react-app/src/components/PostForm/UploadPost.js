@@ -103,10 +103,13 @@ const UploadPost = ({group}) => {
                         accept="image/*"
                         //   multiple
                         onChange={updateImage}
+                        className="post-image-input"
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit" className="upload-button post">Submit</button>
                     </div>
-                    {(imageLoading)&& <p>Loading...</p>}
+                    <div className="loading-text">
+                        {(imageLoading)&& <p className="loading">Loading...</p>}
+                    </div>
                 </div>
             </form>
         </div>
