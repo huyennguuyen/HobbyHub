@@ -6,7 +6,7 @@ import "./UploadPost.css"
 
 
 
-const UploadPost = ({group}) => {
+const UploadPost = ({group, setShowModal}) => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -24,6 +24,14 @@ const UploadPost = ({group}) => {
         if(!description.length) errors.push("Please enter a description.")
         setErrors(errors)
     }, [title, description])
+
+    // useEffect(() => {
+    //     return () => {
+    //         setTitle("")
+    //         setDescription("")
+    //         setImage(null)
+    //     }
+    // }, [image, title, description])
     
     
     const handleSubmit = async (e) => {
@@ -54,6 +62,12 @@ const UploadPost = ({group}) => {
         // some sort of loading message is a good idea
         setImageLoading(true);
         const posted = await dispatch(postActions.postNewPost(formData))
+
+        // setTitle("")
+        // setDescription("")
+        // setImage(false)
+
+        setShowModal(false)
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
