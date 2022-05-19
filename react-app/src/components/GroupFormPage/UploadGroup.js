@@ -23,6 +23,7 @@ const UploadGroup = () => {
         if(!name.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description.")
         if(!image) errors.push("Please upload an image.")
+        if(name.length > 255) errors.push("Please enter a name less than 255 characters.")
         setErrors(errors)
     }, [name, description, image])
     

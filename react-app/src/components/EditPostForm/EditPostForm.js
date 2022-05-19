@@ -25,6 +25,7 @@ const EditPost = ({closeModal, post, group}) => {
         let errors = [];
         if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description.")
+        if(title.length > 255) errors.push("Please enter a name less than 255 characters.")
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [title, description])
