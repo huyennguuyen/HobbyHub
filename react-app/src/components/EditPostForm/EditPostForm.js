@@ -28,6 +28,7 @@ const EditPost = ({closeModal, post, group}) => {
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [title, description])
+
     
     
     const handleSubmit = async (e) => {
@@ -72,17 +73,19 @@ const EditPost = ({closeModal, post, group}) => {
         //     body: formData,
         // });
 
-        let res = await dispatch(postActions.editPost(formData))
+       await dispatch(postActions.editPost(formData))
 
-        closeModal()
+       closeModal()
+
 
         // console.log("THIS IS POST-------", post)
         
-        if (res) {
+        // if (res) {
             setImageLoading(false);
              history.push(`/groups/${group.id}`);
+            //  closeModal()
             // setErrors(["nope"])
-        }
+        // }
         // else {
         //     setImageLoading(false);
         //     // a real app would probably use more advanced

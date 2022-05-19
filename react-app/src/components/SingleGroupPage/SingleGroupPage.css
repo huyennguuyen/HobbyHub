@@ -28,3 +28,21 @@
 .single-group-page {
     margin-top: 100px
 }
+
+.post-button {
+    background-color: #E86652;
+    color: white;
+    font-family: "PT Serif";
+    font-size: 15px;
+    border: none;
+    height: 28px;
+    width: 92;
+    border-radius: 3px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.center-post {
+    display: flex;
+    justify-content: center;
+}

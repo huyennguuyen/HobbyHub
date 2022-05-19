@@ -17,6 +17,7 @@ function SingleGroup() {
     
     const group = useSelector(state => state.groups[groupId]);
     const sessionUser = useSelector(state => state.session.user);
+    const [showModal, setShowModal] = useState(false)
 
     const postsObj = useSelector(state => state.posts);
     const posts = Object.values(postsObj)
@@ -53,14 +54,17 @@ function SingleGroup() {
                         <p className="group-description">{group?.description}</p>
                     </div>
                 </div>
-                <UploadPost group={group}/>
+                <div className="center-post">
+                    <button onClick={() => setShowModal(!showModal)} className="post-button">Create a Post</button>
+                </div>
+                {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
                 {posts && posts.map(post => (
                     post.image ?
                     <> 
-                    <PostWithImage key={post.id} post={post} group={group}/>
+                    <PostWithImage key={post?.id} post={post} group={group}/>
                     </>:
                     <> 
-                    <PostWithOutImage key={post.id} post={post} group={group}/>
+                    <PostWithOutImage key={post?.id} post={post} group={group}/>
                     </>
                 ))}
             </div>
