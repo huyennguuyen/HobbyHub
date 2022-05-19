@@ -103,29 +103,33 @@ const EditPost = ({closeModal, post, group}) => {
     return (
         <>
         <div className="edit-group-box">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="edit-group-form">
                 <div className="inside-edit-group">
                     <div>
                         {hasSubmitted && errors.map((error, ind) => (
                         <div key={ind} className="errors">{error}</div>
                         ))}
                     </div>
-                    <div className="center-edit-group">
-                        <label className='textlabel'>
+                    <div className="center-login">
+                        <label className='login text'>
                             Title:
                         </label>
-                        <input onChange={e => setTitle(e.target.value)} type="text" className="login-input first" placeholder="Add a name here..." value={title} />
-                        <label className='textlabel'>
+                        <input onChange={e => setTitle(e.target.value)} type="text" id="edit-group-input" className="login-input first-image" placeholder="Add a name here..." value={title} />
+                        <label className='login text'>
                             Description:
                         </label>
-                        <input onChange={e => setDescription(e.target.value)} type="text" className="login-input second" placeholder='Add a description...' value={description} />
+                        <input onChange={e => setDescription(e.target.value)} type="text" id="edit-group-input" className="login-input second" placeholder='Add a description...' value={description} />
+                        <label className="edit-group-label">Upload an Image</label>
                         <input
                         type="file"
                         accept="image/*"
                         onChange={updateImage}
+                        className="edit-group-image"
                         />
-                        <button type="submit">Submit</button>
-                        {imageLoading && <p>Loading...</p> }
+                        <button type="submit" className="login-button">Submit</button>
+                        <div className="loading-text">
+                            {imageLoading && <p>Loading...</p>}
+                        </div>
                     </div>
                 </div>
             </form>

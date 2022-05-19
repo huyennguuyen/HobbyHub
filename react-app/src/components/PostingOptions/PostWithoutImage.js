@@ -23,19 +23,19 @@ export default function PostWithOutImage ({post, group}) {
     <>
     <div className="post-image">
         <div className="inside-post-image">
-
-            <h3>{post?.title}</h3>
-            {/* <img src={post?.image} className="image"></img> */}
-            <p className="post-description">{post?.description}</p>
+            <div className="centering">
+                <h3>{post?.title}</h3>
+                <p className="post-description">{post?.description}</p>
+            </div>
             {sessionUser?.id === post?.ownerId && (
             <div className="buttons-box">
-                <button onClick={e => setShowEditPost(true)}>Edit Post</button>
+                <button onClick={e => setShowEditPost(true)} className="my-group-button">Edit Post</button>
                 {showEditPost && (
                 <Modal onClose={() => setShowEditPost(false)}> 
                     <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
                 </Modal>
                 )}
-                <button onClick={ () => setShowDeletePost(true)}>Delete</button>
+                <button onClick={ () => setShowDeletePost(true)} className="my-group-button delete-post">Delete</button>
                 {showDeletePost && (
                 <Modal onClose={() => setShowDeletePost(false)}>
                     <DeletePost closeModal={() => setShowDeletePost(false)} post={post}/>

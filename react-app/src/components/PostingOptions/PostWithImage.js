@@ -31,13 +31,13 @@ return (
             {/* </div> */}
             {sessionUser?.id === post?.ownerId && (
             <div className="buttons-bov">
-                <button onClick={e => setShowEditPost(true)}>Edit Post</button>
+                <button onClick={e => setShowEditPost(true)} className="my-group-button">Edit Post</button>
                 {showEditPost && (
                 <Modal onClose={() => setShowEditPost(false)}> 
                     <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
                 </Modal>
                 )}
-                <button onClick={() => setShowDeletePost(true)}>Delete</button>
+                <button onClick={() => setShowDeletePost(true)} className="my-group-button delete-post">Delete</button>
                 {showDeletePost && (
                 <Modal onClose={() => setShowDeletePost(false)}> 
                     <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
