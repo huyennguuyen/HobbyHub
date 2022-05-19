@@ -5,6 +5,9 @@
     align-items: center; 
     flex-direction: column;
     background-color: #fbfbf8;
+    overflow: scroll;
+    /* width: 100vw;
+    height: 100vh; */
 }
 
 .details-group {
@@ -15,7 +18,7 @@
     height: 220px;
     margin-top: 20px;
     border-bottom: 1px solid black;
-    width: 100wh;
+    /* width: 100wh; */
 }
 
 .single-text {

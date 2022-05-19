@@ -60,3 +60,14 @@
     padding-left: 55px;
   
 }
+
+.post-image-input {
+    font-family: "PT Serif";
+}
+
+.upload-button.post {
+    width: 90px;
+    height: 28px;
+    border-radius: 3px;
+
+}

@@ -27,10 +27,10 @@ function DeleteGroup({ closeModal, group }) {
         <div className="delete-box">
             <form className="delete-form" onSubmit={e => handleSubmit(e, group)}>
                 <h3 className="delete-text">Are you sure you want to delete your group?</h3>
-                <div id="delete_note_buttons">
+                <div >
                     <button id="delete" className="delete-button" type="submit">Confirm Delete</button>
                     <button id="delete" className="cancel-button" onClick={handleCancelClick}>Cancel</button>
-                    <ul className="new-trip-errors">
+                    <ul>
                         {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 </div>

@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     border-top: 1px solid black;
+    /* overflow: scroll; */
 
 }
 
@@ -15,10 +16,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 500px;
     border-radius: 8px;
     box-shadow: 5px 5px 5px 5px #D3D3D3;
     width: 527px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+}
+
+.post-description {
+    overflow: scroll;
+    width: 450px;
+    height: 150px;
+    margin-top: 8px;
+
+}
+
+/* ::-webkit-scrollbar {
+    width: 10px;
+  } */
+
+.post-title {
+   margin-bottom: 0px;
+   display: flex;
+   justify-content: flex-start;
+   
+}
+
+/* .end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.centering {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.delete-post {
+    width: 72px;
+    margin-left: 30px;
+    border-radius: 3px;
 }
