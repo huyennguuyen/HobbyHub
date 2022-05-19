@@ -24,13 +24,13 @@ function DeletePost({ closeModal, post }) {
     };
 
     return (
-        <div className="formContainer7">
-            <form id="delete_note_form" onSubmit={e => handleSubmit(e, post)}>
-                <h3>Are you sure?</h3>
-                <div id="delete_note_buttons">
-                    <button id="delete" className="deleteButton" type="submit">Confirm Delete</button>
-                    <button id="delete" className="cancelDelete" onClick={handleCancelClick}>Cancel</button>
-                    <ul className="new-trip-errors">
+        <div className="delete-box">
+            <form className="delete-form" onSubmit={e => handleSubmit(e, post)}>
+                <h3 className="delete-text">Are you sure you want to delete your post?</h3>
+                <div>
+                    <button id="delete" className="delete-button" type="submit">Confirm Delete</button>
+                    <button id="delete" className="cancel-button" onClick={handleCancelClick}>Cancel</button>
+                    <ul>
                         {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 </div>
