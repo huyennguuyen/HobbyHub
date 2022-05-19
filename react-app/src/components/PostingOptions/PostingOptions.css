@@ -3,4 +3,22 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-top: 1px solid black;
+
+}
+
+.inside-post-image {
+    border: 1px solid black;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px #D3D3D3;
+    width: 527px;
+    display: flex;
+    flex-direction: column;
 }

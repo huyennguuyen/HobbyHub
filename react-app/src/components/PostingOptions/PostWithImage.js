@@ -22,25 +22,27 @@ export default function PostWithImage ({post, group}) {
 return (
     <>
     <div className="post-image">
-        <h3>{post?.title}</h3>
-        <img src={post?.image} className="image"></img>
-        <p>{post?.description}</p>
-        {sessionUser?.id === post?.ownerId && (
-        <div className="buttons-bov">
-            <button onClick={e => setShowEditPost(true)}>Edit Post</button>
-            {showEditPost && (
-            <Modal onClose={() => setShowEditPost(false)}> 
-                <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
-            </Modal>
+        <div className="inside-post-image">
+            <h3>{post?.title}</h3>
+            <img src={post?.image} className="image"></img>
+            <p>{post?.description}</p>
+            {sessionUser?.id === post?.ownerId && (
+            <div className="buttons-bov">
+                <button onClick={e => setShowEditPost(true)}>Edit Post</button>
+                {showEditPost && (
+                <Modal onClose={() => setShowEditPost(false)}> 
+                    <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
+                </Modal>
+                )}
+                <button onClick={() => setShowDeletePost(true)}>Delete</button>
+                {showDeletePost && (
+                <Modal onClose={() => setShowDeletePost(false)}> 
+                    <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
+                </Modal>
+                    )}       
+            </div>
             )}
-            <button onClick={() => setShowDeletePost(true)}>Delete</button>
-            {showDeletePost && (
-            <Modal onClose={() => setShowDeletePost(false)}> 
-                <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
-            </Modal>
-                )}       
         </div>
-        )}
     </div>
     </>
 )

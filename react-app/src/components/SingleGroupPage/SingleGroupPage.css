@@ -1,14 +1,27 @@
-.single-group-container{
-    margin-top: 100px;
+.single-group-container {
+    /* margin-top: 100px; */
     display: flex; 
     justify-content: center; 
     align-items: center; 
     flex-direction: column;
+    background-color: #fbfbf8;
 }
 
 .details-group {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    /* align-items: center; */
+    flex-direction: row;
+    height: 220px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    width: 100wh;
+}
+
+.single-text {
+    margin-left: 40px;
+}
+
+.single-group-page {
+    margin-top: 100px
 }

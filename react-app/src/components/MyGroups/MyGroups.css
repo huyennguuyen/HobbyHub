@@ -1,33 +1,6 @@
-/* .my-groups-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.my-groups-container{
+    background-color: #fbfbf8;
 }
-
-.my-groups-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    position: relative;
-
-}
-
-.my-groups-box {
-   border: 1px solid black;
-}
-
-
-.buttons-box {
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .my-groups-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .my-groups-header {
     display: flex;
@@ -43,12 +16,6 @@
    border: 1px solid black;
 } */
 
-.my-groups-container {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    background-color: #Fbfbf8;
-}
 
 .my-groups-box {
     border-bottom: 1px solid black;
@@ -57,6 +24,10 @@
     margin-left: 30px;
     width: 100vw;
     height: 260px;
+}
+
+.my-groups-header {
+    font-size: 38px;
 }
 
 /* .my-groups-center {
