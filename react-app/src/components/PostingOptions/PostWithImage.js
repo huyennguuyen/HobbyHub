@@ -23,9 +23,12 @@ return (
     <>
     <div className="post-image">
         <div className="inside-post-image">
-            <h3>{post?.title}</h3>
             <img src={post?.image} className="image"></img>
-            <p>{post?.description}</p>
+            <div className="centering">
+                <h3 className="post-title">{post?.title}</h3>
+                <p className="post-description">{post?.description}</p>
+            </div>
+            {/* </div> */}
             {sessionUser?.id === post?.ownerId && (
             <div className="buttons-bov">
                 <button onClick={e => setShowEditPost(true)}>Edit Post</button>
