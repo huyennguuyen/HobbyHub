@@ -47,6 +47,8 @@
 .center-post {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -54,3 +56,19 @@
     border-bottom: 1px solid black;
 
 }
+
+.post-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    width: 100vw;
+}
+
+/* .post-image {
+    border-top: 100vh;
+} */
+
+
+

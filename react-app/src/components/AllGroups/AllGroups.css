@@ -36,6 +36,7 @@
     flex-direction: column;
     margin-left: 40px;
     height: 260px;
+    width: 700px;
 }
 
 .my-group-button {
@@ -56,10 +57,10 @@
 
 .all-my-groups-description {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 40px;
     height: 260px;
-    width: 500px;
+    width: 700px;
 }
 
 .dropdown {
@@ -81,10 +82,14 @@
     opacity: 1;
 }
 
+.dropdown > .link:active + .dropdown-menu {
+    opacity: 1;
+}
+
 .row-menu {
     display: flex;
     flex-direction: row;
-    width: 900px;
+    width: 960px;
 }
 
 /* .my-groups-box {
@@ -94,5 +99,6 @@
 .menu-box {
     width: 100px;
     height: 100px;
+    margin-left: 50px;
 }
 

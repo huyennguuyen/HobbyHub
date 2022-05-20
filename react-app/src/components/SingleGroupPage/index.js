@@ -18,6 +18,7 @@ function SingleGroup() {
     const group = useSelector(state => state.groups[groupId]);
     const sessionUser = useSelector(state => state.session.user);
     const [showModal, setShowModal] = useState(false)
+    const [showForm, setShowForm] = useState(false)
 
     const postsObj = useSelector(state => state.posts);
     const posts = Object.values(postsObj)
@@ -42,6 +43,19 @@ function SingleGroup() {
         }
     }, [groupId])
 
+    useEffect(() => {
+        if(!showForm) return;
+
+        const closeForm = () => {
+            setShowForm(false)
+        }
+
+        document.addEventListener("click", closeForm)
+
+        return () => document.removeEventListener("click", closeForm)
+
+    }, [showForm])
+
 
     return (
         <>
@@ -57,18 +71,20 @@ function SingleGroup() {
                     </div>
                 </div>
                 <div className="center-post">
-                    <button onClick={() => setShowModal(!showModal)} className="post-button">Create a Post</button>
+                    <button onClick={() => setShowModal(!showModal)} className="post-button">{showModal ? "Cancel" : "Create a Post"}</button>
+                    <div className="post-dropdown">
+                        {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
+                        {posts && posts.map(post => (
+                            post.image ?
+                            <> 
+                            <PostWithImage key={post?.id} post={post} group={group}/>
+                            </>:
+                            <> 
+                            <PostWithOutImage key={post?.id} post={post} group={group}/>
+                            </>
+                        ))}
+                    </div>
                 </div>
-                {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
-                {posts && posts.map(post => (
-                    post.image ?
-                    <> 
-                    <PostWithImage key={post?.id} post={post} group={group}/>
-                    </>:
-                    <> 
-                    <PostWithOutImage key={post?.id} post={post} group={group}/>
-                    </>
-                ))}
             </div>
         </div>
         </>
