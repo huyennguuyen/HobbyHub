@@ -15,6 +15,7 @@ import UploadGroup from './components/GroupFormPage/UploadGroup';
 import MyGroups from "./components/MyGroups"
 import SplashPage from './components/SplashPage';
 import SignUpFormModal from './components/SignUpForm/SignUpFormModal';
+import Footer from "./components/Footer"
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <Footer />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

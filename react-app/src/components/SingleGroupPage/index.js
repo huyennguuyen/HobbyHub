@@ -47,11 +47,13 @@ function SingleGroup() {
         <>
         <div className="single-group-container">
             <div className="single-group-page">
-                <div className="details-group"> 
-                    <img src={group?.backgroundImage} className="image"></img>
-                    <div className="single-text">
-                        <h2 className="group-name">{group?.name}</h2>
-                        <p className="group-description">{group?.description}</p>
+                <div className="outside-details">
+                    <div className="details-group"> 
+                        <img src={group?.backgroundImage} className="image"></img>
+                        <div className="single-text">
+                            <h2 className="group-name">{group?.name}</h2>
+                            <p className="group-description">{group?.description}</p>
+                        </div>
                     </div>
                 </div>
                 <div className="center-post">

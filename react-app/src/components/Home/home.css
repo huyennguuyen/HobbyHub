@@ -2,8 +2,6 @@
     height: 185px;
     width: 280px;
     transition: 1s ease;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px gray;
 }
 
     
@@ -52,10 +50,19 @@
 
 .group-name {
     font-weight: normal;
+    overflow: scroll;
 }
 
 
 .group-description {
     font-size: 18px;
+    overflow: auto;
 }
 
+#scroll {
+    overflow: auto;
+}
+
+#scrolling {
+    overflow: auto;
+}
