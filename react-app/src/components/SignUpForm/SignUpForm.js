@@ -23,6 +23,7 @@ const SignUpForm = () => {
     if(!email.length) errors.push("Please enter a email.")
     if(!password.length) errors.push("Please enter a password.")
     if(!repeatPassword.length) errors.push("Please repeat the entered password.")
+    if(password !== repeatPassword) errors.push("Please have password and repeated password match.")
     setErrors(errors)
   }, [email, password, username, repeatPassword])
 
