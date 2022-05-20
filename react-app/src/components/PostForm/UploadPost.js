@@ -73,7 +73,7 @@ const UploadPost = ({group, setShowModal}) => {
         // setDescription("")
         // setImage(false)
 
-        setShowModal(false)
+        // setShowModal(false)
 
         // const res = await fetch('/api/images', {
         //     method: "POST",
