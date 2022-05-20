@@ -85,6 +85,7 @@ const UploadPost = ({group, setShowModal}) => {
         // }
         // else {
             setImageLoading(false);
+            setShowModal(false)
             // a real app would probably use more advanced
             // error handling
             history.push(`/groups/${group.id}`);
