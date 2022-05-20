@@ -24,7 +24,7 @@ export default function AllGroups ({group}){
         <div className="my-groups-box" key={group.id}>
             <div className="row-menu">
                 <NavLink to={`/groups/${group?.id}`}>
-                <img src={group.backgroundImage} className="image"></img>
+                <img src={group.backgroundImage} className="image" id="group-image"></img>
                 </NavLink>
                 <div className="all-my-groups-description">
                     <h2 className="group-name">{group?.name}</h2>
@@ -33,23 +33,22 @@ export default function AllGroups ({group}){
             </div>
             <div className="menu-box">
                 <div className="dropdown">
-                    <button class="link"><FiMoreHorizontal /></button>
+                    <button class="link" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
                     <div className="dropdown-menu">
-                        Dropdown Content
-                        <div className="my-group-buttons-box"> 
-                            <button onClick={e => setShowEditGroup(true)} className="my-group-button">Edit Group</button>
-                            {showEditGroup && (
-                            <Modal onClose={() => setShowEditGroup(false)}> 
-                                <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
-                            </Modal>
-                            )}
-                            <button onClick={ () => setShowDeleteGroup(true)} className="my-group-button delete-my-group">Delete</button>
-                            {showDeleteGroup && (
-                            <Modal onClose={() => setShowDeleteGroup(false)}>
-                                <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
-                            </Modal>
-                            )} 
-                        </div>
+                        {/* <div className="my-group-buttons-box">  */}
+                        <button onClick={e => setShowEditGroup(true)} className="my-button">Edit Group</button>
+                        {showEditGroup && (
+                        <Modal onClose={() => setShowEditGroup(false)}> 
+                            <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
+                        </Modal>
+                        )}
+                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete">Delete</button>
+                        {showDeleteGroup && (
+                        <Modal onClose={() => setShowDeleteGroup(false)}>
+                            <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
+                        </Modal>
+                        )} 
+                        {/* </div> */}
                     </div>
                 </div>
             </div>
