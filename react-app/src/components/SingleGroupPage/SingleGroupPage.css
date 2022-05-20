@@ -12,12 +12,14 @@
 
 .details-group {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
+    /* justify-content: center; 
+    align-items: center; */
+    margin-left: 40px;
     flex-direction: row;
     height: 220px;
     margin-top: 20px;
     border-bottom: 1px solid black;
+    width: 100vw;
     /* width: 100wh; */
 }
 

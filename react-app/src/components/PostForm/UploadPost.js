@@ -100,38 +100,40 @@ const UploadPost = ({group, setShowModal}) => {
     
     return (
         <>
-        <div className="upload-post">
-            <form onSubmit={handleSubmit} className="post-form">
-                <div className="inside-post">
-                    <ul className="post-errors">
-                        {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
-                    </ul>
-                    <div className="post-first">
-                        <label className='text-label'>
-                            Title
-                        </label>
-                        <input onChange={e => setTitle(e.target.value)} type="text" className="post-input one" placeholder="Add a name here..." value={title} />
-                        <label className='text-label'>
-                            Description
-                        </label>
-                        <textarea onChange={e => setDescription(e.target.value)} type="text" className="post-input two" placeholder='Add a description...' value={description} />
-                        <label className="text-label">Upload an Image (optional)</label>
+        <div className="outside-post">
+            <div className="upload-post">
+                <form onSubmit={handleSubmit} className="post-form">
+                    <div className="inside-post">
+                        <ul className="post-errors">
+                            {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                        </ul>
+                        <div className="post-first">
+                            <label className='text-label'>
+                                Title
+                            </label>
+                            <input onChange={e => setTitle(e.target.value)} type="text" className="post-input one" placeholder="Add a name here..." value={title} />
+                            <label className='text-label'>
+                                Description
+                            </label>
+                            <textarea onChange={e => setDescription(e.target.value)} type="text" className="post-input two" placeholder='Add a description...' value={description} />
+                            <label className="text-label">Upload an Image (optional)</label>
+                        </div>
+                        <div className="post-second">
+                            <input
+                            type="file"
+                            accept="image/*"
+                            //   multiple
+                            onChange={updateImage}
+                            className="post-image-input"
+                            />
+                            <button type="submit" className="upload-button post">Submit</button>
+                        </div>
+                        <div className="loading-text">
+                            {(imageLoading)&& <p className="loading">Loading...</p>}
+                        </div>
                     </div>
-                    <div className="post-second">
-                        <input
-                        type="file"
-                        accept="image/*"
-                        //   multiple
-                        onChange={updateImage}
-                        className="post-image-input"
-                        />
-                        <button type="submit" className="upload-button post">Submit</button>
-                    </div>
-                    <div className="loading-text">
-                        {(imageLoading)&& <p className="loading">Loading...</p>}
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         </>
     )
