@@ -53,3 +53,46 @@
     margin-left: 30px;
     width: 85px;
 }
+
+.all-my-groups-description {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    height: 260px;
+    width: 500px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + .5rem);
+    background-color: white;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rbga(0, 0, 0, .1);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+}
+
+.dropdown > .link:focus + .dropdown-menu {
+    opacity: 1;
+}
+
+.row-menu {
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+}
+
+/* .my-groups-box {
+    width: 500px;
+} */
+
+.menu-box {
+    width: 100px;
+    height: 100px;
+}
+
