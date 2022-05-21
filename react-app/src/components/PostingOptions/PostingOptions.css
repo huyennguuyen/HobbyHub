@@ -22,11 +22,11 @@
     width: 527px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .post-description {
-    overflow: auto;
+    overflow: hidden;
     width: 450px;
     margin-top: 8px;
 
@@ -64,13 +64,13 @@
 }
 
 .post-title {
-    overflow: auto;
+    overflow: hidden;
     height: 54px;
     margin-bottom: 18px;
 }
 
 .post-description {
-    overflow: auto;
+    overflow: hidden;
     height: 134px;
 }
 
