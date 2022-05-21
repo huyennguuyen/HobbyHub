@@ -49,16 +49,16 @@ export default function AllGroups ({group}){
             </div>
             <div className="menu-box">
                 <div className="dropdown">
-                    <FiMoreHorizontal className="link" style={{float:"right"}} id="ellipse"/>
+                    <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
                     <div className="dropdown-menu">
                         {/* <div className="my-group-buttons-box">  */}
-                        <button onClick={e => setShowEditGroup(true)} className="my-button">Edit Group</button>
+                        <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
                         {showEditGroup && (
                         <Modal onClose={() => setShowEditGroup(false)}> 
                             <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
                         </Modal>
                         )}
-                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete">Delete</button>
+                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete</button>
                         {showDeleteGroup && (
                         <Modal onClose={() => setShowDeleteGroup(false)}>
                             <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
