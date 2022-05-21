@@ -16,8 +16,8 @@ export default function Footer () {
                     </div>
                 </div>
                 <div className="links">
-                    <a className="developer-link" href="https://github.com/huyennguuyen">GitHub <AiFillGithub /></a>
-                    <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/">LinkedIn <AiFillLinkedin/></a>
+                    <a className="developer-link pointer" href="https://github.com/huyennguuyen">GitHub <AiFillGithub /></a>
+                    <a className="developer-link pointer" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/">LinkedIn <AiFillLinkedin/></a>
                 </div>
             </div>
         </div>
