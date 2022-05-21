@@ -33,10 +33,10 @@ export default function AllGroups ({group}){
         <div className="my-groups-box" key={group.id}>
             <div className="row-menu">
                 <NavLink to={`/groups/${group?.id}`}>
-                <img src={group.backgroundImage} className="image" id="group-image"></img>
+                <img src={group.backgroundImage} className="image pointer" id="group-image"></img>
                 </NavLink>
                 <div className="all-my-groups-description">
-                    <NavLink to={`/groups/${group?.id}`} className="title-link">
+                    <NavLink to={`/groups/${group?.id}`} className="title-link pointer">
                         <h2 className="group-name">{group?.name}</h2>
                     </NavLink>
                     <p className="group-description">{group?.description}</p>
