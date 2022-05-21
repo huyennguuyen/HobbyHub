@@ -27,7 +27,9 @@ export default function AllGroups ({group}){
                 <img src={group.backgroundImage} className="image" id="group-image"></img>
                 </NavLink>
                 <div className="all-my-groups-description">
-                    <h2 className="group-name">{group?.name}</h2>
+                    <NavLink to={`/groups/${group?.id}`} className="title-link">
+                        <h2 className="group-name">{group?.name}</h2>
+                    </NavLink>
                     <p className="group-description">{group?.description}</p>
                 </div>
             </div>

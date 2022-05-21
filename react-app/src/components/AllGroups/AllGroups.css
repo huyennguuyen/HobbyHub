@@ -153,7 +153,12 @@
     height: 20px;
 }
 
-/* .group-image {
-    margin-top: 20px;
-} */
+.title-link {
+    color: black;
+    text-decoration: none;
+}
+
+.title-link:hover {
+    text-decoration: underline;
+}
 
