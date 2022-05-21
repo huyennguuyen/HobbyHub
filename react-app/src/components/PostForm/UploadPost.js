@@ -89,7 +89,7 @@ const UploadPost = ({group, setShowModal}) => {
             // a real app would probably use more advanced
             // error handling
             history.push(`/groups/${group.id}`);
-            console.log("error");
+            // console.log("error");
         // }
     }
     

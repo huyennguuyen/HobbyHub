@@ -14,8 +14,8 @@ function MyGroups() {
     const sessionUser = useSelector(state => state.session.user);
     const groupState = useSelector(state => state.groups)
     const groups = Object.values(groupState)
-    console.log("THIS IS GROUPS------------------", groups)
-    const [showEditGroup, setShowEditGroup] = useState(false)
+    // console.log("THIS IS GROUPS------------------", groups)
+    // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
     useEffect(async() => {

@@ -69,7 +69,7 @@ const UploadGroup = () => {
         // if (posted) {
             setImageLoading(false);
             history.push("/my_groups")
-            console.log("hi")
+            // console.log("hi")
         // }
         // else {
         //     setImageLoading(false);
