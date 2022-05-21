@@ -35,7 +35,7 @@ return (
     <div className="post-image">
         <div className="inside-post-image">
             <div className="first-single">
-                <div className="image-box">
+                <div className="images-box">
                     <img src={post?.image} className="posting-image"></img>
                 </div>
                 <div className="menu">
