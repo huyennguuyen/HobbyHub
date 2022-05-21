@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as postActions from "../../store/post"
-
+import {MdOutlineCancelPresentation} from "react-icons/md"
 
 
 const EditPost = ({closeModal, post, group}) => {
@@ -108,9 +108,16 @@ const EditPost = ({closeModal, post, group}) => {
 
         setImage(file);
     }
+
+    const onCancel = (e) => {
+        e.preventDefault()
+        closeModal()
+    
+      }
     
     return (
         <>
+        <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <div>
@@ -134,7 +141,7 @@ const EditPost = ({closeModal, post, group}) => {
                     onChange={updateImage}
                     className="edit-group-image"
                     />
-                    <button type="submit" className="login-button">Submit</button>
+                    <button type="submit" className="login-button pointer">Submit</button>
                     <div className="loading-text">
                         {imageLoading && <p>Loading...</p>}
                     </div>

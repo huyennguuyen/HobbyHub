@@ -126,7 +126,7 @@ const UploadPost = ({group, setShowModal}) => {
                             onChange={updateImage}
                             className="post-image-input"
                             />
-                            <button type="submit" className="upload-button post">Submit</button>
+                            <button type="submit" className="upload-button post pointer">Submit</button>
                         </div>
                         <div className="loading-text">
                             {(imageLoading)&& <p className="loading">Loading...</p>}

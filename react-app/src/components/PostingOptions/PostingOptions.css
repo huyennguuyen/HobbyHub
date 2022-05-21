@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-top: 1px solid black;
+    border-top: 1px solid #D3D3D3;
     width: 100vw;
     /* overflow: scroll; */
 
@@ -109,7 +109,7 @@
     justify-content: flex-end; */
 }
 
-.image-box {
+.images-box {
     width: 400px;
 }
 
@@ -133,4 +133,9 @@
     font-family: "PT Serif";
     font-size: 14px;
     margin-bottom: 0;
+}
+
+.ellipse {
+    width: 20px;
+    height: 20px;
 }

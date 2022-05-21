@@ -26,7 +26,7 @@
 }
 
 .groups-box {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #d3d3d3;
     display: flex;
     flex-direction: row;
     margin-left: 30px;

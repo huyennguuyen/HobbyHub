@@ -27,7 +27,7 @@ function DemoButton(){
         <button onClick={e => {
         setEmail("demo@aa.io")
         setPassword("password")
-        }} type="demo" className="nav-button">Demo User</button>
+        }} type="demo" className="nav-button pointer">Demo User</button>
       </div>
       <div>
           {errors?.map((error) => (

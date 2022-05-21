@@ -113,7 +113,7 @@ const UploadGroup = () => {
                             onChange={updateImage}
                             className="file-input"
                             />
-                            <button type="submit" className="upload-button">Submit</button>
+                            <button type="submit" className="upload-button pointer">Submit</button>
                             <div className="loading-text">
                                 {(imageLoading)&& <p className="loading">Loading...</p>}
                             </div>

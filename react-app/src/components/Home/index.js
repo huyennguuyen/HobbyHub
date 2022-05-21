@@ -51,16 +51,16 @@ function Home() {
                 groups?.map(group =>
                     <div key={group?.id} className="groups-box">
                         <NavLink to={`/groups/${group?.id}`}>
-                        <img src={group?.backgroundImage} className="image"></img>
+                        <img src={group?.backgroundImage} className="image pointer"></img>
                         </NavLink>
                         <div className="my-groups-description">
-                            <NavLink to={`/groups/${group?.id}`} className="title-link">
+                            <NavLink to={`/groups/${group?.id}`} className="title-link pointer">
                                 <h2 className="group-name">{group?.name}</h2>
                             </NavLink>
                             {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
                             <p className="group-description">{group?.description}</p>
                             {users && users
-                                .filter(user => user.id === group.ownerId)
+                                ?.filter(user => user.id === group.ownerId)
                                 .map(user => 
                                 <p className="created"> Created by {user?.username}</p> 
                             )}  

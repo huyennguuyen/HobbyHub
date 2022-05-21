@@ -9,12 +9,12 @@ function LoginFormModal() {
 
   return (
     <>
-      <button className="nav-button" onClick={() => setShowModal(true)}>
+      <button className="nav-button pointer" onClick={() => setShowModal(true)}>
         Login
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <LoginForm closeModal={() => setShowModal(false)}/>
         </Modal>
       )}
     </>
