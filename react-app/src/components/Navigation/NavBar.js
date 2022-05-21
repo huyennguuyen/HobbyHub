@@ -20,15 +20,15 @@ const NavBar = () => {
           <div className="container-nav">
             <nav className="session-user-nav">
               <div className="nav-left">
-                  <NavLink to='/home' exact={true} activeClassName='active' id="logo">
+                  <NavLink to='/home' exact={true} activeClassName='active pointer' id="logo">
                     Hobby Hub
                   </NavLink>
               </div>
               <div className="nav-right-main">
-                <NavLink to="/groups/new" exact={true} activeClassName="active" id="right">
+                <NavLink to="/groups/new" exact={true} activeClassName="active pointer" id="right">
                   Start a New Group 
                 </NavLink>
-                <NavLink to="/my_groups" exact={true} activeClassName="active" id="right">
+                <NavLink to="/my_groups" exact={true} activeClassName="active pointer" id="right">
                   My Groups
                 </NavLink>
                 <LogoutButton />
@@ -42,7 +42,7 @@ const NavBar = () => {
         <div className="container-nav"> 
           <nav className="not-session-user-nav">
               <div className="nav-left">
-                  <NavLink to='/' exact={true} activeClassName='active' id="logo">
+                  <NavLink to='/' exact={true} activeClassName='active pointer' id="logo">
                     Hobby Hub
                   </NavLink>
               </div>
@@ -135,8 +135,4 @@ export default NavBar;
 
 // export default NavBar;
 
-{/* <li>
-<NavLink to='/users' exact={true} activeClassName='active'>
-  Users
-</NavLink>
-</li> */}
+

@@ -115,3 +115,7 @@ a {
       flex-direction: row;
       align-items: center;
   }
+
+  .pointer {
+      cursor: pointer;
+  }
