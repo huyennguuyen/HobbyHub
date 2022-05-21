@@ -5,7 +5,7 @@
     align-items: center; 
     flex-direction: column;
     background-color: #f5f5f5;
-    overflow: hidden;
+    overflow: auto;
     /* width: 100vw;
     height: 100vh; */
 }
@@ -71,7 +71,7 @@
 }
 
 #single {
-    overflow: hidden;
+    overflow: auto;
     height: 90px;
 }
 

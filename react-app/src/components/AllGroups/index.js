@@ -33,7 +33,7 @@ export default function AllGroups ({group}){
             </div>
             <div className="menu-box">
                 <div className="dropdown">
-                    <button class="link" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
+                    <button className="link" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
                     <div className="dropdown-menu">
                         {/* <div className="my-group-buttons-box">  */}
                         <button onClick={e => setShowEditGroup(true)} className="my-button">Edit Group</button>

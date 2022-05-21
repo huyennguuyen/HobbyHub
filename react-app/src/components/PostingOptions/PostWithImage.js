@@ -7,6 +7,7 @@ import * as postActions from "../../store/post";
 import EditPost from "../EditPostForm/EditPostForm";
 import { Modal } from "../context/Modal";
 import DeletePost from "../DeletePost";
+import {FiMoreHorizontal} from "react-icons/fi"
 import "./PostingOptions.css"
 
 export default function PostWithImage ({post, group}) {
@@ -23,28 +24,39 @@ return (
     <>
     <div className="post-image">
         <div className="inside-post-image">
-            <img src={post?.image} className="posting-image"></img>
+            <div className="first-single">
+                <div className="image-box">
+                    <img src={post?.image} className="posting-image"></img>
+                </div>
+                <div className="menu">
+                    {sessionUser?.id === post?.ownerId && (
+                    <div className="menu-box-post">
+                        <div className="dropdown">
+                            <button className="posts-button" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
+                            <div className="dropdown-menu">
+                                <button onClick={e => setShowEditPost(true)} className="my-button">Edit Post</button>
+                                {showEditPost && (
+                                <Modal onClose={() => setShowEditPost(false)}> 
+                                    <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
+                                </Modal>
+                                )}
+                                <button onClick={() => setShowDeletePost(true)} className="my-button delete">Delete</button>
+                                {showDeletePost && (
+                                <Modal onClose={() => setShowDeletePost(false)}> 
+                                    <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
+                                </Modal>
+                                    )}       
+                            </div>
+                        </div>
+                    </div>
+                    )}
+                </div>
+            </div>
             <div className="centering">
                 <h3 className="post-title">{post?.title}</h3>
                 <p className="post-description">{post?.description}</p>
             </div>
             {/* </div> */}
-            {sessionUser?.id === post?.ownerId && (
-            <div className="buttons-bov">
-                <button onClick={e => setShowEditPost(true)} className="my-group-button">Edit Post</button>
-                {showEditPost && (
-                <Modal onClose={() => setShowEditPost(false)}> 
-                    <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
-                </Modal>
-                )}
-                <button onClick={() => setShowDeletePost(true)} className="my-group-button delete-post">Delete</button>
-                {showDeletePost && (
-                <Modal onClose={() => setShowDeletePost(false)}> 
-                    <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
-                </Modal>
-                    )}       
-            </div>
-            )}
         </div>
     </div>
     </>

@@ -22,11 +22,11 @@
     width: 527px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .post-description {
-    overflow: hidden;
+    overflow: auto;
     width: 450px;
     margin-top: 8px;
 
@@ -64,17 +64,41 @@
 }
 
 .post-title {
-    overflow: hidden;
+    overflow: auto;
     height: 54px;
     margin-bottom: 18px;
 }
 
 .post-description {
-    overflow: hidden;
+    overflow: auto;
     height: 134px;
 }
 
 .posting-image {
     height: 185px;
     width: 280px;
+    /* margin-right: 50px; */
+}
+
+.first-single {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-box-post {
+    width: 35px;
+    height: 100px;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+
+.image-box {
+    width: 400px;
+}
+
+.posts-button {
+    background-color: white;
+    border: none;
+
+
 }

@@ -50,7 +50,7 @@
 
 .group-name {
     font-weight: normal;
-    overflow: hidden;
+    overflow: auto;
     width: 700px;
 }
 
@@ -58,13 +58,13 @@
 .group-description {
     font-size: 18px;
     height: 150px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 #scroll {
-    overflow: hidden;
+    overflow: auto;
 }
 
 #scrolling {
-    overflow: hidden;
+    overflow: auto;
 }

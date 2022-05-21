@@ -27,6 +27,7 @@ export default function PostWithOutImage ({post, group}) {
                 <h3>{post?.title}</h3>
                 <p className="post-description">{post?.description}</p>
             </div>
+            <div className="menu"></div>
             {sessionUser?.id === post?.ownerId && (
             <div className="buttons-box">
                 <button onClick={e => setShowEditPost(true)} className="my-group-button">Edit Post</button>
