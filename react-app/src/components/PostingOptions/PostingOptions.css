@@ -84,6 +84,7 @@
 .post-description {
     overflow: hidden;
     height: 134px;
+    margin-bottom: 0;
 }
 
 .post-description:hover {
@@ -126,4 +127,10 @@
 
 .posting-header {
     width: 415px;
+}
+
+.posted-by {
+    font-family: "PT Serif";
+    font-size: 14px;
+    margin-bottom: 0;
 }

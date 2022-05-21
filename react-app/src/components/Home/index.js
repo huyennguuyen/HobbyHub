@@ -59,7 +59,11 @@ function Home() {
                             </NavLink>
                             {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
                             <p className="group-description">{group?.description}</p>
-                            {createdBy }  
+                            {users && users
+                                .filter(user => user.id === group.ownerId)
+                                .map(user => 
+                                <p className="created"> Created by {user?.username}</p> 
+                            )}  
                         </div>
                     </div>
                 )}

@@ -14,10 +14,20 @@ export default function PostWithOutImage ({post, group}) {
     const sessionUser = useSelector(state => state.session.user);
     const [showEditPost, setShowEditPost] = useState(false)
     const [showDeletePost, setShowDeletePost] = useState(false)
+    const [users, setUsers] = useState([]);
 
     // const deleteIndividualPost = (post) => {
     //     dispatch(postActions.removePost(post.id))
     // }
+
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/');
+          const responseData = await response.json();
+          setUsers(responseData.users);
+        }
+        fetchData();
+      }, []);
 
 
     return (
@@ -52,6 +62,11 @@ export default function PostWithOutImage ({post, group}) {
                     </div>
                 </div>
                 <p className="post-description">{post?.description}</p>
+                {users && users
+                    .filter(user => user.id === post.ownerId)
+                    .map(user => 
+                    <p className="posted-by"> Posted by {user?.username}</p> 
+                )} 
             </div>
         </div>
     </div>
