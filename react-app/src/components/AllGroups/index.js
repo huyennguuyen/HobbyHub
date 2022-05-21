@@ -10,14 +10,23 @@ import {FiMoreHorizontal} from "react-icons/fi"
 import "./AllGroups.css"
 
 export default function AllGroups ({group}){
-    const dispatch = useDispatch()
 
     const [showEditGroup, setShowEditGroup] = useState(false)
     const [showDeleteGroup, setShowDeleteGroup] = useState(false)
+    const [users, setUsers] = useState([]);
 
     // const deleteIndividualGroup = async (group) => {
     //     await dispatch(groupActions.removeGroup(group.id))
     // }
+
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/');
+          const responseData = await response.json();
+          setUsers(responseData.users);
+        }
+        fetchData();
+      }, []);
 
     return (
         <>
@@ -31,6 +40,11 @@ export default function AllGroups ({group}){
                         <h2 className="group-name">{group?.name}</h2>
                     </NavLink>
                     <p className="group-description">{group?.description}</p>
+                    {users && users
+                        .filter(user => user.id === group.ownerId)
+                        .map(user => 
+                        <p className="created"> Created by {user?.username}</p> 
+                    )}  
                 </div>
             </div>
             <div className="menu-box">

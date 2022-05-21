@@ -76,7 +76,7 @@ function SingleGroup() {
                     <div className="post-dropdown">
                         {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
                     </div>
-                    {posts && posts.map(post => (
+                    {posts && posts.reverse().map(post => (
                         post.image ?
                         <> 
                         <PostWithImage key={post?.id} post={post} group={group}/>

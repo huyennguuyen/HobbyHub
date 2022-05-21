@@ -15,6 +15,16 @@ export default function PostWithImage ({post, group}) {
     const sessionUser = useSelector(state => state.session.user);
     const [showEditPost, setShowEditPost] = useState(false)
     const [showDeletePost, setShowDeletePost] = useState(false)
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/');
+          const responseData = await response.json();
+          setUsers(responseData.users);
+        }
+        fetchData();
+      }, []);
 
     // const deleteIndividualPost = (post) => {
     //     dispatch(postActions.removePost(post.id))
@@ -55,6 +65,11 @@ return (
             <div className="centering">
                 <h3 className="post-title">{post?.title}</h3>
                 <p className="post-description">{post?.description}</p>
+                {users && users
+                    .filter(user => user.id === post.ownerId)
+                    .map(user => 
+                    <p className="posted-by"> Posted by {user?.username}</p> 
+                )}  
             </div>
             {/* </div> */}
         </div>
