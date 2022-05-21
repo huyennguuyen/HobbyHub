@@ -74,7 +74,7 @@ const LoginForm = ({closeModal}) => {
 
   return (
     <>
-    <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
+    <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
     <div className="login-box">
       <form onSubmit={onLogin} className="login-form">
         <div className="inside-login">
@@ -106,7 +106,7 @@ const LoginForm = ({closeModal}) => {
                 className="login-input second"
               />
             </div>  
-              <button type='submit' className="login-button">Login</button>
+              <button type='submit' className="login-button pointer">Login</button>
           </div>
         </div>
       </form>
