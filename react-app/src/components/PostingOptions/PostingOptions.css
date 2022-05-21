@@ -117,3 +117,13 @@
 
 
 }
+
+.title-menu {
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+}
+
+.posting-header {
+    width: 415px;
+}
