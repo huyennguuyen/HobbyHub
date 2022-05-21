@@ -50,21 +50,29 @@
 
 .group-name {
     font-weight: normal;
-    overflow: auto;
+    overflow: hidden;
     width: 700px;
+}
+
+.group-name:hover{
+    overflow: auto;
 }
 
 
 .group-description {
     font-size: 18px;
     height: 150px;
-    overflow: auto;
+    overflow: hidden;
 }
 
-#scroll {
+.group-description:hover {
+    overflow: auto
+}
+
+/* #scroll {
     overflow: auto;
 }
 
 #scrolling {
     overflow: auto;
-}
+} */

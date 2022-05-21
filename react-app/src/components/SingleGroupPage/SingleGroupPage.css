@@ -5,9 +5,13 @@
     align-items: center; 
     flex-direction: column;
     background-color: #f5f5f5;
-    overflow: auto;
+    overflow: hidden;
     /* width: 100vw;
     height: 100vh; */
+}
+
+.single-group-container{
+    overflow: auto;
 }
 
 .details-group {
@@ -71,8 +75,12 @@
 }
 
 #single {
-    overflow: auto;
+    overflow: hidden;
     height: 90px;
+}
+
+#single:hover {
+    overflow: auto;
 }
 
 #single-header {

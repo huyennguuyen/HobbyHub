@@ -59,7 +59,7 @@
 }
 
 .link {
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     border: none;
 }
 
@@ -148,7 +148,7 @@
     margin-left: 95px;
 }
 
-.ellipse {
+#ellipse {
     width: 20px;
     height: 20px;
 }

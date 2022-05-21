@@ -32,7 +32,7 @@ return (
                     {sessionUser?.id === post?.ownerId && (
                     <div className="menu-box-post">
                         <div className="dropdown">
-                            <button className="posts-button" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
+                            <FiMoreHorizontal className="posts-button" style={{float:"right"}} id="ellipse"/>
                             <div className="dropdown-menu">
                                 <button onClick={e => setShowEditPost(true)} className="my-button">Edit Post</button>
                                 {showEditPost && (

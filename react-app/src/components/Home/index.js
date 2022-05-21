@@ -36,9 +36,9 @@ function Home() {
                         <img src={group?.backgroundImage} className="image"></img>
                         </NavLink>
                         <div className="my-groups-description">
-                            <h2 className="group-name" id="scroll">{group?.name}</h2>
+                            <h2 className="group-name">{group?.name}</h2>
                             {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
-                            <p className="group-description" id="scrolling">{group?.description}</p>
+                            <p className="group-description">{group?.description}</p>
                         </div>
                     </div>
                 )}
