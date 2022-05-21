@@ -88,8 +88,10 @@
     position: absolute;
     right: 0;
     top: 5%;
-    width: 20px;
+    /* width: 20px; */
     height: 20px;
+    width: 113px;
+    margin-left: 18px;
     /* float: right;
     top: 20px; */
 }

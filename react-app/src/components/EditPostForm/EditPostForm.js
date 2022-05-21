@@ -117,7 +117,7 @@ const EditPost = ({closeModal, post, group}) => {
     
     return (
         <>
-        <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
+        <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <div>
@@ -141,7 +141,7 @@ const EditPost = ({closeModal, post, group}) => {
                     onChange={updateImage}
                     className="edit-group-image"
                     />
-                    <button type="submit" className="login-button">Submit</button>
+                    <button type="submit" className="login-button pointer">Submit</button>
                     <div className="loading-text">
                         {imageLoading && <p>Loading...</p>}
                     </div>

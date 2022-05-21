@@ -113,11 +113,11 @@ const EditGroup = ({closeModal, group}) => {
     
       }
 
-      
+
     
     return (
         <>
-            <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
+        <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <ul className="new-note-errors">
@@ -139,7 +139,7 @@ const EditGroup = ({closeModal, group}) => {
                     onChange={updateImage}
                     className="edit-group-image"
                     />
-                    <button type="submit" className="login-button">Submit</button>
+                    <button type="submit" className="login-button pointer">Submit</button>
                     <div className="loading-text">
                         {imageLoading && <p className="loading">Loading...</p> }
                     </div>
