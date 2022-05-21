@@ -72,7 +72,7 @@ function SingleGroup() {
                     </div>
                 </div>
                 <div className="center-post">
-                    <button onClick={() => setShowModal(!showModal)} className="post-button">{showModal ? "Cancel" : "Create a Post"}</button>
+                    <button onClick={() => setShowModal(!showModal)} className="post-button pointer">{showModal ? "Cancel" : "Create a Post"}</button>
                     <div className="post-dropdown">
                         {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
                     </div>

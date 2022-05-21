@@ -98,6 +98,7 @@ input[type="file"]::file-selector-button {
     height: 28px;
     width: 92;
     border-radius: 3px;
+    cursor: pointer;
     
 }
 

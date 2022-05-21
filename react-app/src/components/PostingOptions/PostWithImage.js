@@ -42,15 +42,15 @@ return (
                     {sessionUser?.id === post?.ownerId && (
                     <div className="menu-box-post">
                         <div className="dropdown">
-                            <FiMoreHorizontal className="posts-button ellipse" style={{float:"right"}}/>
+                            <FiMoreHorizontal className="posts-button ellipse pointer" style={{float:"right"}}/>
                             <div className="dropdown-menu">
-                                <button onClick={e => setShowEditPost(true)} className="my-button">Edit Post</button>
+                                <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
                                 {showEditPost && (
                                 <Modal onClose={() => setShowEditPost(false)}> 
                                     <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
                                 </Modal>
                                 )}
-                                <button onClick={() => setShowDeletePost(true)} className="my-button delete">Delete</button>
+                                <button onClick={() => setShowDeletePost(true)} className="my-button delete pointer">Delete</button>
                                 {showDeletePost && (
                                 <Modal onClose={() => setShowDeletePost(false)}> 
                                     <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
