@@ -70,5 +70,14 @@
     width: 700px;
 }
 
+#single {
+    overflow: scroll;
+    height: 90px;
+}
+
+#single-header {
+    height: 65px;
+}
+
 
 

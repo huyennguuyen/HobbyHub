@@ -8,6 +8,7 @@ import UploadPost from "../PostForm/UploadPost";
 import EditPost from "../EditPostForm/EditPostForm";
 import PostWithImage from "../PostingOptions/PostWithImage";
 import PostWithOutImage from "../PostingOptions/PostWithoutImage";
+
 import "./SingleGroupPage.css"
 
 function SingleGroup() {
@@ -65,8 +66,8 @@ function SingleGroup() {
                     <div className="details-group"> 
                         <img src={group?.backgroundImage} className="image"></img>
                         <div className="single-text">
-                            <h2 className="group-name">{group?.name}</h2>
-                            <p className="group-description">{group?.description}</p>
+                            <h2 className="group-name" id="single-header">{group?.name}</h2>
+                            <p className="group-description" id="single">{group?.description}</p>
                         </div>
                     </div>
                 </div>
@@ -75,15 +76,16 @@ function SingleGroup() {
                     <div className="post-dropdown">
                         {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
                     </div>
-                        {posts && posts.map(post => (
-                            post.image ?
-                            <> 
-                            <PostWithImage key={post?.id} post={post} group={group}/>
-                            </>:
-                            <> 
-                            <PostWithOutImage key={post?.id} post={post} group={group}/>
-                            </>
-                        ))}
+                    {posts && posts.map(post => (
+                        post.image ?
+                        <> 
+                        <PostWithImage key={post?.id} post={post} group={group}/>
+                        </>:
+                        <> 
+                        <PostWithOutImage key={post?.id} post={post} group={group}/>
+                        </>
+                    ))}
+                    <div></div>
                 </div>
             </div>
         </div>
