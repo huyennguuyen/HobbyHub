@@ -55,10 +55,19 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    width: 450px;
 }
 
 .delete-post {
     width: 72px;
     margin-left: 30px;
     border-radius: 3px;
+}
+
+.post-title {
+    overflow: auto;
+}
+
+.post-description {
+    overflow: auto;
 }

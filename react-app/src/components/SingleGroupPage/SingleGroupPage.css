@@ -19,7 +19,7 @@
     height: 220px;
     margin-top: 20px;
     /* border-bottom: 1px solid black; */
-    width: 100vw;
+    /* width: 100vw; */
     /* width: 100wh; */
 }
 
@@ -66,9 +66,9 @@
     width: 100vw;
 }
 
-/* .post-image {
-    border-top: 100vh;
-} */
+.single-text {
+    width: 700px;
+}
 
 
 
