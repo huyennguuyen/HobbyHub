@@ -41,7 +41,7 @@ export default function AllGroups ({group}){
                     </NavLink>
                     <p className="group-description">{group?.description}</p>
                     {users && users
-                        .filter(user => user.id === group.ownerId)
+                        ?.filter(user => user.id === group.ownerId)
                         .map(user => 
                         <p className="created"> Created by {user?.username}</p> 
                     )}  
