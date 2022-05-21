@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import SignUpFormModal from '../SignUpForm/SignUpFormModal';
+import {MdOutlineCancelPresentation} from "react-icons/md"
+import { Modal } from '../context/Modal';
 import icon from "./icon.png"
 import "./LoginForm.css"
 
-const LoginForm = () => {
+const LoginForm = ({closeModal}) => {
   const history = useHistory()
   const [errors, setErrors] = useState([]);
   // const [errors, setErrors] = useState([]);
@@ -63,9 +65,16 @@ const LoginForm = () => {
     return <Redirect to='/home' />;
   }
 
+  const onCancel = (e) => {
+    e.preventDefault()
+    closeModal()
+
+  }
+
 
   return (
     <>
+    <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
     <div className="login-box">
       <form onSubmit={onLogin} className="login-form">
         <div className="inside-login">
