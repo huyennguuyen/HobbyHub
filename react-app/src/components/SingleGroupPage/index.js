@@ -74,6 +74,7 @@ function SingleGroup() {
                     <button onClick={() => setShowModal(!showModal)} className="post-button">{showModal ? "Cancel" : "Create a Post"}</button>
                     <div className="post-dropdown">
                         {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
+                    </div>
                         {posts && posts.map(post => (
                             post.image ?
                             <> 
@@ -83,7 +84,6 @@ function SingleGroup() {
                             <PostWithOutImage key={post?.id} post={post} group={group}/>
                             </>
                         ))}
-                    </div>
                 </div>
             </div>
         </div>

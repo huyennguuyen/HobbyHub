@@ -28,7 +28,6 @@
 .post-description {
     overflow: auto;
     width: 450px;
-    height: 150px;
     margin-top: 8px;
 
 }
@@ -66,8 +65,16 @@
 
 .post-title {
     overflow: auto;
+    height: 54px;
+    margin-bottom: 18px;
 }
 
 .post-description {
     overflow: auto;
+    height: 134px;
+}
+
+.posting-image {
+    height: 185px;
+    width: 280px;
 }
