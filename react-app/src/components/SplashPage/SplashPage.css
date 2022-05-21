@@ -7,7 +7,6 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    overflow: scroll;
     /* align-items: center; */
 }
 

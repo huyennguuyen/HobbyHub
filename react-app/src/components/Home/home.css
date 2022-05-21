@@ -1,15 +1,17 @@
 .image {
     height: 185px;
     width: 280px;
-    transition: 1s ease;
+    /* transition: 1s ease; */
 }
 
     
 .image:hover{
-    -webkit-transform: scale(1.1);
+    /* -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-    transition: 1s ease;
+    transition: 1s ease; */
+
+    opacity: 0.5;
 
 }
 
@@ -50,21 +52,29 @@
 
 .group-name {
     font-weight: normal;
-    overflow: scroll;
+    overflow: hidden;
     width: 700px;
+}
+
+.group-name:hover{
+    overflow: auto;
 }
 
 
 .group-description {
     font-size: 18px;
     height: 150px;
-    overflow: auto;
+    overflow: hidden;
 }
 
-#scroll {
+.group-description:hover {
+    overflow: auto
+}
+
+/* #scroll {
     overflow: auto;
 }
 
 #scrolling {
     overflow: auto;
-}
+} */

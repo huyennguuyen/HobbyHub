@@ -22,14 +22,22 @@
     width: 527px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.inside-post-image:hover {
     overflow: auto;
 }
 
 .post-description {
-    overflow: auto;
+    overflow: hidden;
     width: 450px;
     margin-top: 8px;
 
+}
+
+.post-description:hover {
+    overflow: auto;
 }
 
 /* ::-webkit-scrollbar {
@@ -64,17 +72,58 @@
 }
 
 .post-title {
-    overflow: auto;
+    overflow: hidden;
     height: 54px;
     margin-bottom: 18px;
 }
 
-.post-description {
+.post-title {
     overflow: auto;
+}
+
+.post-description {
+    overflow: hidden;
     height: 134px;
+}
+
+.post-description:hover {
+    overflow: auto;
 }
 
 .posting-image {
     height: 185px;
     width: 280px;
+    /* margin-right: 50px; */
+}
+
+.first-single {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-box-post {
+    width: 35px;
+    height: 100px;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+
+.image-box {
+    width: 400px;
+}
+
+.posts-button {
+    border: none;
+
+
+}
+
+.title-menu {
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+}
+
+.posting-header {
+    width: 415px;
 }

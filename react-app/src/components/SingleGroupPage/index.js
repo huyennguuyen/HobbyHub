@@ -64,7 +64,7 @@ function SingleGroup() {
             <div className="single-group-page">
                 <div className="outside-details">
                     <div className="details-group"> 
-                        <img src={group?.backgroundImage} className="image"></img>
+                        <img src={group?.backgroundImage} className="posting-image"></img>
                         <div className="single-text">
                             <h2 className="group-name" id="single-header">{group?.name}</h2>
                             <p className="group-description" id="single">{group?.description}</p>

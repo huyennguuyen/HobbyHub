@@ -27,13 +27,15 @@ export default function AllGroups ({group}){
                 <img src={group.backgroundImage} className="image" id="group-image"></img>
                 </NavLink>
                 <div className="all-my-groups-description">
-                    <h2 className="group-name">{group?.name}</h2>
+                    <NavLink to={`/groups/${group?.id}`} className="title-link">
+                        <h2 className="group-name">{group?.name}</h2>
+                    </NavLink>
                     <p className="group-description">{group?.description}</p>
                 </div>
             </div>
             <div className="menu-box">
                 <div className="dropdown">
-                    <button class="link" style={{float:"right"}}><FiMoreHorizontal className="ellipse"/></button>
+                    <FiMoreHorizontal className="link" style={{float:"right"}} id="ellipse"/>
                     <div className="dropdown-menu">
                         {/* <div className="my-group-buttons-box">  */}
                         <button onClick={e => setShowEditGroup(true)} className="my-button">Edit Group</button>
