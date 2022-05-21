@@ -26,8 +26,11 @@ const EditPost = ({closeModal, post, group}) => {
         let imageFile = ["pdf", "png", "jpg", "jpeg", "gif"]
         if(!title.length) errors.push("Please enter a name.")
         if(!description.length) errors.push("Please enter a description.")
-        if(title.length > 255) errors.push("Please enter a name less than 255 characters.")
-        if(!imageFile.includes(image?.name.split(".").pop())) errors.push ("Please upload a pdf, png, jpg, jpeg, or gif file type.")
+        if(title.length > 255) errors.push("Please enter a title less than 255 characters.")
+        if(image) {
+            
+            if(!imageFile.includes(image?.name.split(".").pop())) errors.push ("Please upload a pdf, png, jpg, jpeg, or gif file type.")
+        }
         // if(!image) errors.push("Please upload an image")
         setErrors(errors)
     }, [title, description, image])
@@ -124,7 +127,7 @@ const EditPost = ({closeModal, post, group}) => {
                         Description:
                     </label>
                     <input onChange={e => setDescription(e.target.value)} type="text" id="edit-group-input" className="login-input second" placeholder='Add a description...' value={description} />
-                    <label className="edit-group-label">Upload an Image</label>
+                    <label className="edit-group-label">Upload an Image (optional)</label>
                     <input
                     type="file"
                     accept="image/*"

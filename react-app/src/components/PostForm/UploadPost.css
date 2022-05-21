@@ -4,21 +4,19 @@
 }
 
 .upload-post {
-    border: 1px solid black;
-    margin-top: 35px;
+    border: 1px solid #e6e6e6;
+    /* margin-top: px; */
     margin-bottom: 35px;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 400px;
+    width: 450px;
     border-radius: 8px;
-    box-shadow: 5px 5px 5px 5px #D3D3D3;
-
 }
 
 .post-form {
-    width: 450px;
     display: flex;
     justify-content: center;
 }
@@ -70,4 +68,10 @@
     height: 28px;
     border-radius: 3px;
 
+}
+
+.outside-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

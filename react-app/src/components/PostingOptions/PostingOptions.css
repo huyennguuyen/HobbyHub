@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     border-top: 1px solid black;
+    width: 100vw;
     /* overflow: scroll; */
 
 }
@@ -18,17 +19,15 @@
     align-items: center;
     height: 500px;
     border-radius: 8px;
-    box-shadow: 5px 5px 5px 5px #D3D3D3;
     width: 527px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .post-description {
-    overflow: scroll;
+    overflow: auto;
     width: 450px;
-    height: 150px;
     margin-top: 8px;
 
 }
@@ -55,10 +54,27 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    width: 450px;
 }
 
 .delete-post {
     width: 72px;
     margin-left: 30px;
     border-radius: 3px;
+}
+
+.post-title {
+    overflow: auto;
+    height: 54px;
+    margin-bottom: 18px;
+}
+
+.post-description {
+    overflow: auto;
+    height: 134px;
+}
+
+.posting-image {
+    height: 185px;
+    width: 280px;
 }
