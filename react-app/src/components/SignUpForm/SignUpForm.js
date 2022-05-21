@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import {MdOutlineCancelPresentation} from "react-icons/md"
 import icon from "./icon.png"
+
 import "./SignUpForm.css"
 import "../LoginForm/LoginForm.css"
 
-const SignUpForm = () => {
+const SignUpForm = ({closeModal}) => {
   const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
@@ -62,7 +64,14 @@ const SignUpForm = () => {
     return <Redirect to='/home' />;
   }
 
+  const onCancel = (e) => {
+    e.preventDefault()
+    closeModal()
+  }
+
   return (
+    <>
+    <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
     <div className="login-box">
       <form onSubmit={onSignUp} className="login-form">
         <div className="inside-login">
@@ -119,6 +128,7 @@ const SignUpForm = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

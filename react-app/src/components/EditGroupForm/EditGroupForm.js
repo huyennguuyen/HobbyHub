@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as groupActions from "../../store/group"
 import { Modal } from "../context/Modal";
+import {MdOutlineCancelPresentation} from "react-icons/md"
 import "./EditGroupForm.css"
 
 
@@ -105,9 +106,18 @@ const EditGroup = ({closeModal, group}) => {
 
         setImage(file);
     }
+
+    const onCancel = (e) => {
+        e.preventDefault()
+        closeModal()
+    
+      }
+
+      
     
     return (
         <>
+            <MdOutlineCancelPresentation className="cancel-button" onClick={onCancel}/>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <ul className="new-note-errors">
