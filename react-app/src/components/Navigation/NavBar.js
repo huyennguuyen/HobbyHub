@@ -28,6 +28,9 @@ const NavBar = () => {
                 <NavLink to="/groups/new" exact={true} activeClassName="active pointer" id="right">
                   Start a New Group 
                 </NavLink>
+                <NavLink to="/home" exact={true} activeClassName="active pointer" id="right">
+                  All Groups
+                </NavLink>
                 <NavLink to="/my_groups" exact={true} activeClassName="active pointer" id="right">
                   My Groups
                 </NavLink>
