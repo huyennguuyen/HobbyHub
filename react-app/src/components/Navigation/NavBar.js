@@ -31,8 +31,8 @@ const NavBar = () => {
                 <NavLink to="/home" exact={true} activeClassName="active pointer" id="right">
                   All Groups
                 </NavLink>
-                <NavLink to="/my_groups" exact={true} activeClassName="active pointer" id="right">
-                  My Groups
+                <NavLink to="/my-created-groups" exact={true} activeClassName="active pointer" id="right">
+                  My Created Groups
                 </NavLink>
                 <LogoutButton />
               </div>

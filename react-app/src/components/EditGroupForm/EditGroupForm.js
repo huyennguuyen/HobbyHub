@@ -87,7 +87,7 @@ const EditGroup = ({closeModal, group}) => {
         
         if (post) {
             setImageLoading(false);
-             history.push("/my_groups");
+             history.push("/my-created-groups");
             // setErrors(["nope"])
         }
         // else {
