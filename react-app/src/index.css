@@ -93,12 +93,11 @@ a {
   }
 
   .links{
-    right: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 20px;
+    right: 38px;
     bottom: 10px;
   }
 

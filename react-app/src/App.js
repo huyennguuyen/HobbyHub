@@ -62,7 +62,7 @@ function App() {
         <ProtectedRoute path="/groups/:groupId">
           <SingleGroup/>
         </ProtectedRoute>
-        <ProtectedRoute path="/my_groups"> 
+        <ProtectedRoute path="/my-created-groups"> 
           <MyGroups />
         </ProtectedRoute>
       </Switch>

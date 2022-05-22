@@ -68,7 +68,7 @@ const UploadGroup = () => {
         // });
         // if (posted) {
             setImageLoading(false);
-            history.push("/my_groups")
+            history.push("/my-created-groups")
             // console.log("hi")
         // }
         // else {
