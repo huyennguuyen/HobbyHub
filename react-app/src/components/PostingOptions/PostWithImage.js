@@ -62,7 +62,7 @@ return (
             </div>
             <div className="centering">
                 <h3 className="post-title">{post?.title}</h3>
-                <p className="post-description">{post?.description}</p>
+                <p className="post-descriptions">{post?.description}</p>
                 {users && users
                     .filter(user => user.id === post.ownerId)
                     .map(user => 
