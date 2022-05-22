@@ -10,7 +10,7 @@
 }
 
 .nav-right {
-    margin-right: 10px;
+    margin-right: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -39,6 +39,7 @@
 
 }
 
+
 .active {
     text-decoration: none;
     font-family: "PT Serif";
@@ -58,7 +59,7 @@
 }
 
 .nav-right-main {
-    margin-right: 10px;
+    margin-right: 35px;
 
 }
 
