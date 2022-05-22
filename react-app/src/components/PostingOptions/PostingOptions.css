@@ -39,6 +39,20 @@
     overflow: auto;
 }
 
+.post-descriptions {
+    overflow: hidden;
+    width: 450px;
+    height: 100px;
+    margin-top: 15px;
+    margin-bottom: 0;
+
+}
+
+.post-descriptions:hover {
+    overflow: auto;
+}
+
+
 /* ::-webkit-scrollbar {
     width: 10px;
   } */
@@ -76,6 +90,7 @@
 .post-title {
     overflow: hidden;
     height: 54px;
+    margin-top: 10px;
     /* margin-bottom: 18px; */
 }
 
@@ -106,13 +121,14 @@
 
 .menu-box-post {
     width: 35px;
-    height: 60px;
+    height: 45px;
     /* display: flex;
     justify-content: flex-end; */
     margin: 0; 
 }
 
 .images-box {
+    margin-top: 25px;
     width: 529px;
     display: flex;
     justify-content: center;
