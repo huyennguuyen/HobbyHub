@@ -14,15 +14,14 @@
     margin-top: 35px;
     margin-bottom: 35px;
     background-color: white;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     height: 500px;
     border-radius: 8px;
     width: 527px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .inside-post-image:hover {
@@ -60,9 +59,12 @@
 
 .centering {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    /* align-items: center; */
     flex-direction: column;
+    margin-left: 5%;
     width: 450px;
+    height: 500px
 }
 
 .delete-post {
@@ -104,9 +106,10 @@
 
 .menu-box-post {
     width: 35px;
-    height: 100px;
+    height: 70px;
     /* display: flex;
     justify-content: flex-end; */
+    margin: 0; 
 }
 
 .images-box {
@@ -115,6 +118,7 @@
 
 .posts-button {
     border: none;
+    float: right;
 
 
 }
@@ -126,7 +130,13 @@
 }
 
 .posting-header {
-    width: 415px;
+    width: 450px;
+    overflow: hidden;
+}
+
+.posting-header:hover {
+    overflow: auto;
+    
 }
 
 .posted-by {
@@ -139,3 +149,10 @@
     width: 20px;
     height: 20px;
 }
+
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
