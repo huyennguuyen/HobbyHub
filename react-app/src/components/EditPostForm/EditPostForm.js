@@ -54,11 +54,11 @@ const EditPost = ({closeModal, post, group}) => {
 
         // console.log(post)
         
-        console.log("THIS IS FORM DATA---------------", formData)
+        // console.log("THIS IS FORM DATA---------------", formData)
 
-        for(let key of formData.values()){
-            console.log("THIS IS VALUES------", key)
-        }
+        // for(let key of formData.values()){
+        //     console.log("THIS IS VALUES------", key)
+        // }
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
@@ -104,7 +104,7 @@ const EditPost = ({closeModal, post, group}) => {
     
     const updateImage = (e) => {
         const file = e.target.files[0];
-        console.log("THIS IS FILES---------", file)
+        // console.log("THIS IS FILES---------", file)
 
         setImage(file);
     }

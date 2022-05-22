@@ -63,7 +63,7 @@ export const postNewGroup = (formData) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        console.log("THIS IS DATA FROM STORE-----",data)
+        // console.log("THIS IS DATA FROM STORE-----",data)
         dispatch(addGroup(data))
     }
 
@@ -71,7 +71,7 @@ export const postNewGroup = (formData) => async (dispatch) => {
 }
 
 export const getAllGroups = (userId) => async (dispatch) => {
-    console.log("THIS IS USER ID-----------", userId)
+    // console.log("THIS IS USER ID-----------", userId)
     const res = await fetch(`/api/groups/users/${userId}`)
     if (res.ok) {
         const groups = await res.json();
@@ -91,7 +91,7 @@ export const getGroupsHome = () => async (dispatch) => {
 
 
 export const editGroup = (formData) => async (dispatch) => {
-    console.log("THIS IS THE ID STORE--------", formData.get("id"))
+    // console.log("THIS IS THE ID STORE--------", formData.get("id"))
     let formDataId = formData.get("id")
     // console.log("THIS IS EDIT GROUP-------", formData)
     const id = parseInt(formDataId, 10)
@@ -106,7 +106,7 @@ export const editGroup = (formData) => async (dispatch) => {
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors){
-            console.log(data.errors)
+            // console.log(data.errors)
             return data.errors;
         } 
             

@@ -34,38 +34,40 @@ export default function PostWithOutImage ({post, group}) {
     <>
     <div className="post-image">
         <div className="inside-post-image">
+            <div className="menu">
+                {sessionUser?.id === post?.ownerId && (
+                <div className="menu-box-post">
+                    <div className="dropdown">
+                        <div className="menu-end"> 
+                            <FiMoreHorizontal className="posts-button ellipse pointer" style={{float:"right"}}/>
+                        </div>
+                        <div className="dropdown-menu">
+                            <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
+                            {showEditPost && (
+                            <Modal onClose={() => setShowEditPost(false)}> 
+                                <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
+                            </Modal>
+                            )}
+                            <button onClick={ () => setShowDeletePost(true)} className="my-button delete pointer">Delete</button>
+                            {showDeletePost && (
+                            <Modal onClose={() => setShowDeletePost(false)}>
+                                <DeletePost closeModal={() => setShowDeletePost(false)} post={post}/>
+                            </Modal>
+                            )} 
+                        </div>
+                    </div>
+                </div>
+                )}
+            </div>
             <div className="centering">
                 <div className="title-menu">
                     <h3 className="posting-header">{post?.title}</h3>
-                    <div className="menu">
-                        {sessionUser?.id === post?.ownerId && (
-                        <div className="menu-box-post">
-                            <div className="dropdown">
-                                <FiMoreHorizontal className="posts-button pointer" style={{float:"right"}} id="ellipse" />
-                                <div className="dropdown-menu">
-                                    <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
-                                    {showEditPost && (
-                                    <Modal onClose={() => setShowEditPost(false)}> 
-                                        <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
-                                    </Modal>
-                                    )}
-                                    <button onClick={ () => setShowDeletePost(true)} className="my-button delete pointer">Delete</button>
-                                    {showDeletePost && (
-                                    <Modal onClose={() => setShowDeletePost(false)}>
-                                        <DeletePost closeModal={() => setShowDeletePost(false)} post={post}/>
-                                    </Modal>
-                                    )} 
-                                </div>
-                            </div>
-                        </div>
-                        )}
-                    </div>
                 </div>
                 <p className="post-description">{post?.description}</p>
                 {users && users
                     .filter(user => user.id === post.ownerId)
                     .map(user => 
-                    <p className="posted-by"> Posted by {user?.username}</p> 
+                    <p className="posted-by-image"> Posted by {user?.username}</p> 
                 )} 
             </div>
         </div>
