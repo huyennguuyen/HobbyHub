@@ -55,7 +55,7 @@ Hobby Hub is built with a React frontend, Flask backend, and PostgreSQL as a dat
 # Features
 
 ## Groups
-Users can view groups that they have created as well as edit and delete them. Users can edit or delete their groups by doing into the "my groups" page and hovering over the ellipsis menu icon. 
+Users can view groups that they have created and all groups that have been made. All groups are shown by clicking on the Hobby Hub icon or the "All Groups" link in the navigation bar. Groups the users have created can be seen by clicking the "My groups" link in the navigation bar. The "my groups" page allows users to edit and delete their groups. Users can edit or delete their groups by doing into the "my groups" page and hovering over the ellipsis menu icon. 
 
 <img width="1319" alt="Screen Shot 2022-05-21 at 4 10 55 PM" src="https://user-images.githubusercontent.com/92718001/169671770-86ca3c0b-ee51-4e0a-b1a1-4947c360c6db.png">
 
