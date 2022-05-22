@@ -57,11 +57,12 @@ Hobby Hub is built with a React frontend, Flask backend, and PostgreSQL as a dat
 ## Groups
 Users can view groups that they have created and all groups that have been made. All groups are shown by clicking on the Hobby Hub icon or the "All Groups" link in the navigation bar. Groups the users have created can be seen by clicking the "My Created Groups" link in the navigation bar. The "my created groups" page allows users to edit and delete their groups. Users can edit or delete their groups by doing into the "my created groups" page and hovering over the ellipsis menu icon. 
 
-<img width="1319" alt="Screen Shot 2022-05-21 at 4 10 55 PM" src="https://user-images.githubusercontent.com/92718001/169671770-86ca3c0b-ee51-4e0a-b1a1-4947c360c6db.png">
+<img width="1376" alt="Screen Shot 2022-05-21 at 7 30 25 PM" src="https://user-images.githubusercontent.com/92718001/169675718-202c5e5e-7c53-41a6-ab25-20bea7485540.png">
 
-<img width="1318" alt="Screen Shot 2022-05-21 at 4 23 06 PM" src="https://user-images.githubusercontent.com/92718001/169672050-ca7ae57c-ab9a-4dab-8e88-ef2fe0d56204.png">
+<img width="1375" alt="Screen Shot 2022-05-21 at 7 30 54 PM" src="https://user-images.githubusercontent.com/92718001/169675728-56703c26-21be-428f-be38-f3870359a0d1.png">
 
-<img width="1318" alt="Screen Shot 2022-05-21 at 4 21 41 PM" src="https://user-images.githubusercontent.com/92718001/169672019-fd2f17ef-c1d9-4f96-819b-e7ec00b4f32a.png">
+<img width="1376" alt="Screen Shot 2022-05-21 at 7 31 28 PM" src="https://user-images.githubusercontent.com/92718001/169675732-f8e1e3c6-6d55-4039-b249-bd4a4374e242.png">
+
 
 ## Posts
 Users can make posts to share their experiences with their hobbies or things they have learned. Then, by hovering over the ellipsis icon, users can edit or delete their notes through a pop up modal. 
