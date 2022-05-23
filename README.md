@@ -11,12 +11,14 @@ Hobby Hub is built with a React frontend, Flask backend, and PostgreSQL as a dat
 * Redux
 * HTML
 * CSS
+* JavaScript
 
 ## Backend
 * Python
 * Flask
 * PostgreSQL
 * SQLalchemy
+* AWS
 
 # Hobby Hub Setup
 
