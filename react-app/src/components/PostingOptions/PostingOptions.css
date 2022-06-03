@@ -111,6 +111,7 @@
 .posting-image {
     height: 185px;
     width: 280px;
+    object-fit: contain;
     /* margin-right: 50px; */
 }
 
