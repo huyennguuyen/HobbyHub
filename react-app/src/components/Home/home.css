@@ -1,6 +1,7 @@
 .image {
     height: 185px;
     width: 280px;
+    object-fit: contain;
     /* transition: 1s ease; */
 }
 
