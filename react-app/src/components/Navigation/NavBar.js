@@ -1,16 +1,28 @@
-import { useSelector } from "react-redux"
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+
 import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from "../LoginForm/LoginFormModal";
 import SignUpFormModal from "../SignUpForm/SignUpFormModal";
 import DemoUser from '../auth/DemoUser';
+import SearchBar from "../SearchBar";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, NavLink } from "react-router-dom";
+import * as groupActions from "../../store/group"
 import "./NavBar.css"
 
 
 const NavBar = () => {
-
+  const dispatch = useDispatch()
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
+  const groupState = useSelector(state => state.groups)
+  const groups = Object.values(groupState)
+  console.log("this is groups search--------", groups)
+
+  useEffect(async() => {
+      if (!sessionUser) history.push('/')
+      if (sessionUser) await dispatch(groupActions.getAllGroups(sessionUser.id))
+  }, [sessionUser])
 
   return (
     <>
@@ -24,6 +36,7 @@ const NavBar = () => {
                     Hobby Hub
                   </NavLink>
               </div>
+              <SearchBar/>
               <div className="nav-right-main">
                 <NavLink to="/groups/new" exact={true} activeClassName="active pointer" id="right">
                   Start a New Group 
