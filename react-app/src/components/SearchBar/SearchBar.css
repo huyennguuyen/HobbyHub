@@ -1,0 +1,23 @@
+
+.link-match {
+    color: black
+}
+
+
+.search {
+    position: relative;
+    
+    
+    
+}
+
+
+.matches {
+  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  /* top: 20px; */
+  
+
+
+}

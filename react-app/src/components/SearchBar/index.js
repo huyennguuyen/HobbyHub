@@ -46,31 +46,34 @@ return (
         onChange={e => change(e.target.value)}
         // onKeyDown={e => entering}
         value={text}
+        className="search"
 
     />
     {/* <div>{text}</div> */}
     {matches && (
-        matches.map((match, i) =>
-        <div> 
-            <NavLink to={`/groups/${match.id}`} key={i}>
-            {match.name}
-            </NavLink>
-        </div>
-            
-        ) 
+      <div className="matches">
+        {matches.map((match, i) =>
+            <div key={i}> 
+                <NavLink to={`/groups/${match.id}`} key={i} className="link-match">
+                {match.name}
+                </NavLink>
+            </div>
+
+        )}
+      </div>
     )}
-
-
-
-
-
-
+        {/* {matches && (
+            matches.map((match, i) =>
+            <div key={i} className="matches"> 
+                <NavLink to={`/groups/${match.id}`} key={i} className="link-match">
+                {match.name}
+                </NavLink>
+            </div>
+                
+            ) 
+        )} */}
 
   </div>
-  
-  
-  
-  
   
   </>
 
