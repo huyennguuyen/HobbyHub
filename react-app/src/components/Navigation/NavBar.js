@@ -36,7 +36,7 @@ const NavBar = () => {
                     Hobby Hub
                   </NavLink>
               </div>
-              <SearchBar/>
+              <SearchBar groups={groups}/>
               <div className="nav-right-main">
                 <NavLink to="/groups/new" exact={true} activeClassName="active pointer" id="right">
                   Start a New Group 

@@ -43,7 +43,7 @@ export default function AllGroups ({group}){
                     {users && users
                         ?.filter(user => user.id === group.ownerId)
                         .map(user => 
-                        <p className="created"> Created by {user?.username}</p> 
+                        <p className="created" key={user.id}> Created by {user?.username}</p> 
                     )}  
                 </div>
             </div>
