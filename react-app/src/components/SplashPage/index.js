@@ -4,6 +4,7 @@ import hobby from "./hobby.png"
 import first from "./first.jpg"
 import second from "./second.jpg"
 import third from "./third.jpg"
+import Footer from "../Footer"
 
 export default function SplashPage () {
     return (
@@ -32,6 +33,7 @@ export default function SplashPage () {
                     </div>      
                 </div>
             </div>
+            <Footer/>
         </div>
         </>
     )

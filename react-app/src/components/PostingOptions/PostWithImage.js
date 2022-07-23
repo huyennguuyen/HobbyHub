@@ -66,7 +66,7 @@ return (
                 {users && users
                     .filter(user => user.id === post.ownerId)
                     .map(user => 
-                    <p className="posted-by"> Posted by {user?.username}</p> 
+                    <p className="posted-by" key={user.id}> Posted by {user?.username}</p> 
                 )}  
             </div>
             {/* </div> */}

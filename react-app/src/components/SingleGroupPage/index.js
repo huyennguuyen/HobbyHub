@@ -8,6 +8,7 @@ import UploadPost from "../PostForm/UploadPost";
 import EditPost from "../EditPostForm/EditPostForm";
 import PostWithImage from "../PostingOptions/PostWithImage";
 import PostWithOutImage from "../PostingOptions/PostWithoutImage";
+import { Modal } from "../context/Modal";
 
 import "./SingleGroupPage.css"
 
@@ -72,9 +73,13 @@ function SingleGroup() {
                     </div>
                 </div>
                 <div className="center-post">
-                    <button onClick={() => setShowModal(!showModal)} className="post-button pointer">{showModal ? "Cancel" : "Create a Post"}</button>
+                    <button onClick={() => setShowModal(true)} className="post-button pointer">Create a Post</button>
                     <div className="post-dropdown">
-                        {showModal && <UploadPost group={group} setShowModal={setShowModal}/>}
+                        {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                         <UploadPost group={group} setShowModal={setShowModal}/>
+                         </Modal>
+                        )}
                     </div>
                     {posts && posts.reverse().map(post => (
                         post.image ?
