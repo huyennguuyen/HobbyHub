@@ -19,10 +19,13 @@
 .matches {
   position: absolute;
   border: 1px solid black;
+  width: 20rem;
   background-color: white;
   margin-left: 30px;
   /* top: 20px; */
-  
 
+}
 
+.indiv-search:hover {
+  background-color: pink;
 }
