@@ -53,7 +53,7 @@ return (
     {matches && (
       <div className="matches">
         {matches.map((match, i) =>
-            <div key={i}> 
+            <div key={i} className="indiv-search"> 
                 <NavLink to={`/groups/${match.id}`} key={i} className="link-match">
                 {match.name}
                 </NavLink>
