@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removePost } from '../../store/post';
-// import "./NoteCards.css";
+import "./DeletePost.css"
 
 function DeletePost({ closeModal, post }) {
     const dispatch = useDispatch();
