@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as postActions from "../../store/post";
-import cancel from '../../images/cancel.png';
+
 import "./UploadPost.css";
 
 
@@ -104,9 +104,11 @@ const UploadPost = ({group, setShowModal}) => {
     
     return (
         <>
+        {cancel && (
         <div className="cancel-button">
-            <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-logo"></img>
+            <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-logo" onClick={() => setCancel(false)}></img>
         </div>
+        )}
         <div className="outside-post">
             <div className="upload-post">
                 {/* <div className="cancel-button">
