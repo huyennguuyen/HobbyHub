@@ -117,7 +117,7 @@ const EditPost = ({closeModal, post, group}) => {
     
     return (
         <>
-         <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-button pointer" onClick={onCancel}></img>
+        <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-button pointer" onClick={onCancel}></img>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <div>
