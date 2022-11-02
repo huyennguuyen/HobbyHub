@@ -1,8 +1,9 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import * as postActions from "../../store/post"
-import "./UploadPost.css"
+import * as postActions from "../../store/post";
+import cancel from '../../images/cancel.png';
+import "./UploadPost.css";
 
 
 
@@ -16,6 +17,7 @@ const UploadPost = ({group, setShowModal}) => {
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [cancel, setCancel] = useState(false)
 
 
     useEffect(() => {
@@ -97,11 +99,19 @@ const UploadPost = ({group, setShowModal}) => {
         const file = e.target.files[0];
         setImage(file);
     }
+
+  
     
     return (
         <>
+        <div className="cancel-button">
+            <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-logo"></img>
+        </div>
         <div className="outside-post">
             <div className="upload-post">
+                {/* <div className="cancel-button">
+                    <img src={cancel} className="cancel-logo"></img>
+                </div> */}
                 <form onSubmit={handleSubmit} className="post-form">
                     <div className="inside-post">
                         <ul className="post-errors">
