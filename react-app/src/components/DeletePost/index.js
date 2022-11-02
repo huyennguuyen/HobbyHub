@@ -24,6 +24,8 @@ function DeletePost({ closeModal, post }) {
     };
 
     return (
+        <>
+        <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-button-delete pointer" onClick={handleCancelClick}></img>
         <div className="delete-box">
             <form className="delete-form" onSubmit={e => handleSubmit(e, post)}>
                 <h3 className="delete-text">Are you sure you want to delete your post?</h3>
@@ -36,6 +38,7 @@ function DeletePost({ closeModal, post }) {
                 </div>
             </form>
         </div>
+        </>
     )
 }
 
