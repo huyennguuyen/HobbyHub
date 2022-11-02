@@ -35,7 +35,7 @@ const NavBar = () => {
                   <NavLink to='/home' exact={true} activeClassName='active pointer' id="logo">
                     Hobby Hub
                   </NavLink>
-                  {/* <SearchBar groups={groups}/> */}
+                  <SearchBar groups={groups}/>
               </div>
               <div className="nav-right-main">
                 <NavLink to="/groups/new" exact={true} activeClassName="active pointer" id="right">
