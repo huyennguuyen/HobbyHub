@@ -33,13 +33,7 @@ const UploadPost = ({group, setShowModal}) => {
         setErrors(errors)
     }, [title, description, image])
 
-    // useEffect(() => {
-    //     return () => {
-    //         setTitle("")
-    //         setDescription("")
-    //         setImage(null)
-    //     }
-    // }, [image, title, description])
+
     
     
     const handleSubmit = async (e) => {
