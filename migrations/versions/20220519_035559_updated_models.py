@@ -33,7 +33,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
     op.create_table('groups',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -48,7 +48,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE groups SET SCHEMA {SCHEMA};")
     
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -65,7 +65,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
     
     op.create_table('user_groups',
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -76,7 +76,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE user_groups SET SCHEMA {SCHEMA};")
 
     op.create_table('likes',
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -87,7 +87,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE likes SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
