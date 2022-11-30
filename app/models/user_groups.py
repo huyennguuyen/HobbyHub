@@ -7,4 +7,4 @@ user_groups = db.Table("user_groups",
 )
 
 if environment == "production":
-    <instance_variable>.schema = SCHEMA
+    user_groups.schema = SCHEMA

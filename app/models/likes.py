@@ -7,4 +7,4 @@ likes = db.Table("likes",
 )
 
 if environment == "production":
-    <instance_variable>.schema = SCHEMA
+    likes.schema = SCHEMA
