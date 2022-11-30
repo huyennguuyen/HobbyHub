@@ -8,7 +8,7 @@ import "./UploadPost.css";
 
 
 const UploadPost = ({group, setShowModal}) => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
+    const history = useHistory(); 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [image, setImage] = useState(null);
@@ -33,13 +33,7 @@ const UploadPost = ({group, setShowModal}) => {
         setErrors(errors)
     }, [title, description, image])
 
-    // useEffect(() => {
-    //     return () => {
-    //         setTitle("")
-    //         setDescription("")
-    //         setImage(null)
-    //     }
-    // }, [image, title, description])
+
     
     
     const handleSubmit = async (e) => {
@@ -56,43 +50,16 @@ const UploadPost = ({group, setShowModal}) => {
         formData.append("title", title)
         formData.append("description", description)
         formData.append("group_id", group.id)
-        // formData.append("id", group.id)
-        
-        // console.log("THIS IS FORM DATA---------------", formData.values())
-
-        // for(let key of formData.values()){
-        //     console.log("THIS IS VALUES------", key)
-        // }
-
-        // let formValues = formData.values()
-        // console.log(formValues)
-        // aws uploads can be a bit slow—displaying
-        // some sort of loading message is a good idea
+     
         setImageLoading(true);
         const posted = await dispatch(postActions.postNewPost(formData))
 
-        // setTitle("")
-        // setDescription("")
-        // setImage(false)
-
-        // setShowModal(false)
-
-        // const res = await fetch('/api/images', {
-        //     method: "POST",
-        //     body: formData,
-        // });
-        // if (posted) {
-        //     setImageLoading(false);
-        //     // history.push("/")
-        // }
-        // else {
+     
             setImageLoading(false);
             setShowModal(false)
-            // a real app would probably use more advanced
-            // error handling
+
             history.push(`/groups/${group.id}`);
-            // console.log("error");
-        // }
+
     }
     
     const updateImage = (e) => {
@@ -109,9 +76,6 @@ const UploadPost = ({group, setShowModal}) => {
         </div>
         <div className="outside-post">
             <div className="upload-post">
-                {/* <div className="cancel-button">
-                    <img src={cancel} className="cancel-logo"></img>
-                </div> */}
                 <form onSubmit={handleSubmit} className="post-form">
                     <div className="inside-post">
                         <ul className="post-errors">

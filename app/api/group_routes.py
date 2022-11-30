@@ -17,7 +17,7 @@ def new_group():
 
         image_url = request.files["background_image"]
 
-        print("REQUEST FILES-------------", request.files)
+    
 
         # print("IMAGE_URL---------", image_url)
 
