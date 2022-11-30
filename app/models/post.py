@@ -13,7 +13,7 @@ class Post(db.Model):
     image = db.Column(db.String, nullable=True)
     description = db.Column(db.String, nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
+    group_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("groups.id")), nullable=False)
     created_at = db.Column(db.Date, nullable=False, default=date.today)
     updated_at = db.Column(db.Date, nullable=False, default=date.today)
 
