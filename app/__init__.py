@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
+from app.models.db import db, environment, SCHEMA
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
@@ -74,3 +75,13 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+
+@seed_commands.command('all')
+def seed():
+    if environment == 'production':
+        # Before seeding, truncate all tables prefixed with schema name
+        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        # Add a truncate command here for every table that will be seeded.
+        db.session.commit()
+    seed_users()
