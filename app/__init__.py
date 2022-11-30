@@ -68,15 +68,6 @@ def inject_csrf_token(response):
         httponly=True)
     return response
 
-@seed_commands.command('all')
-def seed():
-    if environment == 'production':
-        # Before seeding, truncate all tables prefixed with schema name
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
-        # Add a truncate command here for every table that will be seeded.
-        db.session.commit()
-    seed_users()
-
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def react_root(path):
