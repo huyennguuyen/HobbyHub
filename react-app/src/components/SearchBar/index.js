@@ -29,7 +29,7 @@ const SearchBar = ({groups}) => {
         })
        }
 
-       console.log(matches)
+
         setMatches(matches)
         setText(text)
     }

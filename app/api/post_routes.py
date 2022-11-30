@@ -32,20 +32,19 @@ def new_group():
             # images = request.files 
             # print("THIS IS MULTIPLE------", images)
 
-            print("IMAGE_URL---------", image_url)
+  
 
             image_url.filename = get_unique_filename(image_url.filename)
 
-            print("THIS IS IMAGE_URL FILENAME------", image_url.filename)
+         
 
             image_upload = upload_file_to_s3(image_url)
 
-            print("IMAGE_UPLOAD---------", image_upload)
 
             image = image_upload['url']
 
-            print("THIS IS REQUEST FORM----", request.form)
-            print("THIS IS REQUEST DATA-----", request.data)
+            # print("THIS IS REQUEST FORM----", request.form)
+            # print("THIS IS REQUEST DATA-----", request.data)
 
 
             new_post = Post(
@@ -97,7 +96,6 @@ def get_posts(id):
 def get_single_group(id):
     if request.method == "GET":
         post = Post.query.get(id)
-        print("THIS IS GROUP-----", post)
         return post.to_dict()
     
     if request.method == "PUT":

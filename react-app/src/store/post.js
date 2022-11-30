@@ -65,7 +65,7 @@ export const postNewPost = (formData) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        console.log("THIS IS DATA FROM STORE-----",data)
+
         dispatch(addPost(data))
     }
 
@@ -95,7 +95,6 @@ export const getAllPosts = (groupId) => async (dispatch) => {
 
 
 export const editPost = (formData) => async (dispatch) => {
-    console.log("THIS IS THE ID STORE--------", formData.get("id"))
     let formDataId = formData.get("id")
     // console.log("THIS IS EDIT GROUP-------", formData)
     const id = parseInt(formDataId, 10)
@@ -110,7 +109,7 @@ export const editPost = (formData) => async (dispatch) => {
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors){
-            console.log(data.errors)
+
             return data.errors;
         } 
             
