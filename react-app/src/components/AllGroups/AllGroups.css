@@ -103,6 +103,8 @@
     height: 70px;
     border: 1px solid #e6e6e6;
     border-radius: 2px;
+    transition:0.4s;
+    overflow:hidden;
     /* display:flex;
     flex-direction: column; */
     /* border-radius: .25rem;
@@ -123,10 +125,15 @@
     opacity: 1;
 } */
 
-.dropdown:hover .dropdown-menu {
+/* .dropdown:hover .dropdown-menu {
     display: flex;
     flex-direction: column;
-}
+    opacity: 1;
+    visibility: visible;
+   
+    transition-delay: 0.6s;
+
+} */
 
 /* .dropdown > .link:active + .dropdown-menu {
     opacity: 1;
