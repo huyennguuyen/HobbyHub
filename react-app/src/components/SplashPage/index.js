@@ -5,10 +5,16 @@ import first from "./first.jpg"
 import second from "./second.jpg"
 import third from "./third.jpg"
 import Footer from "../Footer"
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
 export default function SplashPage () {
+    const sessionUser = useSelector(state => state.session.user);
+
+
     return (
         <>
+        {sessionUser ? <Redirect to="/home" /> : 
         <div className="splash">
             <div className="outside">
                 <div className="background">
@@ -35,6 +41,7 @@ export default function SplashPage () {
             </div>
             <Footer/>
         </div>
+        }
         </>
     )
 }
