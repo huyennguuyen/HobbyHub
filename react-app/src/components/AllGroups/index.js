@@ -49,57 +49,59 @@ export default function AllGroups ({group}){
                     )}  
                 </div>
             </div>
-                <div className="dropdown">
-                    {/* <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
-                    <div className="dropdown-menu">
-                        <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
-                        {showEditGroup && (
-                        <Modal onClose={() => setShowEditGroup(false)}> 
-                            <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
-                        </Modal>
-                        )}
-                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete Group</button>
-                        {showDeleteGroup && (
-                        <Modal onClose={() => setShowDeleteGroup(false)}>
-                            <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
-                        </Modal>
-                        )}   
-                    </div> */}
-                    <Popup
-                            trigger = {<button className="link pointer" ><FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/></button>}
-                            position="bottom right"
-                            className="menu-container"
-                            // open={open}
-                            // onClose={close}
-                            nested
-                        >
-                        <>
-                        <Popup 
-                            trigger={<button className="my-button pointer popup-button">Edit Group</button>}
-                            className="popup-edit"
-                            modal
-                        >
-                            {close => (
-                                <>
-                                <EditGroup close={close} group={group}/>
-                                </>
+                <div className="menu-box">
+                    <div className="dropdown">
+                        {/* <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
+                        <div className="dropdown-menu">
+                            <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
+                            {showEditGroup && (
+                            <Modal onClose={() => setShowEditGroup(false)}> 
+                                <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
+                            </Modal>
                             )}
+                            <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete Group</button>
+                            {showDeleteGroup && (
+                            <Modal onClose={() => setShowDeleteGroup(false)}>
+                                <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
+                            </Modal>
+                            )}   
+                        </div> */}
+                        <Popup
+                                trigger = {<button className="link pointer" ><FiMoreHorizontal style={{float:"right"}} id="ellipse"/></button>}
+                                position="bottom right"
+                                className="menu-container"
+                                // open={open}
+                                // onClose={close}
+                                nested
+                            >
+                            <>
+                            <Popup 
+                                trigger={<button className="my-button pointer popup-button">Edit Group</button>}
+                                className="popup-edit"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <EditGroup close={close} group={group}/>
+                                    </>
+                                )}
 
-                        </Popup>
-                        <Popup 
-                            trigger={<button className="my-button delete pointer popup-button">Delete Group</button>}
-                            className="popup-delete"
-                            modal
-                        >
-                            {close => (
-                                <>
-                                <DeleteGroup close={close} group={group}/>
-                                </>
-                            )}
+                            </Popup>
+                            <Popup 
+                                trigger={<button className="my-button delete pointer popup-button">Delete Group</button>}
+                                className="popup-delete"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <DeleteGroup close={close} group={group}/>
+                                    </>
+                                )}
 
-                        </Popup>
-                        </>
-                     </Popup>  
+                            </Popup>
+                            </>
+                        </Popup>  
+                    </div>
                 </div>
         </div>
         </>

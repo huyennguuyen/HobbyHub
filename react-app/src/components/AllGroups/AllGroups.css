@@ -61,6 +61,7 @@
 .link {
     /* background-color: #f5f5f5; */
     border: none;
+    background-color: transparent;
 }
 
 .delete {
