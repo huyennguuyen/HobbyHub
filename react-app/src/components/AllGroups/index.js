@@ -49,9 +49,8 @@ export default function AllGroups ({group}){
                     )}  
                 </div>
             </div>
-            <div className="menu-box">
-                {/* <div className="dropdown">
-                    <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
+                <div className="dropdown">
+                    {/* <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
                     <div className="dropdown-menu">
                         <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
                         {showEditGroup && (
@@ -59,29 +58,47 @@ export default function AllGroups ({group}){
                             <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
                         </Modal>
                         )}
-                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete</button>
+                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete Group</button>
                         {showDeleteGroup && (
                         <Modal onClose={() => setShowDeleteGroup(false)}>
                             <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
                         </Modal>
-                        )} 
-                       
-                    </div>
-                </div> */}
-                 <Popup
-                    trigger={<button><FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse" /></button>}
-                    position="top right"
-                    className="single-container"
-                    nested
-                    // open={open}
-                    // onClose={close}
-                    closeOnDocumentClick
+                        )}   
+                    </div> */}
+                    <Popup
+                            trigger = {<button className="edit-single-icon"><FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/></button>}
+                            position="bottom right"
+                            className="single-container"
+                            // open={open}
+                            // onClose={close}
+                            nested
                         >
-                            <>
-                                <p>yaga</p>
-                            </>
-                 </Popup> 
-            </div>
+                        <>
+                        <Popup 
+                            trigger={<button className="my-button pointer">Edit Group</button>}
+                            modal
+                        >
+                            {close => (
+                                <>
+                                <EditGroup close={close} group={group}/>
+                                </>
+                            )}
+
+                        </Popup>
+                        <Popup 
+                            trigger={<button className="my-button delete pointer">Delete Group</button>}
+                            modal
+                        >
+                            {close => (
+                                <>
+                                <DeleteGroup close={close} group={group}/>
+                                </>
+                            )}
+
+                        </Popup>
+                        </>
+                     </Popup>  
+                </div>
         </div>
         </>
     )
