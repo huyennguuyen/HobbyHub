@@ -51,21 +51,6 @@ export default function AllGroups ({group}){
             </div>
                 <div className="menu-box">
                     <div className="dropdown">
-                        {/* <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
-                        <div className="dropdown-menu">
-                            <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
-                            {showEditGroup && (
-                            <Modal onClose={() => setShowEditGroup(false)}> 
-                                <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
-                            </Modal>
-                            )}
-                            <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete Group</button>
-                            {showDeleteGroup && (
-                            <Modal onClose={() => setShowDeleteGroup(false)}>
-                                <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
-                            </Modal>
-                            )}   
-                        </div> */}
                         <Popup
                                 trigger = {<button className="link pointer" ><FiMoreHorizontal style={{float:"right"}} id="ellipse"/></button>}
                                 position="bottom right"
