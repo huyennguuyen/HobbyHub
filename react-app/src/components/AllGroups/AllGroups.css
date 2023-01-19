@@ -85,6 +85,13 @@
     width: 700px;
 }
 
+.menu-container-content {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+   
+}
+
 .popup-edit-overlay {
     background: rgba(0, 0, 0, 0.5);
 }
@@ -101,6 +108,11 @@
 .popup-delete-content {
     background-color: white;
     border-radius: 6px;
+}
+
+.popup-button:hover {
+    background-color: #E86652;
+    color: white;
 }
 
 
@@ -145,6 +157,8 @@
     opacity: 1;
 } */
 
+
+
 .dropdown:hover .dropdown-menu {
     display: flex;
     flex-direction: column;
@@ -169,11 +183,11 @@
     width: 500px;
 } */
 
-/* .menu-box {
+.menu-box {
     width: 100px;
     height: 100px;
     margin-left: 95px;
-} */
+}
 
 #ellipse {
     width: 28px;

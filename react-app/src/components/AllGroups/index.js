@@ -66,16 +66,16 @@ export default function AllGroups ({group}){
                         )}   
                     </div> */}
                     <Popup
-                            trigger = {<button className="edit-single-icon"><FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/></button>}
+                            trigger = {<button className="link pointer" ><FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/></button>}
                             position="bottom right"
-                            className="popup=box"
+                            className="menu-container"
                             // open={open}
                             // onClose={close}
                             nested
                         >
                         <>
                         <Popup 
-                            trigger={<button className="my-button pointer">Edit Group</button>}
+                            trigger={<button className="my-button pointer popup-button">Edit Group</button>}
                             className="popup-edit"
                             modal
                         >
@@ -87,7 +87,7 @@ export default function AllGroups ({group}){
 
                         </Popup>
                         <Popup 
-                            trigger={<button className="my-button delete pointer">Delete Group</button>}
+                            trigger={<button className="my-button delete pointer popup-button">Delete Group</button>}
                             className="popup-delete"
                             modal
                         >
