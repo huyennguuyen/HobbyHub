@@ -1,10 +1,13 @@
-.edit-group-box{
+.edit-group-box {
     width: 500px;
     height: 560px;
     display:flex;
     justify-content: center;
     flex-direction: column;
+    
 }
+
+
 
 .edit-group-form{
     width: 500px;
@@ -14,6 +17,7 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 60px;
+   
 }
 
 .login-form-box{
