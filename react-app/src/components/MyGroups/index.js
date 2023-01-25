@@ -32,9 +32,13 @@ function MyGroups() {
             <div className="my-groups-center">
                 <h1 className="my-groups-header"> My Created Groups </h1>
                 {groups.length > 0 ? 
-                 groups?.map(group => 
-                 <AllGroups key={group.id} group={group}/>) :
-                 <h2>hi</h2>    
+                groups?.map(group => 
+                <AllGroups key={group.id} group={group}/>) :
+                <div className="no-groups"> 
+                    <h2 style={{fontSize: "100px"}}>Thank you for signing up!</h2>
+                    <h3>Get started by creating a group.</h3>
+                    <button>Create a group</button>
+                 </div>   
                 }
             </div>
         </div>
