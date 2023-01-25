@@ -53,7 +53,7 @@ return (
                             </Modal>
                                 )}        */}
                              <Popup
-                                trigger = {<button className="posts-button ellipse pointer" ><FiMoreHorizontal style={{float:"right"}}/></button>}
+                                trigger = {<button className="posts-button pointer" ><FiMoreHorizontal style={{float:"right", height: "20px", width: "20px"}}/></button>}
                                 position="bottom right"
                                 className="menu-container"
                                 // open={open}

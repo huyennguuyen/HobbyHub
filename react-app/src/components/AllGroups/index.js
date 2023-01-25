@@ -60,7 +60,7 @@ export default function AllGroups ({group}){
                             >
                             <>
                             <Popup 
-                                trigger={<button className="my-button pointer popup-button">Edit Group</button>}
+                                trigger={<button className="my-button on-top pointer popup-button">Edit Group</button>}
                                 className="popup-edit"
                                 modal
                             >
@@ -72,7 +72,7 @@ export default function AllGroups ({group}){
 
                             </Popup>
                             <Popup 
-                                trigger={<button className="my-button delete pointer popup-button">Delete Group</button>}
+                                trigger={<button className="my-button on-bottom pointer popup-button">Delete Group</button>}
                                 className="popup-delete"
                                 modal
                             >
