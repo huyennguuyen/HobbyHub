@@ -35,9 +35,9 @@ function MyGroups() {
                 groups?.map(group => 
                 <AllGroups key={group.id} group={group}/>) :
                 <div className="no-groups"> 
-                    <h2 style={{fontSize: "100px"}}>Thank you for signing up!</h2>
-                    <h3>Get started by creating a group.</h3>
-                    <button>Create a group</button>
+                    <h2 style={{fontSize: "35px"}}>Thank you for signing up!</h2>
+                    <h3 style={{fontSize: "23px", marginBottom: "30px"}}>Get started by creating a group.</h3>
+                    <button style={{color: "white", border: "none", backgroundColor: "#E86652", height: "28px", fontFamily: "PT Serif", fontSize: "15px" }}>Create a group</button>
                  </div>   
                 }
             </div>
