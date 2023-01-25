@@ -138,9 +138,11 @@
 .posts-button {
     border: none;
     float: right;
-
-
+    background-color: transparent;
 }
+
+
+
 
 .title-menu {
     display: flex;

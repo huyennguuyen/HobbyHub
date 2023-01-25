@@ -62,6 +62,14 @@
     /* background-color: #f5f5f5; */
     border: none;
     background-color: transparent;
+    margin-top: 20px;
+}
+
+.link:hover {
+    background-color: #E86652;
+    opacity: 0.8;
+    border-radius: 4px;
+
 }
 
 .delete {

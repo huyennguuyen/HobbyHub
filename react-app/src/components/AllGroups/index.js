@@ -4,10 +4,9 @@ import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
 import EditGroup from "../EditGroupForm/EditGroupForm";
 import DeleteGroup from "../DeleteGroup";
-import { Modal } from "../context/Modal";
-import {FiMoreHorizontal} from "react-icons/fi"
+import {FiMoreHorizontal} from "react-icons/fi";
 import Popup from "reactjs-popup"
-// import AllGroups from "../AllGroups";
+
 
 import "./AllGroups.css"
 
