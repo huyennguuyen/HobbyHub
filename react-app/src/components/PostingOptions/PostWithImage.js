@@ -31,6 +31,8 @@ export default function PostWithImage ({post, group}) {
     //     dispatch(postActions.removePost(post.id))
     // }
 
+    console.log("THIS IS POST---------------", post)
+
 return (
     <>
     <div className="post-image">
