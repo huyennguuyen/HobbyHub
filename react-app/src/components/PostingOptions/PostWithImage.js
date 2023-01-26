@@ -40,18 +40,6 @@ return (
                 <div className="menu-box-post">
                     <div className="dropdown">
                         <div className="dropdown-menu">
-                            {/* <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
-                            {showEditPost && (
-                            <Modal onClose={() => setShowEditPost(false)}> 
-                                <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
-                            </Modal>
-                            )}
-                            <button onClick={() => setShowDeletePost(true)} className="my-button delete pointer">Delete</button>
-                            {showDeletePost && (
-                            <Modal onClose={() => setShowDeletePost(false)}> 
-                                <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
-                            </Modal>
-                                )}        */}
                              <Popup
                                 trigger = {<button className="posts-button pointer" ><FiMoreHorizontal style={{float:"right", height: "24px", width: "24px"}}/></button>}
                                 position="bottom right"
