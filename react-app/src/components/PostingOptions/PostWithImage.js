@@ -62,7 +62,7 @@ return (
                             >
                             <>
                             <Popup 
-                                trigger={<button className="my-button pointer popup-button">Edit Post</button>}
+                                trigger={<button className="my-button pointer on-top">Edit Post</button>}
                                 className="popup-edit"
                                 modal
                             >
@@ -74,7 +74,7 @@ return (
 
                             </Popup>
                             <Popup 
-                                trigger={<button className="my-button delete pointer popup-button">Delete Post</button>}
+                                trigger={<button className="my-button delete pointer on-bottom">Delete Post</button>}
                                 className="popup-delete"
                                 modal
                             >
