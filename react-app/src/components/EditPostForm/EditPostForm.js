@@ -5,7 +5,7 @@ import * as postActions from "../../store/post"
 import {MdOutlineCancelPresentation} from "react-icons/md"
 
 
-const EditPost = ({closeModal, post, group}) => {
+const EditPost = ({close, post, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -81,7 +81,7 @@ const EditPost = ({closeModal, post, group}) => {
 
        await dispatch(postActions.editPost(formData))
 
-       closeModal()
+       close()
 
 
         // console.log("THIS IS POST-------", post)
@@ -111,7 +111,7 @@ const EditPost = ({closeModal, post, group}) => {
 
     const onCancel = (e) => {
         e.preventDefault()
-        closeModal()
+        close()
     
       }
     

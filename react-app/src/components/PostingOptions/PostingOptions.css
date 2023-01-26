@@ -121,7 +121,7 @@
 }
 
 .menu-box-post {
-    width: 35px;
+    width: 45px;
     height: 45px;
     /* display: flex;
     justify-content: flex-end; */
@@ -138,9 +138,12 @@
 .posts-button {
     border: none;
     float: right;
-
+    background-color: transparent;
+    margin-top: 10px;
 
 }
+
+
 
 .title-menu {
     display: flex;
@@ -170,11 +173,6 @@
     margin-bottom: 0;
 }
 
-
-.ellipse {
-    width: 20px;
-    height: 20px;
-}
 
 .menu{
     display: flex;

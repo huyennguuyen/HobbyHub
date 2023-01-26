@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { removePost } from '../../store/post';
 import "./DeletePost.css"
 
-function DeletePost({ closeModal, post }) {
+function DeletePost({ close, post }) {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
 
@@ -15,12 +15,12 @@ function DeletePost({ closeModal, post }) {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors);
         });
-        closeModal();
+        close();
     }
 
     const handleCancelClick = (e) => {
         e.preventDefault()
-        closeModal();
+        close();
     };
 
     return (

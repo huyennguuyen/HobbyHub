@@ -8,7 +8,7 @@ import "./EditGroupForm.css"
 
 
 
-const EditGroup = ({closeModal, group}) => {
+const EditGroup = ({close, group}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -81,7 +81,7 @@ const EditGroup = ({closeModal, group}) => {
 
         let post = await dispatch(groupActions.editGroup(formData))
 
-        closeModal()
+        close()
 
         // console.log("THIS IS POST-------", post)
         
@@ -109,7 +109,7 @@ const EditGroup = ({closeModal, group}) => {
 
     const onCancel = (e) => {
         e.preventDefault()
-        closeModal()
+        close()
     
       }
 
@@ -117,7 +117,7 @@ const EditGroup = ({closeModal, group}) => {
     
     return (
         <>
-        <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
+        <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-button pointer" onClick={onCancel}></img>
         <div className="edit-group-box">
             <form onSubmit={handleSubmit} className="edit-group-form">
                 <ul className="new-note-errors">

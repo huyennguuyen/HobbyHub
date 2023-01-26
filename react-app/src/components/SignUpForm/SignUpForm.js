@@ -71,7 +71,7 @@ const SignUpForm = ({closeModal}) => {
 
   return (
     <>
-    <MdOutlineCancelPresentation className="cancel-button pointer" onClick={onCancel}/>
+    <img src="https://res.cloudinary.com/daeopbcax/image/upload/v1667352522/Huyen/cancel_ywptyy.png" className="cancel-button pointer" onClick={onCancel}></img>
     <div className="login-box">
       <form onSubmit={onSignUp} className="login-form">
         <div className="inside-login">

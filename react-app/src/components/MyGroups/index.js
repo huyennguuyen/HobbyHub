@@ -14,7 +14,7 @@ function MyGroups() {
     const sessionUser = useSelector(state => state.session.user);
     const groupState = useSelector(state => state.groups)
     const groups = Object.values(groupState)
-    // console.log("THIS IS GROUPS------------------", groups)
+    console.log("THIS IS GROUPS------------------", groups)
     // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
@@ -31,9 +31,15 @@ function MyGroups() {
         <div className="my-groups-container">
             <div className="my-groups-center">
                 <h1 className="my-groups-header"> My Created Groups </h1>
-                {groups && groups.map(group => 
-                <AllGroups key={group.id} group={group}/>
-                )}
+                {groups.length > 0 ? 
+                groups?.map(group => 
+                <AllGroups key={group.id} group={group}/>) :
+                <div className="no-groups"> 
+                    <h2 style={{fontSize: "35px"}}>Thank you for signing up!</h2>
+                    <h3 style={{fontSize: "23px", marginBottom: "30px"}}>Get started by creating a group.</h3>
+                    <button style={{color: "white", border: "none", backgroundColor: "#E86652", height: "28px", fontFamily: "PT Serif", fontSize: "15px" }}>Create a group</button>
+                 </div>   
+                }
             </div>
         </div>
     );

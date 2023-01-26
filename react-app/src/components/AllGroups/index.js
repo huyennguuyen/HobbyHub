@@ -4,9 +4,10 @@ import { useHistory, NavLink } from "react-router-dom";
 import * as groupActions from "../../store/group"
 import EditGroup from "../EditGroupForm/EditGroupForm";
 import DeleteGroup from "../DeleteGroup";
-import { Modal } from "../context/Modal";
-import {FiMoreHorizontal} from "react-icons/fi"
-// import AllGroups from "../AllGroups";
+import {FiMoreHorizontal} from "react-icons/fi";
+import Popup from "reactjs-popup"
+
+
 import "./AllGroups.css"
 
 export default function AllGroups ({group}){
@@ -47,27 +48,45 @@ export default function AllGroups ({group}){
                     )}  
                 </div>
             </div>
-            <div className="menu-box">
-                <div className="dropdown">
-                    <FiMoreHorizontal className="link pointer" style={{float:"right"}} id="ellipse"/>
-                    <div className="dropdown-menu">
-                        {/* <div className="my-group-buttons-box">  */}
-                        <button onClick={e => setShowEditGroup(true)} className="my-button pointer">Edit Group</button>
-                        {showEditGroup && (
-                        <Modal onClose={() => setShowEditGroup(false)}> 
-                            <EditGroup closeModal={() => setShowEditGroup(false)}  group={group}/>
-                        </Modal>
-                        )}
-                        <button onClick={ () => setShowDeleteGroup(true)} className="my-button delete pointer">Delete</button>
-                        {showDeleteGroup && (
-                        <Modal onClose={() => setShowDeleteGroup(false)}>
-                            <DeleteGroup closeModal={() => setShowDeleteGroup(false)} group={group}/>
-                        </Modal>
-                        )} 
-                        {/* </div> */}
+                <div className="menu-box">
+                    <div className="dropdown">
+                        <Popup
+                                trigger = {<button className="link pointer" ><FiMoreHorizontal style={{float:"right"}} id="ellipse"/></button>}
+                                position="bottom right"
+                                className="menu-container"
+                                // open={open}
+                                // onClose={close}
+                                nested
+                            >
+                            <>
+                            <Popup 
+                                trigger={<button className="my-button on-top pointer popup-button">Edit Group</button>}
+                                className="popup-edit"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <EditGroup close={close} group={group}/>
+                                    </>
+                                )}
+
+                            </Popup>
+                            <Popup 
+                                trigger={<button className="my-button on-bottom pointer popup-button">Delete Group</button>}
+                                className="popup-delete"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <DeleteGroup close={close} group={group}/>
+                                    </>
+                                )}
+
+                            </Popup>
+                            </>
+                        </Popup>  
                     </div>
                 </div>
-            </div>
         </div>
         </>
     )

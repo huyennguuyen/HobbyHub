@@ -8,6 +8,7 @@ import EditPost from "../EditPostForm/EditPostForm";
 import { Modal } from "../context/Modal";
 import DeletePost from "../DeletePost";
 import {FiMoreHorizontal} from "react-icons/fi"
+import Popup from "reactjs-popup"
 import "./PostingOptions.css"
 
 export default function PostWithImage ({post, group}) {
@@ -38,9 +39,8 @@ return (
                 {sessionUser?.id === post?.ownerId && (
                 <div className="menu-box-post">
                     <div className="dropdown">
-                        <FiMoreHorizontal className="posts-button ellipse pointer" style={{float:"right"}}/>
                         <div className="dropdown-menu">
-                            <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
+                            {/* <button onClick={e => setShowEditPost(true)} className="my-button pointer">Edit Post</button>
                             {showEditPost && (
                             <Modal onClose={() => setShowEditPost(false)}> 
                                 <EditPost closeModal={() => setShowEditPost(false)}  post={post} group={group}/>
@@ -51,7 +51,42 @@ return (
                             <Modal onClose={() => setShowDeletePost(false)}> 
                                 <DeletePost closeModal={() => setShowDeletePost(false)}  post={post}/>
                             </Modal>
-                                )}       
+                                )}        */}
+                             <Popup
+                                trigger = {<button className="posts-button pointer" ><FiMoreHorizontal style={{float:"right", height: "24px", width: "24px"}}/></button>}
+                                position="bottom right"
+                                className="menu-container"
+                                // open={open}
+                                // onClose={close}
+                                nested
+                            >
+                            <>
+                            <Popup 
+                                trigger={<button className="my-button pointer popup-button">Edit Post</button>}
+                                className="popup-edit"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <EditPost close={close} post={post} group={group}/>
+                                    </>
+                                )}
+
+                            </Popup>
+                            <Popup 
+                                trigger={<button className="my-button delete pointer popup-button">Delete Post</button>}
+                                className="popup-delete"
+                                modal
+                            >
+                                {close => (
+                                    <>
+                                    <DeletePost close={close} post={post}/>
+                                    </>
+                                )}
+
+                            </Popup>
+                            </>
+                        </Popup>  
                         </div>
                     </div>
                 </div>
