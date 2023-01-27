@@ -3,7 +3,7 @@ from datetime import date
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_groups():
+def seed_posts():
     today = date.today()
     post1_group1 = Post(
         title='A Parallel Universe', 
@@ -229,6 +229,6 @@ def seed_groups():
 # TRUNCATE Removes all the data from the table, and RESET IDENTITY
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
-def undo_groups():
+def undo_posts():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
