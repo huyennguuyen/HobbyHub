@@ -32,7 +32,7 @@ def seed_groups():
     group4 = Group(
         name='Discover New Music', 
         description='Link below your playlists and share your favorite artists!', 
-        background_image='',
+        background_image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674780345/marius-masalar-rPOmLGwai2w-unsplash_luwq8f.jpg',
         owner_id=3,
         created_at=today,
         updated_at=today )

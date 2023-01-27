@@ -25,7 +25,7 @@ function SingleGroup() {
     const postsObj = useSelector(state => state.posts);
     const posts = Object.values(postsObj)
 
-    // console.log("THIS IS POSTS------", posts)
+    console.log("THIS IS POSTS FOR IMAGES------", posts)
 
   
 
