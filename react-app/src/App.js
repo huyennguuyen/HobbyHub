@@ -42,9 +42,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpFormModal />
         </Route>
-        <Route path='/' exact={true}>
+        <ProtectedRoute path='/' exact={true}>
           <SplashPage />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
