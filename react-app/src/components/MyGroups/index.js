@@ -31,7 +31,7 @@ function MyGroups() {
         <div className="my-groups-container">
             <div className="my-groups-center">
                 <h1 className="my-groups-header"> My Created Groups </h1>
-                {groups.length > 0 ? 
+                {groups ? 
                 groups?.map(group => 
                 <AllGroups key={group.id} group={group}/>) :
                 <div className="no-groups"> 
