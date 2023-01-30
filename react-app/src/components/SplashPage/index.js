@@ -14,7 +14,7 @@ export default function SplashPage () {
 
     return (
         <>
-        {sessionUser ? <Redirect to="/home" /> : 
+        {/* {sessionUser ? <Redirect to="/home" /> :  */}
         <div className="splash">
             <div className="outside">
                 <div className="background">
@@ -41,7 +41,7 @@ export default function SplashPage () {
             </div>
             <Footer/>
         </div>
-        }
+        {/* } */}
         </>
     )
 }
