@@ -13,7 +13,7 @@ function Home() {
     const groupState = useSelector(state => state.groups)
     const groups = Object.values(groupState)
     const [users, setUsers] = useState([]);
-    // console.log("THIS IS GROUPS------------------", groups)
+    console.log("THIS IS GROUPS AT HOME------------------", groups)
     // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
@@ -47,7 +47,7 @@ function Home() {
         <div className="groups-container">
             <div className="groups-center">
                 <h1 className="groups-header"> All Groups </h1>
-                {groups &&
+                {groups && (
                 groups?.map(group =>
                     <div key={group.id} className="groups-box">
                         <NavLink to={`/groups/${group?.id}`}>
@@ -60,13 +60,13 @@ function Home() {
                             {/* REMEMBER TO MAKE IT SO ONLY THE PERSON THAT MADE THE GROUP AND PEOPLE THAT JOINT THE GROUP CAN GO TO THE INDIVIDUAL GROUP PAGE */}
                             <p className="group-description" key={group?.id}>{group?.description}</p>
                             {users && (users
-                                ?.filter(user => user.id === group.ownerId)
+                                ?.filter(user => user?.id === group?.ownerId)
                                 ?.map(user => 
                                 <p className="created"  key={user?.id}> Created by {user?.username}</p> 
                             ))}  
                         </div>
                     </div>
-                )}
+                ))}
             </div>
         </div>
     );

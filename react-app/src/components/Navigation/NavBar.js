@@ -21,7 +21,7 @@ const NavBar = () => {
 
   useEffect(async() => {
       if (!sessionUser) history.push('/')
-      if (sessionUser) await dispatch(groupActions.getAllGroups(sessionUser.id))
+      // if (sessionUser) await dispatch(groupActions.getAllGroups(sessionUser.id))
   }, [sessionUser])
 
   return (
