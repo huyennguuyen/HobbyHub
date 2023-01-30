@@ -13,7 +13,7 @@ function Home() {
     const groupState = useSelector(state => state.groups)
     const groups = Object.values(groupState)
     const [users, setUsers] = useState([]);
-    console.log("THIS IS GROUPS AT HOME------------------", groups)
+    // console.log("THIS IS GROUPS AT HOME------------------", groups)
     // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
