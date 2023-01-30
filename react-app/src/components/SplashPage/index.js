@@ -14,8 +14,8 @@ export default function SplashPage () {
 
     return (
         <>
-        {!sessionUser && (
-        <div className="splash">
+        {sessionUser ? <Redirect to="/home" /> : 
+        (<div className="splash">
             <div className="outside">
                 <div className="background">
                     <div className="splash-text">
