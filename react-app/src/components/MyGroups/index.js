@@ -30,26 +30,32 @@ function MyGroups() {
     const filterGroups = groups.filter(group => group?.ownerId === sessionUser?.id)
  
     
-    useEffect(async() => {
-        if (!sessionUser) history.push('/')
-        // if (sessionUser) await dispatch(groupActions.clearingGroup())
-        if (sessionUser) await dispatch(groupActions.getGroupsHome())
+    useEffect(() => {
+        (async() => {
+            if (!sessionUser) history.push('/')
+            // if (sessionUser) await dispatch(groupActions.clearingGroup())
+            if (sessionUser) await dispatch(groupActions.getGroupsHome())
+        })()
+
+    // console.log("THIS IS GROUPS after USE Effect ------------------", groups)
 
     }, [sessionUser, dispatch])
+
+
+
+
+        
+    // useEffect(() => {
+    //    if (filterGroups?.length === 0) {
+    //     setLoading(true)
+    //    } else {
+    //     setLoading(false)
+    //    }
+    // }, )
 
   
     
 
-    // console.log("THIS IS GROUPS Second ------------------", groups)
-
-    const loadingMore = () => {
-
-        if (filterGroups) {
-            return setLoading(false)
-        } else {
-            return setLoading(true)
-        }
-    }
 
     //  useEffect(() => {
     //    setmyCreatedGroups(filterGroups)
@@ -86,6 +92,7 @@ function MyGroups() {
         <div className="my-groups-container">
             <div className="my-groups-center">
                 {/* <h1 className="my-groups-header"> My Created Groups </h1> */}
+                {/* {console.log("this is groups render---------", filterGroups)} */}
             {filterGroups && (filterGroups
                 .map(group => 
                 <AllGroups key={group.id} group={group}/>) )}
