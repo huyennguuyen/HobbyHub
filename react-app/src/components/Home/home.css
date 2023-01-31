@@ -51,6 +51,10 @@
 
 }
 
+.groups-center {
+    margin-top: 150px;
+}
+
 .group-name {
     font-weight: normal;
     overflow: hidden;

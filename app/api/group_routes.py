@@ -146,7 +146,9 @@ def get_groups_home():
     # print("THIS IS GROUPS BACKEND-----------------", groups)
     all_groups = {}
     for group in groups:
+        # print("THIS IS ALL GROUPS---------", all_groups)
         all_groups[group.id] = group.to_dict()
+        # print("THIS IS ALL GROUPS---------", all_groups)
     return all_groups
     
 

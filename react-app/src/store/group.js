@@ -3,6 +3,8 @@
 const GET_GROUP = "group/getGroup"
 const POST_GROUP= "group/postGroup"
 const DELETE_GROUP = "group/deleteGroup"
+const CLEAR_GROUP = "group/clearGroup"
+
 
 // CONSTANTS display text in actions log
 /////////////////////////////////////////
@@ -29,6 +31,15 @@ const deleteGroup = (id) => {
         payload: id
     };
 }
+
+const clearGroup = () => {
+    return {
+        type: CLEAR_GROUP,
+        payload: {}
+    };
+}
+
+
 
 // end of actions
 /////////////////////////////////////////
@@ -70,14 +81,14 @@ export const postNewGroup = (formData) => async (dispatch) => {
 
 }
 
-export const getAllGroups = (userId) => async (dispatch) => {
-    // console.log("THIS IS USER ID-----------", userId)
-    const res = await fetch(`/api/groups/users/${userId}`)
-    if (res.ok) {
-        const groups = await res.json();
-        dispatch(loadGroups(groups))
-    }
-}
+// export const getAllGroups = (userId) => async (dispatch) => {
+//     // console.log("THIS IS USER ID-----------", userId)
+//     const res = await fetch(`/api/groups/users/${userId}`)
+//     if (res.ok) {
+//         const groups = await res.json();
+//         dispatch(loadGroups(groups))
+//     }
+// }
 
 export const getGroupsHome = () => async (dispatch) => {
     const res = await fetch ("/api/groups/home")
@@ -134,6 +145,12 @@ export const loadSingleGroup = (id) => async (dispatch) => {
     else return ['An error occurred. Please try again.']
 }
 
+export const clearingGroup = () => async (dispatch) => {
+
+   dispatch(clearGroup())
+}
+
+
 
 // end of thunks
 /////////////////////////////////////////
@@ -154,6 +171,8 @@ const groupsReducer = (state = initialState, action) => {
         case DELETE_GROUP:
             delete newState[action.payload]
             return newState
+        case CLEAR_GROUP:
+            return {}
         default:
             return state;
     }

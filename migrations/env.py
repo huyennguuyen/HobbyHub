@@ -8,6 +8,10 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -94,9 +98,6 @@ def run_migrations_online():
                 context.execute(f"SET search_path TO {SCHEMA}")
             context.run_migrations()
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get('SCHEMA')
 
 if context.is_offline_mode():
     run_migrations_offline()

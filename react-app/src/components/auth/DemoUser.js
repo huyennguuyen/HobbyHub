@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom"
+import { useDispatch, useSelector} from "react-redux";
+import { Redirect, useHistory } from "react-router-dom"
 
 function DemoButton(){
   const dispatch = useDispatch();
   const history = useHistory();
+  const user = useSelector(state => state.session.user)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([])
@@ -18,7 +19,12 @@ function DemoButton(){
       setErrors(data);
     }
     // dont think that this will actually save errors in data
+
+    // if (user) {
+    //   return <Redirect to="/home" />
+    // }
     history.push("/home")
+     
   };
 
   return (

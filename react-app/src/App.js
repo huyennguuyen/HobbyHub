@@ -15,6 +15,7 @@ import UploadGroup from './components/GroupFormPage/UploadGroup';
 import MyGroups from "./components/MyGroups"
 import SplashPage from './components/SplashPage';
 import SignUpFormModal from './components/SignUpForm/SignUpFormModal';
+import PageNotFound from './components/PageNotFound';
 import Footer from "./components/Footer"
 
 function App() {
@@ -42,9 +43,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpFormModal />
         </Route>
-        <ProtectedRoute path='/' exact={true}>
+        <Route path='/' exact={true}>
           <SplashPage />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -64,6 +65,9 @@ function App() {
         <ProtectedRoute path="/my-created-groups"> 
           <MyGroups />
         </ProtectedRoute>
+        <Route path="">
+          <PageNotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
