@@ -40,7 +40,7 @@ function MyGroups() {
   
     
 
-    console.log("THIS IS GROUPS Second ------------------", groups)
+    // console.log("THIS IS GROUPS Second ------------------", groups)
 
     const loadingMore = () => {
 
@@ -85,19 +85,19 @@ function MyGroups() {
     return (
         <div className="my-groups-container">
             <div className="my-groups-center">
-                <h1 className="my-groups-header"> My Created Groups </h1>
-                { filterGroups && (filterGroups
-                    .map(group => 
-                    <AllGroups key={group.id} group={group}/>) )}
-                    {filterGroups?.length === 0 && (
-                    <div className="no-groups"> 
-                        <h2 style={{fontSize: "35px"}}>Thank you for signing up!</h2>
-                        <h3 style={{fontSize: "23px", marginBottom: "30px"}}>Get started by creating a group.</h3>
-                        <NavLink to="/groups/new">
-                        <button className="pointer"style={{color: "white", border: "none", backgroundColor: "#E86652", height: "28px", fontFamily: "PT Serif", fontSize: "15px", borderRadius: "3px" }}>Create a group</button>
-                        </NavLink >
-                    </div>
-                )}
+                {/* <h1 className="my-groups-header"> My Created Groups </h1> */}
+            {filterGroups && (filterGroups
+                .map(group => 
+                <AllGroups key={group.id} group={group}/>) )}
+            {filterGroups?.length === 0 && (
+            <div className="no-groups"> 
+                <h2 style={{fontSize: "35px"}}>Thank you for signing up!</h2>
+                <h3 style={{fontSize: "23px", marginBottom: "30px"}}>Get started by creating a group.</h3>
+                <NavLink to="/groups/new">
+                <button className="pointer"style={{color: "white", border: "none", backgroundColor: "#E86652", height: "28px", fontFamily: "PT Serif", fontSize: "15px", borderRadius: "3px" }}>Create a group</button>
+                </NavLink >
+            </div>
+            )}
             </div>
         </div>
     );

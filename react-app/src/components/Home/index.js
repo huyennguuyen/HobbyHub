@@ -46,7 +46,7 @@ function Home() {
     return (
         <div className="groups-container">
             <div className="groups-center">
-                <h1 className="groups-header"> All Groups </h1>
+                {/* <h1 className="groups-header"> All Groups </h1> */}
                 {groups && (
                 groups?.map(group =>
                     <div key={group.id} className="groups-box">
