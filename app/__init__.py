@@ -75,8 +75,4 @@ def react_root(path):
         return app.send_from_directory('public', 'favicon.ico')
     return app.send_static_file('index.html')
 
-@app.errorhandler(404)
-def handle_404(e):
-    if request.method == 'GET':
-        return redirect(f'/?request_path={quote_plus(request.path)}')
-    return e
+
