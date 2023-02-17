@@ -52,9 +52,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
+        <Route path='/home' exact={true} >
           <Home />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path="/groups/new">
           {/* <GroupFormPage /> */}
           <UploadGroup />

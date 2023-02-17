@@ -17,13 +17,14 @@ function Home() {
     // const [showEditGroup, setShowEditGroup] = useState(false)
 
 
-    useEffect(() => {
-        if (!sessionUser) history.push('/')
-        if (sessionUser) dispatch(groupActions.getGroupsHome())
-    }, [sessionUser])
+    // useEffect(() => {
+    //     if (!sessionUser) history.push('/')
+    //     if (sessionUser) dispatch(groupActions.getGroupsHome())
+    // }, [sessionUser])
 
 
     useEffect(() => {
+     dispatch(groupActions.getGroupsHome())
       async function fetchData() {
         const response = await fetch('/api/users/');
         const responseData = await response.json();
