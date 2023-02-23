@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
 export default function SplashPage () {
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
 
 
     return (
         <>
-        {sessionUser ? <Redirect to="/home" /> : 
-        (<div className="splash">
+        {/* {sessionUser ? <Redirect to="/home" /> : 
+        ( */}
+        <div className="splash">
             <div className="outside">
                 <div className="background">
                     <div className="splash-text">
@@ -41,7 +42,7 @@ export default function SplashPage () {
             </div>
             <Footer/>
         </div>
-        )}
+        {/* )} */}
         </>
     )
 }

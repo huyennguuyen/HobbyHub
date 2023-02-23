@@ -24,6 +24,7 @@ function Home() {
 
 
     useEffect(() => {
+    //  dispatch(groupActions.getGroupsHome())
       async function fetchData() {
         const response = await fetch('/api/users/');
         const responseData = await response.json();

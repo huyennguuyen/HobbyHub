@@ -15,7 +15,7 @@ def seed_posts():
 
     post2_group1 = Post(
         title='A Friend', 
-        description='I went to school every day, despite dreading it every single time. I still went with the biggest smile on my face and brightest personality. I have always thought that I was all alone, which I didn\'t mind. However, with social pressures perceiving me as the \“lonely loser\”, I had to care. I have never established a solid friend. Friendships would always end in some way for me, and since I was already accustomed to loneliness; I preferred it this way. No judgment, no complications, no feelings involved, just miscellaneous thoughts as my only company. I was ok. Until I met you. We were similar in a lot of ways. We met through mutual friends and became distantly close as others parted us, and we were the only two left. We sat by each other everyday. I finally had a companion for every break and lunch. I sensed her sorrows and she did mine. We mostly sat in silence and I was grateful. We were alone, together.',
+        description='I went to school every day, despite dreading it every single time. I still went with the biggest smile on my face and brightest personality. I have always thought that I was all alone, which I didn\'t mind. However, with social pressures perceiving me as the “lonely loser”, I had to care. I have never established a solid friend. Friendships would always end in some way for me, and since I was already accustomed to loneliness; I preferred it this way. No judgment, no complications, no feelings involved, just miscellaneous thoughts as my only company. I was ok. Until I met you. We were similar in a lot of ways. We met through mutual friends and became distantly close as others parted us, and we were the only two left. We sat by each other everyday. I finally had a companion for every break and lunch. I sensed her sorrows and she did mine. We mostly sat in silence and I was grateful. We were alone, together.',
         owner_id=4,
         group_id=1,
         created_at=today,
@@ -195,6 +195,43 @@ def seed_posts():
         group_id=11,
         created_at=today,
         updated_at=today )
+    
+    post1_group12 = Post(
+        title='Her by Burberry', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677123585/159520_7468e2ecf97cef93fbd1acac2ab68621_her-eau-de-toilette_qrmmsc.jpg', 
+        description='I spend the whole day at Sephora looking for a good perfume and this had to be my favorite! It smells so good! I definitely understand the hype around it. The Eau De Toilette has a hint of lychee to it but the Eau De Parfum is more floral. Depending on what you are looking for, try both out!',
+        owner_id=2,
+        group_id=12,
+        created_at=today,
+        updated_at=today )
+
+    post2_group12 = Post(
+        title='Juliette has a gun not a perfume', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677123945/download_2_lvta4t.jpg', 
+        description='the name of this perfume is pretty out there but i heard this perfume is great as well. have not smelled it yet. i dont think a lot of people know about this one yet. has anyone tried it?',
+        owner_id=1,
+        group_id=12,
+        created_at=today,
+        updated_at=today )
+    
+    post1_group13 = Post(
+        title='welch fruit snacks', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677124363/1654880363831_bhd7gu.jpg', 
+        description='the best fruit snacks imo',
+        owner_id=1,
+        group_id=13,
+        created_at=today,
+        updated_at=today )
+
+    post2_group13 = Post(
+        title='big roll tao kae noi, tom yum goong', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677124484/b87ced_c876ebddb4154d2e967512c3c9130291_mv2_ncgac5.jpg', 
+        description='if you like seaweed, try this! if you ever had mamma instant noodles it pretty much tastes like that bc of the tom yum',
+        owner_id=1,
+        group_id=13,
+        created_at=today,
+        updated_at=today )
+
 
     
     db.session.add(post1_group1)
