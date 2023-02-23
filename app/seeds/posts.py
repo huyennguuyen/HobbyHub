@@ -195,6 +195,43 @@ def seed_posts():
         group_id=11,
         created_at=today,
         updated_at=today )
+    
+    post1_group12 = Post(
+        title='stuffed animals', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
+        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
+        owner_id=2,
+        group_id=11,
+        created_at=today,
+        updated_at=today )
+
+    post2_group12 = Post(
+        title='stuffed animals', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
+        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
+        owner_id=2,
+        group_id=11,
+        created_at=today,
+        updated_at=today )
+    
+    post1_group13 = Post(
+        title='stuffed animals', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
+        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
+        owner_id=2,
+        group_id=11,
+        created_at=today,
+        updated_at=today )
+
+     post2_group13 = Post(
+        title='stuffed animals', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
+        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
+        owner_id=2,
+        group_id=11,
+        created_at=today,
+        updated_at=today )
+
 
     
     db.session.add(post1_group1)

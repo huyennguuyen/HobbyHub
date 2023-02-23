@@ -93,6 +93,24 @@ def seed_groups():
         created_at=today,
         updated_at=today )
 
+    group12 = Group(
+        name='Types of Perfumes', 
+        description='Come and share your perfume/scent collection!', 
+        background_image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677122413/Perfume_Bottles-1200x628-Facebook_fk2umm.webp',
+        owner_id=1,
+        created_at=today,
+        updated_at=today )
+
+    group13 = Group(
+        name='What are some good snacks???', 
+        description='always looking forward to discovering some solid snacks', 
+        background_image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677123278/healthy-snacks_djo2w2.webp',
+        owner_id=1,
+        created_at=today,
+        updated_at=today )
+
+    
+
     db.session.add(group1)
     db.session.add(group2)
     db.session.add(group3)
@@ -104,6 +122,8 @@ def seed_groups():
     db.session.add(group9)
     db.session.add(group10)
     db.session.add(group11)
+    db.session.add(group12)
+    db.session.add(group13)
 
     db.session.commit()
 
