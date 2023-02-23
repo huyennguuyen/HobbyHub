@@ -197,38 +197,38 @@ def seed_posts():
         updated_at=today )
     
     post1_group12 = Post(
-        title='stuffed animals', 
-        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
-        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
+        title='Her by Burberry', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677123585/159520_7468e2ecf97cef93fbd1acac2ab68621_her-eau-de-toilette_qrmmsc.jpg', 
+        description='I spend the whole day at Sephora looking for a good perfume and this had to be my favorite! It smells so good! I definitely understand the hype around it. The Eau De Toilette has a hint of lychee to it but the Eau De Parfum is more floral. Depending on what you are looking for, try both out!',
         owner_id=2,
-        group_id=11,
+        group_id=12,
         created_at=today,
         updated_at=today )
 
     post2_group12 = Post(
-        title='stuffed animals', 
-        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
-        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
-        owner_id=2,
-        group_id=11,
+        title='Juliette has a gun not a perfume', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677123945/download_2_lvta4t.jpg', 
+        description='the name of this perfume is pretty out there but i heard this perfume is great as well. have not smelled it yet. i dont think a lot of people know about this one yet. has anyone tried it?',
+        owner_id=1,
+        group_id=12,
         created_at=today,
         updated_at=today )
     
     post1_group13 = Post(
-        title='stuffed animals', 
-        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
-        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
-        owner_id=2,
-        group_id=11,
+        title='welch fruit snacks', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677124363/1654880363831_bhd7gu.jpg', 
+        description='the best fruit snacks imo',
+        owner_id=1,
+        group_id=13,
         created_at=today,
         updated_at=today )
 
      post2_group13 = Post(
-        title='stuffed animals', 
-        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1674792846/327029565_920217842330844_7062102625954695051_n_xkbpdj.jpg', 
-        description='these are some funky looking stuffed animals. i think they are pretty quirky, idk. they range from $80-$300, depending on the size. these are also hand made. link: https://littlelumps.bigcartel.com/products. can also be found under the Instagram handle: llumps.',
-        owner_id=2,
-        group_id=11,
+        title='big roll tao kae noi, tom yum goong', 
+        image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677124484/b87ced_c876ebddb4154d2e967512c3c9130291_mv2_ncgac5.jpg', 
+        description='if you like seaweed, try this! if you ever had mamma instant noodles it pretty much tastes like that bc of the tom yum',
+        owner_id=1,
+        group_id=13,
         created_at=today,
         updated_at=today )
 
