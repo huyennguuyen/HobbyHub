@@ -223,7 +223,7 @@ def seed_posts():
         created_at=today,
         updated_at=today )
 
-     post2_group13 = Post(
+    post2_group13 = Post(
         title='big roll tao kae noi, tom yum goong', 
         image='https://res.cloudinary.com/dnmimxgbu/image/upload/v1677124484/b87ced_c876ebddb4154d2e967512c3c9130291_mv2_ncgac5.jpg', 
         description='if you like seaweed, try this! if you ever had mamma instant noodles it pretty much tastes like that bc of the tom yum',
